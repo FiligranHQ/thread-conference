@@ -41,30 +41,30 @@ export const event = {
     "The annual gathering of the global threat intelligence and cyber defense community — where intelligence, exposure and action come together.",
 
   /** Signature sentence at the bottom of the hero. */
-  credential: "Selected, not targeted.",
-  credentialEmphasis: "The invitation is the credential.",
+  credential: "150 seats, kept small on purpose —",
+  credentialEmphasis: "for the people who do the work.",
 
   /** Email used by all the buttons of the site. */
   contactEmail: "events@filigran.io",
 } as const;
 
-/** Words scrolling in the ribbon under the hero. */
+/** Words scrolling in the ribbon under the hero — the actual craft of the day. */
 export const marqueeWords = [
-  "Pull the thread",
-  "Intelligence",
-  "Exposure",
-  "Action",
-  "Community-driven",
-  "No vendor pitch",
-  "High signal",
-  "Paris",
+  "Threat intelligence",
+  "Exposure management",
+  "Detection engineering",
+  "Adversary simulation",
+  "Purple teaming",
+  "Analyst tradecraft",
+  "Open source",
+  "October 15 · Paris",
 ] as const;
 
 /** Key numbers displayed in the "facts" band. */
 export const facts = [
   { value: "1", label: "full day in Paris" },
-  { value: "150", label: "curated attendees" },
-  { value: "5", label: "immersive zones" },
+  { value: "150", label: "attendees, invitation only" },
+  { value: "5", label: "zones across the venue" },
   { value: "2", label: "tracks: executive & practitioner" },
 ] as const;
 
@@ -76,7 +76,8 @@ export const formatBalance = [
 ] as const;
 
 /** Sentence under the balance bar. */
-export const formatBalanceNote = "You do not attend THREAD. You enter it.";
+export const formatBalanceNote =
+  "Built around doing: labs, workshops, roundtables and open spaces — not slides.";
 
 /** Venue details section. */
 export const venue = {
@@ -97,9 +98,9 @@ export const venue = {
 /** Final call-to-action section, at the bottom of the page. */
 export const register = {
   kicker: "Join us",
-  title: "The invitation is the credential.",
+  title: "Kept small on purpose.",
   description:
-    "THREAD is limited to 150 curated attendees — security leaders, practitioners and contributors of the open-source threat management ecosystem. Tell us who you are, and we will pull the thread.",
+    "THREAD gathers 150 people from the open-source threat management community — analysts, engineers, contributors and the leaders they work with. If that sounds like you, tell us who you are.",
   primaryButton: "Request an invitation",
   secondaryButton: "Propose a session",
   note: "Registration opens soon. Invitations are personal and non-transferable.",
@@ -128,5 +129,5 @@ export const footerText = {
   filigree:
     "Filigran, from filigree — fine threads assembled with precision into something intricate and strong.",
   copyright: `© ${new Date().getFullYear()} Filigran. All rights reserved.`,
-  tagline: "THREAD — pull it, and the structure reveals itself.",
+  tagline: "Cohesion · Openness · Responsibility · Equity",
 } as const;

@@ -24,11 +24,11 @@ export const why = {
     "It is also who we are. Filigran comes from filigree — the craft of assembling extremely fine threads into something precise, intricate and strong. Our logo is a ball of yarn. Pull one thread, and the structure reveals itself.",
     "THREAD works the same way. One conversation leads to another. One idea connects to the next. Someone in the room may hold the thread you have been looking for. Together, the community weaves something no report, feed or vendor briefing can replicate: shared intelligence built on trust, experience and real-world practice.",
   ],
-  /** Small pills displayed under the story. */
+  /** Small pills displayed under the story — grounded in Filigran's CORE values. */
   tags: [
-    "Community-driven, not a vendor conference",
-    "Practitioner-first",
-    "High-touch for leaders",
+    "Open source at the core",
+    "Community-led sessions",
+    "Everyone at the same table",
   ],
 } as const;
 
@@ -40,27 +40,27 @@ export const audiences = {
   cards: [
     {
       name: "Security leaders",
-      tagline: "High-signal. Strategic. Peer-level.",
+      tagline: "Strategic. Peer-level. Off the record.",
       icon: "shield" as const,
       points: [
-        "An exclusive, small-group environment — peer conversations, zero sales pressure",
-        "Strategic clarity: exposure + intelligence → decision → action",
-        "Peer benchmarks on operationalizing threat intelligence and exposure management",
-        "A clear view of what is next: roadmap direction and ecosystem momentum",
+        "A small room of peers — honest conversations, no sales agenda",
+        "How other leaders operationalize threat intelligence and exposure management, with real benchmarks",
+        "Roundtables per industry: finance, retail, government",
+        "A clear view of where the ecosystem and the roadmap are heading",
       ],
-      quote: "“Selected, not targeted.”",
+      quote: "“I actually learned something.”",
     },
     {
       name: "Practitioners",
       tagline: "Hands-on. Community-led. Fun, yet smart.",
       icon: "code" as const,
       points: [
-        "Sessions led by people who do the work — not people who sell to people who do the work",
-        "Concrete skills and workflows to apply right away: tradecraft, setups, playbooks",
-        "Labs, workshops, scenario learning and certification",
-        "Community belonging: this is your event — with recognition for contributions",
+        "Sessions led by people who do the work — analysts, engineers, contributors",
+        "Skills and workflows to apply the next day: tradecraft, setups, playbooks",
+        "Labs, CTF, adversary simulation workshops and certification",
+        "Recognition for the contributions that make the ecosystem work",
       ],
-      quote: "“It did not feel like a vendor event.”",
+      quote: "“I had fun with smart people.”",
     },
   ],
 } as const;
@@ -69,9 +69,9 @@ export const audiences = {
 
 export const zones = {
   kicker: "The experience",
-  title: "Five zones. One woven day.",
+  title: "One venue, five spaces.",
   description:
-    "Les Jardins de Saint-Dominique becomes a living map: follow your thread from the main stage to the labs, from roundtables to the garden.",
+    "A main stage, an expo floor and three breakout rooms — each with its own purpose, from keynotes to hands-on labs to closed-door roundtables. Plus the garden for the evening.",
   /**
    * The `color` controls the top border of each card.
    * Available colors: "electric" | "cyan" | "blue" | "indigo" | "green"
@@ -132,7 +132,7 @@ export const zones = {
 
 export const speakers = {
   kicker: "Voices",
-  title: "Speakers worth the thread.",
+  title: "The people on stage do the work.",
   description:
     "Filigran founders and product leaders, customer CISOs, government voices and community contributors. The full line-up will be announced soon.",
   /** Placeholder cards — replace with real names + photos when announced. */

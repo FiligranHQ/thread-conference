@@ -59,7 +59,7 @@ export const roomLabels: Record<RoomId, string> = {
 
 export const agendaIntro = {
   kicker: "October 15, 2026",
-  title: "The day, thread by thread.",
+  title: "One day, two tracks, five zones.",
   description:
     "A shared morning plenary, then choose your track. The Community Zone stays alive all day. Draft agenda — sessions and speakers are being finalized.",
 } as const;
