@@ -60,16 +60,35 @@ export const marqueeWords = [
   "October 15 · Paris",
 ] as const;
 
-/** Key facts displayed in the "facts" band. */
-export const facts = [
-  { value: "Oct 15", label: "one full day in Paris" },
-  { value: "2", label: "tracks: executive & practitioner" },
-  { value: "5", label: "spaces across the venue" },
-  { value: "1", label: "evening aperitif in the garden" },
+/**
+ * "At a glance" band: four practical facts about the day.
+ * `icon` must be one of: "calendar" | "map" | "tracks" | "garden"
+ */
+export const glance = [
+  {
+    icon: "calendar" as const,
+    title: "October 15, 2026",
+    detail: "One full day, morning plenary to evening aperitif",
+  },
+  {
+    icon: "map" as const,
+    title: "Les Jardins de Saint-Dominique",
+    detail: "Rue Saint-Dominique, Paris 7e — by Les Invalides",
+  },
+  {
+    icon: "tracks" as const,
+    title: "Two afternoon tracks",
+    detail: "Executive roundtables · practitioner labs & workshops",
+  },
+  {
+    icon: "garden" as const,
+    title: "Garden evening",
+    detail: "Community aperitif at the OpenBAR",
+  },
 ] as const;
 
-/** Sentence displayed under the facts band. */
-export const factsNote =
+/** Sentence displayed under the "at a glance" band. */
+export const glanceNote =
   "Built around doing: labs, workshops, roundtables and open spaces — not slides.";
 
 /** Venue details section. */
