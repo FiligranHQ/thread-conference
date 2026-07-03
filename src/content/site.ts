@@ -41,7 +41,7 @@ export const event = {
     "The annual gathering of the global threat intelligence and cyber defense community — where intelligence, exposure and action come together.",
 
   /** Signature sentence at the bottom of the hero. */
-  credential: "150 seats, kept small on purpose —",
+  credential: "Kept small on purpose —",
   credentialEmphasis: "for the people who do the work.",
 
   /** Email used by all the buttons of the site. */
@@ -60,23 +60,16 @@ export const marqueeWords = [
   "October 15 · Paris",
 ] as const;
 
-/** Key numbers displayed in the "facts" band. */
+/** Key facts displayed in the "facts" band. */
 export const facts = [
-  { value: "1", label: "full day in Paris" },
-  { value: "150", label: "attendees, invitation only" },
-  { value: "5", label: "zones across the venue" },
+  { value: "Oct 15", label: "one full day in Paris" },
   { value: "2", label: "tracks: executive & practitioner" },
+  { value: "5", label: "spaces across the venue" },
+  { value: "1", label: "evening aperitif in the garden" },
 ] as const;
 
-/** The talks / interactive / networking balance bar (must total 100). */
-export const formatBalance = [
-  { label: "~35% talks", percent: 35 },
-  { label: "~45% interactive", percent: 45 },
-  { label: "~20% networking", percent: 20 },
-] as const;
-
-/** Sentence under the balance bar. */
-export const formatBalanceNote =
+/** Sentence displayed under the facts band. */
+export const factsNote =
   "Built around doing: labs, workshops, roundtables and open spaces — not slides.";
 
 /** Venue details section. */
@@ -87,7 +80,7 @@ export const venue = {
     "A discreet address in the 7th arrondissement, minutes from Les Invalides — an auditorium, intimate salons, an exhibition floor and a private garden for the evening aperitif.",
   address: "49-51 rue Saint-Dominique, 75007 Paris",
   dateAndHours: "Thursday, October 15, 2026 — 08:30 to 19:00",
-  capacity: "150 attendees — invitation only",
+  capacity: "Attendance by invitation",
   gardenNote: "Private garden for the evening cocktail",
   landmarks: "Les Invalides · Musée d'Orsay · Assemblée Nationale",
   transit: "Métro 8 · 12 · 13 / RER C — Invalides",
@@ -100,7 +93,7 @@ export const register = {
   kicker: "Join us",
   title: "Kept small on purpose.",
   description:
-    "THREAD gathers 150 people from the open-source threat management community — analysts, engineers, contributors and the leaders they work with. If that sounds like you, tell us who you are.",
+    "THREAD gathers the open-source threat management community — analysts, engineers, contributors and the leaders they work with. Attendance is by invitation, and space is limited. If that sounds like you, tell us who you are.",
   primaryButton: "Request an invitation",
   secondaryButton: "Propose a session",
   note: "Registration opens soon. Invitations are personal and non-transferable.",

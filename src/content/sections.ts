@@ -122,7 +122,7 @@ export const zones = {
       name: "The Garden",
       kind: "Private garden · Evening",
       description:
-        "One hour of privatized garden for the community aperitif. Theme cocktails at the OpenBAR — named after the conference names that did not make it.",
+        "The evening aperitif in the private garden — cocktails at the OpenBAR and time with the community to close the day.",
       color: "green" as const,
     },
   ],
@@ -142,7 +142,7 @@ export const speakers = {
     { name: "Guest speakers", role: "Inspirational voices from the field" },
     { name: "Community contributors", role: "The people who build the ecosystem, on stage" },
   ],
-  note: "Want to lead a session? Sessions are curated with the community — reach out at",
+  note: "Want to lead a session? The agenda is built with the community — reach out at",
 } as const;
 
 /** ---------------------------------------------------------------- COMMUNITY ZONE */
