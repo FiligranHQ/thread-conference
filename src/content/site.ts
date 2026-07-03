@@ -48,18 +48,6 @@ export const event = {
   contactEmail: "events@filigran.io",
 } as const;
 
-/** Words scrolling in the ribbon under the hero — the actual craft of the day. */
-export const marqueeWords = [
-  "Threat intelligence",
-  "Exposure management",
-  "Detection engineering",
-  "Adversary simulation",
-  "Purple teaming",
-  "Analyst tradecraft",
-  "Open source",
-  "October 15 · Paris",
-] as const;
-
 /**
  * "At a glance" band: four practical facts about the day.
  * `icon` must be one of: "calendar" | "map" | "tracks" | "garden"
