@@ -77,7 +77,7 @@ export const agendaTracks: AgendaTrack[] = [
       {
         time: "09:30",
         title: "Opening welcome",
-        description: "High signal, no sales, tangible outcomes — how to navigate your day.",
+        description: "What the day holds, how the zones work, and how to get the most out of it.",
         locations: ["signal"],
       },
       {

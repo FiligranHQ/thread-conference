@@ -40,10 +40,10 @@ export const audiences = {
   cards: [
     {
       name: "Security leaders",
-      tagline: "Strategic. Peer-level. Off the record.",
+      tagline: "Strategic. Honest. Between peers.",
       icon: "shield" as const,
       points: [
-        "A small room of peers — honest conversations, no sales agenda",
+        "Roundtable conversations with other security leaders — real talk, no sales agenda",
         "How other leaders operationalize threat intelligence and exposure management, with real benchmarks",
         "Roundtables per industry: finance, retail, government",
         "A clear view of where the ecosystem and the roadmap are heading",
@@ -71,7 +71,7 @@ export const zones = {
   kicker: "The experience",
   title: "One venue, five spaces.",
   description:
-    "A main stage, an expo floor and three breakout rooms — each with its own purpose, from keynotes to hands-on labs to closed-door roundtables. Plus the garden for the evening.",
+    "A main stage, an expo floor and three breakout rooms — each with its own purpose, from keynotes to hands-on labs to roundtables. Plus the garden for the evening.",
   /**
    * The `color` controls the top border of each card.
    * Available colors: "electric" | "cyan" | "blue" | "indigo" | "green"
@@ -98,7 +98,7 @@ export const zones = {
       name: "Strategy Room",
       kind: "Breakout · Executive",
       description:
-        "Executive roundtables, industry exchanges and deep discussions — per industry, peer-level, off the record when it matters.",
+        "Roundtables and industry exchanges for security leaders — honest discussions between people facing the same challenges.",
       color: "indigo" as const,
     },
     {
