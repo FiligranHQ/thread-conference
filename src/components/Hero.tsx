@@ -1,4 +1,5 @@
 import { ChevronDown } from "lucide-react";
+import filigranLogo from "@/assets/filigran-logo.svg";
 import { event } from "@/content/site";
 import { useCountdown } from "@/hooks/useCountdown";
 import { ButtonLink } from "@/components/ui/Button";
@@ -72,9 +73,12 @@ export const Hero = () => {
           </svg>
         </h1>
 
-        <p className="mb-5 mt-10 font-mono text-sm uppercase tracking-[0.3em] text-foreground/70 animate-fade-in-slow">
-          Powered by <strong className="font-semibold text-foreground">Filigran</strong>
-        </p>
+        <div className="mb-5 mt-10 flex items-center justify-center gap-3.5 animate-fade-in-slow">
+          <span className="font-mono text-sm uppercase tracking-[0.3em] text-foreground/70">Powered by</span>
+          <a href="https://filigran.io" target="_blank" rel="noopener noreferrer" aria-label="Filigran">
+            <img src={filigranLogo} alt="Filigran" className="h-7 w-auto md:h-8" />
+          </a>
+        </div>
 
         <p className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed text-foreground/85 md:text-xl animate-fade-in-slow">
           The annual gathering of the global threat intelligence and cyber defense community — where{" "}
