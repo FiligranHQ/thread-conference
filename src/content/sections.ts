@@ -21,7 +21,7 @@ export const why = {
   paragraphs: [
     "An anomaly. An indicator. A signal that does not quite fit. So you pull on it — carefully, patiently. One connection reveals another. A pattern starts to emerge. What looked like noise gradually becomes a picture: the structure of a threat, visible at last.",
     "That is not a metaphor. That is literally what everyone in this community does every day.",
-    "It is also who we are. Filigran comes from filigree — the craft of assembling extremely fine threads into something precise, intricate and strong. Our logo is a ball of yarn. Pull one thread, and the structure reveals itself.",
+    "It is also who we are. Filigran comes from filigree — the craft of assembling extremely fine threads into something precise, intricate and strong. Our logo is a ball of yarn: thread by thread, the picture becomes clear.",
     "THREAD works the same way. One conversation leads to another. One idea connects to the next. Someone in the room may hold the thread you have been looking for. Together, the community weaves something no report, feed or vendor briefing can replicate: shared intelligence built on trust, experience and real-world practice.",
   ],
   /** Small pills displayed under the story — grounded in Filigran's CORE values. */
