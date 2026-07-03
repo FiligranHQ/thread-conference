@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design system tokens — aligned with filigran.io (filigran-website/src/index.css) */
+
+@layer base {
+  :root {
+    --background: 220 30% 7%;
+    --foreground: 0 0% 100%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --primary: 220 40% 15%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 30% 18%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 25% 25%;
+    --muted-foreground: 220 10% 65%;
+
+    --accent: 187 100% 42%;
+    --accent-foreground: 220 30% 7%;
+
+    --cyan: 187 100% 42%;
+    --cyan-glow: 187 100% 50%;
+
+    --border: 220 25% 20%;
+    --input: 220 25% 20%;
+    --ring: 187 100% 42%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  ::selection {
+    background: hsl(187 100% 42% / 0.35);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  .text-gradient-cyan {
+    @apply bg-gradient-to-r from-cyan to-cyan-glow bg-clip-text text-transparent;
+  }
+
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px hsl(187 100% 42% / 0.15);
+  }
+
+  .card-glass {
+    @apply backdrop-blur-sm bg-card/50 border border-border/50;
+  }
+
+  /* Signature filigran.io hero gradient */
+  .hero-gradient {
+    background-color: #01091f;
+    background-image: radial-gradient(
+      96.21% 108.44% at 94.34% 113.69%,
+      rgb(22, 235, 249) 2%,
+      rgb(51, 120, 255) 32%,
+      rgba(51, 59, 255, 0.54) 63%,
+      rgba(51, 96, 255, 0) 100%
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .register-gradient {
+    background-color: #01091f;
+    background-image: radial-gradient(
+      90% 120% at 6% 120%,
+      rgb(22, 235, 249) 0%,
+      rgb(51, 120, 255) 30%,
+      rgba(51, 59, 255, 0.5) 60%,
+      rgba(51, 96, 255, 0) 100%
+    );
+  }
+
+  .draw-thread {
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: draw-thread 1.6s 0.75s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+}
+
+@keyframes draw-thread {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .draw-thread {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
