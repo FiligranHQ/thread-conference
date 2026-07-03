@@ -33,16 +33,16 @@ export const event = {
   /** Venue, short version for the hero banner. */
   venueShort: "Les Jardins de Saint-Dominique, Paris",
 
-  /** Admission note shown in the hero banner. */
-  admission: "Invitation only",
+  /** Third item shown in the hero banner (after date and venue). */
+  admission: "First edition",
 
   /** The one-line pitch under the title. The <accent> words are highlighted. */
   pitch:
     "The annual gathering of the global threat intelligence and cyber defense community — where intelligence, exposure and action come together.",
 
   /** Signature sentence at the bottom of the hero. */
-  credential: "Kept small on purpose —",
-  credentialEmphasis: "for the people who do the work.",
+  credential: "By the community, for the community —",
+  credentialEmphasis: "one day to learn, share and meet.",
 
   /** Email used by all the buttons of the site. */
   contactEmail: "events@filigran.io",
@@ -99,7 +99,7 @@ export const venue = {
     "A discreet address in the 7th arrondissement, minutes from Les Invalides — an auditorium, intimate salons, an exhibition floor and a private garden for the evening aperitif.",
   address: "49-51 rue Saint-Dominique, 75007 Paris",
   dateAndHours: "Thursday, October 15, 2026 — 08:30 to 19:00",
-  capacity: "Attendance by invitation",
+  capacity: "Open to the community — registration opening soon",
   gardenNote: "Private garden for the evening cocktail",
   landmarks: "Les Invalides · Musée d'Orsay · Assemblée Nationale",
   transit: "Métro 8 · 12 · 13 / RER C — Invalides",
@@ -110,12 +110,12 @@ export const venue = {
 /** Final call-to-action section, at the bottom of the page. */
 export const register = {
   kicker: "Join us",
-  title: "Kept small on purpose.",
+  title: "This is your event.",
   description:
-    "THREAD gathers the open-source threat management community — analysts, engineers, contributors and the leaders they work with. Attendance is by invitation, and space is limited. If that sounds like you, tell us who you are.",
-  primaryButton: "Request an invitation",
+    "THREAD gathers the open-source threat management community — analysts, engineers, contributors and the leaders they work with. One day to share what works, learn from each other and meet in person the people you know from Slack and GitHub.",
+  primaryButton: "Register your interest",
   secondaryButton: "Propose a session",
-  note: "Registration opens soon. Invitations are personal and non-transferable.",
+  note: "Registration opens soon — leave your details and you will be the first to know.",
 } as const;
 
 /** Links displayed in the footer. */

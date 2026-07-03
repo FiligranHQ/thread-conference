@@ -29,7 +29,7 @@ const threadLinks = [
   { label: "Experience", url: "#experience" },
   { label: "Agenda", url: "#agenda" },
   { label: "Venue", url: "#venue" },
-  { label: "Request an invitation", url: "#register" },
+  { label: "Register your interest", url: "#register" },
 ] as const;
 
 export const Footer = () => (

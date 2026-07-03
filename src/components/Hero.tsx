@@ -85,7 +85,7 @@ export const Hero = () => {
 
         <div className="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-in-slow">
           <ButtonLink href="#register" variant="primary" size="lg">
-            Request an invitation
+            Register your interest
           </ButtonLink>
           <ButtonLink href="#agenda" variant="cta" size="lg">
             Explore the day

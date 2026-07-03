@@ -55,7 +55,7 @@ export const Navigation = () => {
 
         <div className="hidden md:block">
           <ButtonLink href="#register" variant="cta" size="sm">
-            Request an invitation
+            Register your interest
           </ButtonLink>
         </div>
 
@@ -83,7 +83,7 @@ export const Navigation = () => {
             </a>
           ))}
           <ButtonLink href="#register" variant="cta" onClick={() => setOpen(false)}>
-            Request an invitation
+            Register your interest
           </ButtonLink>
         </div>
       ) : null}

@@ -16,7 +16,7 @@ export const RegisterSection = () => (
       <Reveal delay={200}>
         <div className="mb-7 flex flex-wrap items-center justify-center gap-4">
           <ButtonLink
-            href={`mailto:${event.contactEmail}?subject=THREAD%202026%20-%20Invitation%20request`}
+            href={`mailto:${event.contactEmail}?subject=THREAD%202026%20-%20Registration%20interest`}
             variant="primary"
             size="lg"
           >
