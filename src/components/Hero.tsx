@@ -111,7 +111,7 @@ export const Hero = () => {
         </div>
 
         <p className="mt-9 text-[0.95rem] text-foreground/65">
-          {event.credential} <em className="italic text-[#16ebf9]">{event.credentialEmphasis}</em>
+          {event.credential} <span className="text-[#16ebf9]">{event.credentialEmphasis}</span>
         </p>
       </div>
 

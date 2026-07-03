@@ -43,7 +43,7 @@ export const Footer = () => (
           <p className="mb-4 max-w-sm text-sm leading-relaxed text-foreground/60">
             {footerText.description}
           </p>
-          <p className="max-w-sm text-xs italic leading-relaxed text-foreground/45">
+          <p className="max-w-sm text-xs leading-relaxed text-foreground/45">
             {footerText.filigree}
           </p>
         </div>
@@ -54,7 +54,7 @@ export const Footer = () => (
 
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border/50 pt-7">
         <p className="text-[0.82rem] text-foreground/55">{footerText.copyright}</p>
-        <p className="text-[0.82rem] italic text-cyan-glow/75">{footerText.tagline}</p>
+        <p className="text-[0.82rem] text-cyan-glow/75">{footerText.tagline}</p>
       </div>
     </div>
   </footer>

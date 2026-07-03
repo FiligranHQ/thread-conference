@@ -30,7 +30,7 @@ export const FactsSection = () => (
       </div>
 
       <Reveal delay={200}>
-        <p className="text-center italic text-foreground/60">{glanceNote}</p>
+        <p className="text-center text-foreground/60">{glanceNote}</p>
       </Reveal>
     </div>
   </section>
