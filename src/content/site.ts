@@ -129,5 +129,4 @@ export const footerText = {
   filigree:
     "Filigran, from filigree — fine threads assembled with precision into something intricate and strong.",
   copyright: `© ${new Date().getFullYear()} Filigran. All rights reserved.`,
-  tagline: "Cohesion · Openness · Responsibility · Equity",
 } as const;

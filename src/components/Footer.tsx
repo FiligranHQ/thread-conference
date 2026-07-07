@@ -52,7 +52,6 @@ export const Footer = () => (
 
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border/50 pt-7">
         <p className="text-[0.82rem] text-foreground/55">{footerText.copyright}</p>
-        <p className="text-[0.82rem] text-cyan-glow/75">{footerText.tagline}</p>
       </div>
     </div>
   </footer>
