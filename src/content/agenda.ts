@@ -141,7 +141,7 @@ export const agendaTracks: AgendaTrack[] = [
       },
       {
         time: "17:15",
-        title: "Closing session + community recognition",
+        title: "Closing session",
         locations: ["signal"],
       },
       {
