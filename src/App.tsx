@@ -1,6 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
-import { Marquee } from "@/components/Marquee";
+// import { Marquee } from "@/components/Marquee";
 import { WhySection } from "@/components/WhySection";
 import { FactsSection } from "@/components/FactsSection";
 import { AudiencesSection } from "@/components/AudiencesSection";
@@ -16,7 +16,7 @@ const App = () => (
     <Navigation />
     <main>
       <Hero />
-      <Marquee />
+      {/* <Marquee /> */}
       <WhySection />
       <FactsSection />
       <AudiencesSection />

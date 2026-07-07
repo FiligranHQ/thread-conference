@@ -34,15 +34,15 @@ export const event = {
   venueShort: "Les Jardins de Saint-Dominique, Paris",
 
   /** Third item shown in the hero banner (after date and venue). */
-  admission: "First edition",
+  admission: "Inaugural Event",
 
   /** The one-line pitch under the title. The <accent> words are highlighted. */
   pitch:
-    "The annual gathering of the global threat intelligence and cyber defense community — where intelligence, exposure and action come together.",
+    "The annual gathering of the global threat intelligence and cyber defense community — where intelligence, exposure management and action come together.",
 
   /** Signature sentence at the bottom of the hero. */
-  credential: "By the community, for the community —",
-  credentialEmphasis: "one day to learn, share and meet.",
+  credential: "",
+  credentialEmphasis: "",
 
   /** Email used by all the buttons of the site. */
   contactEmail: "events@filigran.io",
@@ -101,7 +101,7 @@ export const register = {
   title: "This is your event.",
   description:
     "THREAD gathers the open-source threat management community — analysts, engineers, contributors and the leaders they work with. One day to share what works, learn from each other and meet in person the people you know from Slack and GitHub.",
-  primaryButton: "Register your interest",
+  primaryButton: "Request your seat",
   secondaryButton: "Propose a session",
   note: "Registration opens soon — leave your details and you will be the first to know.",
 } as const;
