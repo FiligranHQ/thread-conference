@@ -39,25 +39,21 @@ export const audiences = {
   title: "Built for the people who do the work — and the people who decide.",
   cards: [
     {
-      name: "Security leaders",
-      tagline: "Strategic. Honest. Between peers.",
+      name: "Security Leaders",
+      tagline: "Strategic. Decision-makers. Focus on cyber risk reduction.",
       icon: "shield" as const,
-      points: [
-        "Roundtable conversations with other security leaders — real talk, no sales agenda",
-        "How other leaders operationalize threat intelligence and exposure management, with real benchmarks",
-        "Roundtables per industry: finance, retail, government",
-        "A clear view of where the ecosystem and the roadmap are heading",
+      paragraphs: [
+        "A high-value, high-touch experience designed around strategic insights, trusted peer conversations, and tangible outcomes.",
+        "Expect closed-door roundtables with CISOs and security leaders from leading organizations — by industry, off the record, no sales pressure. Strategic clarity on XTM, CTEM, NIS2, DORA, and what comes next.",
       ],
     },
     {
       name: "Practitioners",
-      tagline: "Hands-on. Community-led. Fun, yet smart.",
+      tagline: "Hands-on. Community-led. Focus on technology optimization.",
       icon: "code" as const,
-      points: [
-        "Sessions led by people who do the work — analysts, engineers, contributors",
-        "Skills and workflows to apply the next day: tradecraft, setups, playbooks",
-        "Labs, CTF, adversary simulation workshops and certification",
-        "Recognition for the contributions that make the ecosystem work",
+      paragraphs: [
+        "A community-first gathering: CTI analysts, SOC teams, red/blue/purple teamers, GRC practitioners, open-source contributors — all in the same room. This is your event.",
+        "Expect hands-on labs, Filigran certification sessions, adversarial simulations, CTF challenges, and the kind of frank, unfiltered conversations that only happen when the right people are in the same room.",
       ],
     },
   ],
