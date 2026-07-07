@@ -31,7 +31,7 @@ export const Hero = () => {
       />
 
       <div className="container relative z-10 max-w-5xl text-center">
-        <p className="mb-10 inline-flex items-center gap-2.5 rounded-full border border-white/[0.18] bg-white/5 px-5 py-2.5 font-mono text-[0.8rem] uppercase tracking-[0.18em] text-foreground/85 backdrop-blur-md animate-fade-in">
+        <p className="mb-10 inline-flex items-center gap-2.5 rounded-full border border-white/[0.18] bg-white/5 px-5 py-2.5 font-mono text-[0.8rem] tracking-[0.18em] text-foreground/85 backdrop-blur-md animate-fade-in">
           <span className="h-2 w-2 rounded-full bg-[#16ebf9] animate-pulse-dot" aria-hidden="true" />
           {event.dateLabel} · {event.venueShort} · {event.admission}
         </p>
@@ -83,13 +83,13 @@ export const Hero = () => {
         <p className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed text-foreground/85 md:text-xl animate-fade-in-slow">
           The annual gathering of the global threat intelligence and cyber defense community — where{" "}
           <span className="text-gradient-cyan font-semibold">intelligence</span>,{" "}
-          <span className="text-gradient-cyan font-semibold">exposure</span> and{" "}
+          <span className="text-gradient-cyan font-semibold">exposure management</span> and{" "}
           <span className="text-gradient-cyan font-semibold">action</span> come together.
         </p>
 
         <div className="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-in-slow">
           <ButtonLink href="#register" variant="primary" size="lg">
-            Register your interest
+            Request your seat
           </ButtonLink>
           <ButtonLink href="#agenda" variant="cta" size="lg">
             Explore the day
