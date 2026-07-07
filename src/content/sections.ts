@@ -48,7 +48,6 @@ export const audiences = {
         "Roundtables per industry: finance, retail, government",
         "A clear view of where the ecosystem and the roadmap are heading",
       ],
-      quote: "“I actually learned something.”",
     },
     {
       name: "Practitioners",
@@ -60,7 +59,6 @@ export const audiences = {
         "Labs, CTF, adversary simulation workshops and certification",
         "Recognition for the contributions that make the ecosystem work",
       ],
-      quote: "“I had fun with smart people.”",
     },
   ],
 } as const;
