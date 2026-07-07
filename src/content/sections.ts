@@ -69,7 +69,7 @@ export const zones = {
   kicker: "The experience",
   title: "One venue, five spaces.",
   description:
-    "A main stage, an expo floor and three breakout rooms — each with its own purpose, from keynotes to hands-on labs to roundtables. Plus the garden for the evening.",
+    "A main stage, an expo floor and three breakout rooms, each with its own purpose, from keynotes to hands-on labs to roundtables. Plus the garden for the evening.",
   /**
    * The `color` controls the top border of each card.
    * Available colors: "electric" | "cyan" | "blue" | "indigo" | "green"
@@ -80,7 +80,7 @@ export const zones = {
       name: "Signal Room",
       kind: "Main stage · Auditorium",
       description:
-        "Vision, keynotes and thought leadership. Community and customer stories, major announcements — the moments everyone shares.",
+        "Vision, keynotes and thought leadership. Community and customer stories, major announcements: the moments everyone shares.",
       color: "electric" as const,
     },
     {
@@ -96,7 +96,7 @@ export const zones = {
       name: "Strategy Room",
       kind: "Breakout · Executive",
       description:
-        "Roundtables and industry exchanges for security leaders — honest discussions between people facing the same challenges.",
+        "Roundtables and industry exchanges for security leaders. Honest discussions between people facing the same challenges.",
       color: "indigo" as const,
     },
     {
@@ -120,7 +120,7 @@ export const zones = {
       name: "The Garden",
       kind: "Private garden · Evening",
       description:
-        "The evening aperitif in the private garden — cocktails at the OpenBAR and time with the community to close the day.",
+        "The evening aperitif in the private garden. Cocktails at the OpenBAR and time with the community to close the day.",
       color: "green" as const,
     },
   ],
