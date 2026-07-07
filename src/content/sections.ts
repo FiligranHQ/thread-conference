@@ -27,7 +27,7 @@ export const why = {
   /** Small pills displayed under the story — grounded in Filigran's CORE values. */
   tags: [
     "Plenary sessions",
-    "community-led workshops",
+    "Community-led workshops",
     "Interactive demos",
   ],
 } as const;
