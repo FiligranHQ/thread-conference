@@ -29,14 +29,13 @@ export const AudiencesSection = () => (
                   </div>
                 </div>
 
-                <ul className="mb-6 flex flex-1 flex-col gap-3">
-                  {card.points.map((point) => (
-                    <li key={point} className="relative pl-7 text-[0.95rem] text-foreground/[0.78]">
-                      <span className="absolute left-0 top-[0.45em] h-2.5 w-2.5 rounded-full border-2 border-cyan" />
-                      {point}
-                    </li>
+                <div className="mb-6 flex flex-1 flex-col gap-4">
+                  {card.paragraphs.map((paragraph) => (
+                    <p key={paragraph} className="text-[0.95rem] leading-relaxed text-foreground/[0.78]">
+                      {paragraph}
+                    </p>
                   ))}
-                </ul>
+                </div>
               </article>
             </Reveal>
           );
