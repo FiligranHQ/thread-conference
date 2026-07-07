@@ -43,9 +43,7 @@ export const Footer = () => (
           <p className="mb-4 max-w-sm text-sm leading-relaxed text-foreground/60">
             {footerText.description}
           </p>
-          <p className="max-w-sm text-xs leading-relaxed text-foreground/45">
-            {footerText.filigree}
-          </p>
+
         </div>
         <FooterColumn heading="THREAD 2026" links={threadLinks} />
         <FooterColumn heading="Filigran" links={footerLinks.filigran} />
