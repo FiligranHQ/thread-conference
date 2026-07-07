@@ -26,9 +26,9 @@ export const why = {
   ],
   /** Small pills displayed under the story — grounded in Filigran's CORE values. */
   tags: [
-    "Open source at the core",
-    "Community-led sessions",
-    "Everyone at the same table",
+    "Plenary sessions",
+    "community-led workshops",
+    "Interactive demos",
   ],
 } as const;
 
