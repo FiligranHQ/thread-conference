@@ -82,13 +82,13 @@ export const agendaTracks: AgendaTrack[] = [
       },
       {
         time: "10:00",
-        title: "Opening keynote — The future of threat-informed defense",
+        title: "Opening keynote: The future of threat-informed defense",
         description: "Filigran leadership, joined by an external guest speaker.",
         locations: ["signal"],
       },
       {
         time: "10:45",
-        title: "Networking break — the community circuit opens",
+        title: "Networking break: the community circuit opens",
         locations: ["community"],
       },
       {
@@ -115,7 +115,7 @@ export const agendaTracks: AgendaTrack[] = [
     sessions: [
       {
         time: "13:30",
-        title: "Executive roundtable — Threat-informed decision making",
+        title: "Executive roundtable: Threat-informed decision making",
         description:
           "External leaders, moderated by Filigran. Peer exchange on strategy and decision criteria.",
         locations: ["strategy"],
@@ -123,7 +123,7 @@ export const agendaTracks: AgendaTrack[] = [
       {
         time: "14:30",
         title: "Executive industry exchange",
-        description: "Customer panels and roundtables by industry — finance, retail, government.",
+        description: "Customer panels and roundtables by industry.",
         locations: ["strategy"],
       },
       {
@@ -135,7 +135,7 @@ export const agendaTracks: AgendaTrack[] = [
       },
       {
         time: "16:30",
-        title: "Innovation briefing — XTM One, OpenAEV and the future of CTEM",
+        title: "Innovation briefing: XTM One, OpenAEV and the future of CTEM",
         description: "Roadmap direction and agentic workflows. Non-sales, by design.",
         locations: ["signal"],
       },
@@ -146,7 +146,7 @@ export const agendaTracks: AgendaTrack[] = [
       },
       {
         time: "18:00",
-        title: "Garden cocktail & community aperitif — the OpenBAR",
+        title: "Garden cocktail & community aperitif",
         locations: ["garden"],
         evening: true,
       },
@@ -158,13 +158,13 @@ export const agendaTracks: AgendaTrack[] = [
     sessions: [
       {
         time: "13:30",
-        title: "Intelligence Lab — From intel to action workflows",
+        title: "Intelligence Lab: From intel to action workflows",
         description: "Filigran-led, with real customer workflows.",
         locations: ["lab"],
       },
       {
         time: "13:30",
-        title: "Simulation workshop — Adversary validation scenarios",
+        title: "Simulation workshop: Adversary validation scenarios",
         description: "Hands-on adversarial exposure validation.",
         locations: ["simulation"],
       },
@@ -193,7 +193,7 @@ export const agendaTracks: AgendaTrack[] = [
       },
       {
         time: "18:00",
-        title: "Garden cocktail & community aperitif — the OpenBAR",
+        title: "Garden cocktail & community aperitif",
         locations: ["garden"],
         evening: true,
       },
