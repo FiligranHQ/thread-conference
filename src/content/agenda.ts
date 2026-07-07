@@ -99,10 +99,8 @@ export const agendaTracks: AgendaTrack[] = [
       },
       {
         time: "12:00",
-        title: "Product vision moment — a major announcement",
-        description: "Something new joins the Filigran ecosystem.",
+        title: "To be announced",
         locations: ["signal"],
-        highlight: true,
       },
       {
         time: "12:15",
