@@ -37,8 +37,6 @@ export const AudiencesSection = () => (
                     </li>
                   ))}
                 </ul>
-
-                <p className="border-t border-border/60 pt-5 italic text-[#16ebf9]">{card.quote}</p>
               </article>
             </Reveal>
           );
