@@ -12,6 +12,13 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      // When SANITY_PROJECT_ID is set, the pre-build fetch-content script
+      // writes generated TypeScript files to src/content/_generated/.
+      // This alias makes every @/content/* import resolve to the generated
+      // version automatically, with no changes needed in component code.
+      ...(process.env.SANITY_PROJECT_ID
+        ? { "@/content": path.resolve(__dirname, "./src/content/_generated") }
+        : {}),
       "@": path.resolve(__dirname, "./src"),
     },
   },

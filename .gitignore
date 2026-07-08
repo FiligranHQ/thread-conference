@@ -16,3 +16,6 @@ npm-debug.log*
 .idea
 .DS_Store
 *.local
+
+# Sanity-generated content (written by scripts/fetch-content.ts at build time)
+src/content/_generated/
