@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc -b"
+    "typecheck": "tsc -b",
+    "fetch-content": "tsx scripts/fetch-content.ts"
   },
   "dependencies": {
+    "@sanity/client": "^7.23.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.462.0",
     "react": "^18.3.1",
@@ -25,6 +27,7 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "tailwindcss-animate": "^1.0.7",
+    "tsx": "^4.23.0",
     "typescript": "^5.8.3",
     "vite": "^5.4.19"
   }

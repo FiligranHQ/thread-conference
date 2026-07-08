@@ -30,8 +30,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Fetch content from Sanity
+        if: ${{ env.SANITY_PROJECT_ID != '' }}
+        run: npm run fetch-content
+        env:
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
+
       - name: Build
         run: npm run build
+        env:
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
