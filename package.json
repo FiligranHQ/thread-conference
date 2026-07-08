@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "typecheck": "tsc -b",
-    "fetch-content": "tsx scripts/fetch-content.ts"
+    "fetch-content": "tsx scripts/fetch-content.ts",
+    "seed-sanity": "tsx scripts/seed-sanity.ts"
   },
   "dependencies": {
     "@sanity/client": "^7.23.0",
