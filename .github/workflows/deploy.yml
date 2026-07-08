@@ -3,7 +3,14 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Allow manual deploys from the Actions tab
   workflow_dispatch:
+  # Re-deploy when content is published in Sanity Studio.
+  # Configure a Sanity webhook that sends a POST to:
+  #   https://api.github.com/repos/FiligranHQ/thread-conference/dispatches
+  # with the payload: { "event_type": "sanity-publish" }
+  repository_dispatch:
+    types: [sanity-publish]
 
 permissions:
   contents: read
@@ -31,7 +38,14 @@ jobs:
         run: npm ci
 
       - name: Build
+        # When SANITY_PROJECT_ID is set, the build script automatically runs
+        # scripts/fetch-content.ts first to pull content from Sanity CMS.
+        # Without the secret the site builds using the hardcoded src/content/*.ts files.
         run: npm run build
+        env:
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

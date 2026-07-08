@@ -5,7 +5,16 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const avatarColors = ["rgba(0,191,214,", "rgba(51,120,255,", "rgba(22,235,249,", "rgba(255,255,255,"];
 
-const SpeakerAvatar = ({ colorIndex }: { colorIndex: number }) => {
+const SpeakerAvatar = ({ colorIndex, photoUrl, name }: { colorIndex: number; photoUrl?: string; name: string }) => {
+  if (photoUrl) {
+    return (
+      <img
+        src={photoUrl}
+        alt={name}
+        className="mx-auto mb-5 h-[84px] w-[84px] rounded-full object-cover"
+      />
+    );
+  }
   const color = avatarColors[colorIndex % avatarColors.length];
   return (
     <svg className="mx-auto mb-5 w-[84px]" viewBox="0 0 80 80" fill="none" aria-hidden="true">
@@ -25,7 +34,11 @@ export const SpeakersSection = () => (
         {speakers.cards.map((speaker, index) => (
           <Reveal key={speaker.name} delay={index * 90}>
             <div className="card-glass hover-lift h-full rounded-3xl p-8 text-center">
-              <SpeakerAvatar colorIndex={index} />
+              <SpeakerAvatar
+                colorIndex={index}
+                photoUrl={"photoUrl" in speaker ? (speaker as { photoUrl?: string }).photoUrl : undefined}
+                name={speaker.name}
+              />
               <h4 className="mb-1.5 text-[1.02rem] font-bold">{speaker.name}</h4>
               <p className="text-[0.87rem] text-foreground/65">{speaker.role}</p>
             </div>

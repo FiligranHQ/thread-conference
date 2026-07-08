@@ -5,6 +5,10 @@ node_modules
 dist
 dist-ssr
 
+# CMS-generated content files (written by scripts/fetch-content.ts at build time)
+# Without Sanity secrets the site uses src/content/*.ts directly — see README.
+src/content/_generated/
+
 # Logs
 logs
 *.log
