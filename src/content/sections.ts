@@ -20,8 +20,7 @@ export const why = {
   /** Each entry below is one paragraph. Add or remove paragraphs freely. */
   paragraphs: [
     "An anomaly. An indicator. A signal that does not quite fit. So you pull on it — carefully, patiently. One connection reveals another. A pattern starts to emerge. What looked like noise gradually becomes a picture: the structure of a threat, visible at last.",
-    "That is not a metaphor. That is what this community does every day — in SOCs, CTI teams, CERTs and research labs around the world, much of it on open-source tools built and improved together.",
-    "It is also where Filigran comes from. The name means filigree — fine threads assembled with precision into something intricate and strong. Our logo is a ball of yarn: thread by thread, the picture becomes clear.",
+    "That is not a metaphor. That is what this community does every day — in SOCs, CTI teams, CERTs and research labs around the world.",
     "THREAD brings that community into one room. The people who use and build OpenCTI and OpenAEV, who write the connectors, share the playbooks, report the bugs and answer each other's questions on Slack and GitHub — together in person, for one day. Because some threads only connect when people actually meet.",
   ],
   /** Small pills displayed under the story — grounded in Filigran's CORE values. */
