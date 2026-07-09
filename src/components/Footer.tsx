@@ -29,7 +29,6 @@ const threadLinks = [
   { label: "Experience", url: "#experience" },
   { label: "Agenda", url: "#agenda" },
   { label: "Venue", url: "#venue" },
-  { label: "Sponsors", url: "#sponsorship" },
   { label: "Register your interest", url: "#register" },
 ] as const;
 

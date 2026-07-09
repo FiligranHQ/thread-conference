@@ -4,11 +4,9 @@ import { Hero } from "@/components/Hero";
 import { WhySection } from "@/components/WhySection";
 import { FactsSection } from "@/components/FactsSection";
 import { AudiencesSection } from "@/components/AudiencesSection";
-import { SponsorsSection } from "@/components/SponsorsSection";
 import { ZonesSection } from "@/components/ZonesSection";
 import { AgendaSection } from "@/components/AgendaSection";
 import { SpeakersSection } from "@/components/SpeakersSection";
-import { SponsorshipSection } from "@/components/SponsorshipSection";
 import { VenueSection } from "@/components/VenueSection";
 import { RegisterSection } from "@/components/RegisterSection";
 import { Footer } from "@/components/Footer";
@@ -22,11 +20,9 @@ const App = () => (
       <WhySection />
       <FactsSection />
       <AudiencesSection />
-      <SponsorsSection />
       <ZonesSection />
       <AgendaSection />
       <SpeakersSection />
-      <SponsorshipSection />
       <VenueSection />
       <RegisterSection />
     </main>
