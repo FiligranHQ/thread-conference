@@ -29,13 +29,6 @@ export const RegisterSection = () => (
           >
             {register.secondaryButton}
           </ButtonLink>
-          <ButtonLink
-            href="#sponsorship"
-            variant="cta"
-            size="lg"
-          >
-            Become a sponsor
-          </ButtonLink>
         </div>
       </Reveal>
       <Reveal delay={280}>
