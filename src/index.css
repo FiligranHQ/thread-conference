@@ -278,6 +278,23 @@
   padding: 1.5rem 0 !important;
 }
 
+/* Scoped input text fix — the global `color: inherit` reset resolves to white
+   inside the dark-themed modal; HubSpot's own stylesheet keeps .hs-input
+   backgrounds white, causing white-on-white invisible text.  The ID selector
+   gives higher specificity than both the reset and HubSpot's late-loaded rules
+   so !important is still required to beat the global reset cascade. */
+#hs-form-target input.hs-input,
+#hs-form-target select.hs-input,
+#hs-form-target textarea.hs-input {
+  color: #111111 !important;
+  background-color: #ffffff !important;
+}
+
+#hs-form-target input.hs-input::placeholder,
+#hs-form-target textarea.hs-input::placeholder {
+  color: #6b7280 !important;
+}
+
 /* ── end HubSpot overrides ──────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
