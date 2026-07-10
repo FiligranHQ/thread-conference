@@ -1,7 +1,8 @@
-import { event, register } from "@/content/site";
+import { register } from "@/content/site";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { HubSpotForm } from "@/components/HubSpotForm";
 
 export const RegisterSection = () => (
   <section className="relative overflow-hidden border-t border-border/50 py-20 lg:py-32" id="register">
@@ -14,25 +15,17 @@ export const RegisterSection = () => (
         align="center"
       />
       <Reveal delay={200}>
-        <div className="mb-7 flex flex-wrap items-center justify-center gap-4">
-          <ButtonLink
-            href={`mailto:${event.contactEmail}?subject=THREAD%202026%20-%20Registration%20interest`}
-            variant="primary"
-            size="lg"
-          >
+        <div className="mb-12 flex flex-wrap items-center justify-center gap-4">
+          <ButtonLink href="#register-form" variant="primary" size="lg">
             {register.primaryButton}
           </ButtonLink>
-          <ButtonLink
-            href={`mailto:${event.contactEmail}?subject=THREAD%202026%20-%20Session%20proposal`}
-            variant="cta"
-            size="lg"
-          >
+          <ButtonLink href="#register-form" variant="cta" size="lg">
             {register.secondaryButton}
           </ButtonLink>
         </div>
       </Reveal>
       <Reveal delay={280}>
-        <p className="text-sm text-foreground/55">{register.note}</p>
+        <HubSpotForm />
       </Reveal>
     </div>
   </section>

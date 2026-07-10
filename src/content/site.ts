@@ -123,6 +123,19 @@ export const footerLinks = {
   ],
 } as const;
 
+/**
+ * HubSpot registration form embedded in the "Join Us" section.
+ * Update `portalId` and `formId` with the values from the HubSpot embed code.
+ * `region` is "na1" for North America accounts or "eu1" for European accounts.
+ */
+export const hubspotForm = {
+  /** Numeric portal ID, e.g. "1234567". */
+  portalId: "YOUR_PORTAL_ID",
+  /** Form GUID, e.g. "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx". */
+  formId: "YOUR_FORM_ID",
+  region: "na1",
+} as const;
+
 export const footerText = {
   description:
     "Filigran provides open-source cybersecurity solutions covering threat intelligence management, adversarial exposure validation and cyber risk management.",
