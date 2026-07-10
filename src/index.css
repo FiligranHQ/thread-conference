@@ -194,7 +194,8 @@
   margin-top: 1.5rem !important;
 }
 
-.hbspt-form input[type="submit"] {
+.hbspt-form input[type="submit"],
+.hbspt-form button[type="submit"] {
   background: hsl(187 100% 42%) !important;
   color: hsl(220 30% 7%) !important;
   border: none !important;
@@ -206,9 +207,13 @@
   cursor: pointer !important;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s !important;
   box-shadow: 0 0 30px hsl(187 100% 42% / 0.15) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-.hbspt-form input[type="submit"]:hover {
+.hbspt-form input[type="submit"]:hover,
+.hbspt-form button[type="submit"]:hover {
   background: hsl(187 100% 50%) !important;
   transform: translateY(-1px) !important;
   box-shadow: 0 0 45px hsl(187 100% 42% / 0.35) !important;
@@ -230,7 +235,7 @@
 /* GDPR consent / legal text */
 .hbspt-form .legal-consent-container,
 .hbspt-form .hs-richtext {
-  color: hsl(0 0% 100% / 0.45) !important;
+  color: hsl(0 0% 100% / 0.7) !important;
   font-size: 0.75rem !important;
   line-height: 1.5 !important;
 }
