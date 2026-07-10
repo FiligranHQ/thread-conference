@@ -61,37 +61,35 @@ export const HubSpotForm = () => {
   }, []);
 
   return (
-    <div id="register-form" className="scroll-mt-28 mx-auto mt-4 max-w-xl">
-      <div className="card-glass rounded-2xl p-8 text-left">
-        {/* Skeleton shown while the form script is loading */}
-        <div
-          aria-hidden="true"
-          className={cn(
-            "space-y-5 transition-opacity duration-500",
-            loaded ? "pointer-events-none absolute opacity-0" : "opacity-100",
-          )}
-        >
-          {[160, 130, 160, 130].map((w, i) => (
-            <div key={i} className="space-y-2">
-              <div
-                className="h-3 animate-pulse rounded bg-border/60"
-                style={{ width: `${w}px` }}
-              />
-              <div className="h-10 w-full animate-pulse rounded-lg bg-border/40" />
-            </div>
-          ))}
-          <div className="h-11 w-40 animate-pulse rounded-full bg-cyan/20" />
-        </div>
-
-        {/* HubSpot injects the form markup into this element */}
-        <div
-          id={HS_FORM_TARGET}
-          className={cn(
-            "transition-opacity duration-500",
-            loaded ? "opacity-100" : "opacity-0",
-          )}
-        />
+    <div className="text-left">
+      {/* Skeleton shown while the form script is loading */}
+      <div
+        aria-hidden="true"
+        className={cn(
+          "space-y-5 transition-opacity duration-500",
+          loaded ? "pointer-events-none absolute opacity-0" : "opacity-100",
+        )}
+      >
+        {[160, 130, 160, 130].map((w, i) => (
+          <div key={i} className="space-y-2">
+            <div
+              className="h-3 animate-pulse rounded bg-border/60"
+              style={{ width: `${w}px` }}
+            />
+            <div className="h-10 w-full animate-pulse rounded-lg bg-border/40" />
+          </div>
+        ))}
+        <div className="h-11 w-40 animate-pulse rounded-full bg-cyan/20" />
       </div>
+
+      {/* HubSpot injects the form markup into this element */}
+      <div
+        id={HS_FORM_TARGET}
+        className={cn(
+          "transition-opacity duration-500",
+          loaded ? "opacity-100" : "opacity-0",
+        )}
+      />
     </div>
   );
 };
