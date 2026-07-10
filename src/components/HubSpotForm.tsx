@@ -34,19 +34,29 @@ export const HubSpotForm = () => {
       });
     };
 
-    if (document.getElementById(HS_SCRIPT_ID)) {
-      initForm();
+    // Script tag may already exist (React StrictMode mounts effects twice).
+    // If hbspt is ready, call initForm directly; if the script is still
+    // loading, attach a load listener so we don't miss the event.
+    let scriptEl = document.getElementById(HS_SCRIPT_ID) as HTMLScriptElement | null;
+    if (scriptEl) {
+      if (window.hbspt) {
+        initForm();
+      } else {
+        scriptEl.addEventListener("load", initForm);
+      }
     } else {
-      const script = document.createElement("script");
-      script.id = HS_SCRIPT_ID;
-      script.src = "//js.hsforms.net/forms/embed/v2.js";
-      script.charset = "utf-8";
-      script.onload = initForm;
-      document.head.appendChild(script);
+      scriptEl = document.createElement("script");
+      scriptEl.id = HS_SCRIPT_ID;
+      scriptEl.src = "//js.hsforms.net/forms/embed/v2.js";
+      scriptEl.charset = "utf-8";
+      scriptEl.addEventListener("load", initForm);
+      document.head.appendChild(scriptEl);
     }
 
+    const capturedScript = scriptEl;
     return () => {
       cancelled = true;
+      capturedScript.removeEventListener("load", initForm);
     };
   }, []);
 
