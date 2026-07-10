@@ -102,7 +102,6 @@ export const register = {
   description:
     "THREAD gathers the open-source threat management community — analysts, engineers, contributors and the leaders they work with. One day to share what works, learn from each other and meet in person the people you know from Slack and GitHub.",
   primaryButton: "Request your seat",
-  secondaryButton: "Propose a session",
   note: "Registration opens soon — leave your details and you will be the first to know.",
 } as const;
 

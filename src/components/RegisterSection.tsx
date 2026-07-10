@@ -26,12 +26,6 @@ export const RegisterSection = () => {
             >
               {register.primaryButton}
             </button>
-            <button
-              onClick={() => setFormOpen(true)}
-              className="relative inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-cyan/60 bg-transparent px-8 text-base font-semibold tracking-tight text-cyan shadow-[0_0_35px_rgba(15,188,255,0.25)] transition-all duration-200 hover:bg-gradient-to-r hover:from-cyan hover:to-blue-500 hover:text-background hover:shadow-[0_0_45px_rgba(15,188,255,0.4)]"
-            >
-              {register.secondaryButton}
-            </button>
           </div>
         </Reveal>
       </div>
