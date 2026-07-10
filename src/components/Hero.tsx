@@ -6,9 +6,9 @@ import { ButtonLink } from "@/components/ui/Button";
 import { ThreadsCanvas } from "@/components/ThreadsCanvas";
 
 const CountdownUnit = ({ value, label }: { value: string; label: string }) => (
-  <div className="flex min-w-[58px] flex-col items-center">
-    <span className="font-mono text-2xl font-medium tabular-nums text-foreground md:text-4xl">{value}</span>
-    <span className="text-[0.68rem] uppercase tracking-[0.25em] text-foreground/55">{label}</span>
+  <div className="flex min-w-[44px] flex-col items-center sm:min-w-[58px]">
+    <span className="font-mono text-xl font-medium tabular-nums text-foreground sm:text-2xl md:text-4xl">{value}</span>
+    <span className="text-[0.6rem] uppercase tracking-[0.15em] text-foreground/55 sm:text-[0.68rem] sm:tracking-[0.25em]">{label}</span>
   </div>
 );
 
@@ -31,9 +31,13 @@ export const Hero = () => {
       />
 
       <div className="container relative z-10 max-w-5xl text-center">
-        <p className="mb-10 inline-flex items-center gap-2.5 rounded-full border border-white/[0.18] bg-white/5 px-5 py-2.5 font-mono text-[0.8rem] tracking-[0.18em] text-foreground/85 backdrop-blur-md animate-fade-in">
-          <span className="h-2 w-2 rounded-full bg-[#16ebf9] animate-pulse-dot" aria-hidden="true" />
-          {event.dateLabel} · {event.venueShort} · {event.admission}
+        <p className="mb-10 inline-flex max-w-full flex-wrap items-center justify-center gap-x-2.5 gap-y-1 rounded-full border border-white/[0.18] bg-white/5 px-5 py-2.5 font-mono text-[0.8rem] tracking-[0.18em] text-foreground/85 backdrop-blur-md animate-fade-in">
+          <span className="h-2 w-2 shrink-0 rounded-full bg-[#16ebf9] animate-pulse-dot" aria-hidden="true" />
+          <span className="whitespace-nowrap">{event.dateLabel}</span>
+          <span aria-hidden="true">·</span>
+          <span>{event.venueShort}</span>
+          <span aria-hidden="true">·</span>
+          <span className="whitespace-nowrap">{event.admission}</span>
         </p>
 
         <h1 className="mx-auto mb-2 w-fit" aria-label={event.name}>
@@ -74,7 +78,7 @@ export const Hero = () => {
         </div>
 
         <div
-          className="inline-flex items-center gap-4 rounded-3xl border border-white/[0.12] bg-background/45 px-6 py-4 backdrop-blur-lg md:gap-7 md:px-10 animate-fade-in-slow"
+          className="inline-flex items-center gap-2 rounded-3xl border border-white/[0.12] bg-background/45 px-4 py-3 backdrop-blur-lg sm:gap-4 sm:px-6 sm:py-4 md:gap-7 md:px-10 animate-fade-in-slow"
           role="timer"
           aria-label={`Countdown to ${event.name} ${event.dateLabel}`}
         >
