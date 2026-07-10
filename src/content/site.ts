@@ -45,7 +45,7 @@ export const event = {
   credentialEmphasis: "",
 
   /** Email used by all the buttons of the site. */
-  contactEmail: "events@filigran.io",
+  contactEmail: "thread@filigran.io",
 } as const;
 
 /**
@@ -111,7 +111,7 @@ export const footerLinks = {
     { label: "filigran.io", url: "https://filigran.io" },
     { label: "OpenCTI", url: "https://filigran.io/platforms/opencti/" },
     { label: "OpenAEV", url: "https://filigran.io/platforms/openaev/" },
-    { label: "XTM One", url: "https://filigran.io/offerings/xtm-one/" },
+    { label: "XTM One", url: "https://filigran.io/platform/xtm-one/" },
   ],
   community: [
     { label: "Slack community", url: "https://community.filigran.io/" },
