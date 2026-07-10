@@ -48,29 +48,7 @@ export const Hero = () => {
               </span>
             ))}
           </span>
-          {/* Hand-drawn thread underline */}
-          <svg
-            className="absolute -bottom-[18px] left-[-2%] h-[34px] w-[104%]"
-            viewBox="0 0 600 40"
-            fill="none"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <path
-              className="draw-thread"
-              d="M2 24 C 90 6, 160 38, 240 22 S 400 4, 470 24 S 560 36, 598 16"
-              stroke="url(#threadGradient)"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-            />
-            <defs>
-              <linearGradient id="threadGradient" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stopColor="#16ebf9" />
-                <stop offset=".55" stopColor="#00bfd6" />
-                <stop offset="1" stopColor="#3378ff" />
-              </linearGradient>
-            </defs>
-          </svg>
+
         </h1>
 
         <div className="mb-5 mt-10 flex items-center justify-center gap-3.5 animate-fade-in-slow">

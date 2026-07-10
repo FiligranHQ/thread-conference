@@ -61,7 +61,7 @@ export const HubSpotForm = () => {
   }, []);
 
   return (
-    <div id="register-form" className="scroll-mt-28 mx-auto mt-4 max-w-xl">
+    <div id="register-form" className="scroll-mt-28 mx-auto mt-4 w-full max-w-xl lg:mx-0">
       <div className="card-glass rounded-2xl p-8 text-left">
         {/* Skeleton shown while the form script is loading */}
         <div
