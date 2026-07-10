@@ -123,6 +123,134 @@
   }
 }
 
+/* ── HubSpot form — dark theme overrides ────────────────────────────────── */
+
+/* Container / layout */
+.hbspt-form fieldset {
+  max-width: 100% !important;
+}
+
+.hbspt-form .hs-form-field {
+  margin-bottom: 1rem !important;
+}
+
+/* Labels */
+.hbspt-form label {
+  color: hsl(0 0% 100% / 0.65) !important;
+  font-family: "Sora", sans-serif !important;
+  font-size: 0.8rem !important;
+  margin-bottom: 0.35rem !important;
+  display: block !important;
+}
+
+/* Inputs, selects, textareas */
+.hbspt-form input[type="text"],
+.hbspt-form input[type="email"],
+.hbspt-form input[type="tel"],
+.hbspt-form input[type="number"],
+.hbspt-form select,
+.hbspt-form textarea {
+  background-color: hsl(220 25% 10%) !important;
+  border: 1px solid hsl(220 25% 22%) !important;
+  color: #fff !important;
+  border-radius: 0.75rem !important;
+  padding: 0.625rem 1rem !important;
+  width: 100% !important;
+  font-family: "Sora", sans-serif !important;
+  font-size: 0.9rem !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+  appearance: auto !important;
+}
+
+.hbspt-form input:focus,
+.hbspt-form select:focus,
+.hbspt-form textarea:focus {
+  border-color: hsl(187 100% 42%) !important;
+  box-shadow: 0 0 0 3px hsl(187 100% 42% / 0.15) !important;
+  outline: none !important;
+}
+
+/* Placeholder text */
+.hbspt-form input::placeholder,
+.hbspt-form textarea::placeholder {
+  color: hsl(220 10% 50%) !important;
+}
+
+/* Select arrow colour fix */
+.hbspt-form select option {
+  background-color: hsl(220 25% 12%) !important;
+  color: #fff !important;
+}
+
+/* Checkbox / radio */
+.hbspt-form input[type="checkbox"],
+.hbspt-form input[type="radio"] {
+  width: auto !important;
+  accent-color: hsl(187 100% 42%) !important;
+}
+
+/* Submit button */
+.hbspt-form .hs-submit {
+  margin-top: 1.5rem !important;
+}
+
+.hbspt-form input[type="submit"] {
+  background: hsl(187 100% 42%) !important;
+  color: hsl(220 30% 7%) !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  padding: 0.75rem 2rem !important;
+  font-family: "Sora", sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s !important;
+  box-shadow: 0 0 30px hsl(187 100% 42% / 0.15) !important;
+}
+
+.hbspt-form input[type="submit"]:hover {
+  background: hsl(187 100% 50%) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 0 45px hsl(187 100% 42% / 0.35) !important;
+}
+
+/* Validation error messages */
+.hbspt-form .hs-error-msgs {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0.25rem 0 0 !important;
+}
+
+.hbspt-form .hs-error-msgs li label {
+  color: #f87171 !important;
+  font-size: 0.75rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* GDPR consent / legal text */
+.hbspt-form .legal-consent-container,
+.hbspt-form .hs-richtext {
+  color: hsl(0 0% 100% / 0.45) !important;
+  font-size: 0.75rem !important;
+  line-height: 1.5 !important;
+}
+
+.hbspt-form .legal-consent-container a,
+.hbspt-form .hs-richtext a {
+  color: hsl(187 100% 42%) !important;
+  text-decoration: underline !important;
+}
+
+/* Success message */
+.hbspt-form .submitted-message {
+  color: hsl(187 100% 42%) !important;
+  font-family: "Sora", sans-serif !important;
+  text-align: center !important;
+  padding: 1.5rem 0 !important;
+}
+
+/* ── end HubSpot overrides ──────────────────────────────────────────────── */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
