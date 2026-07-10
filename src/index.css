@@ -231,6 +231,18 @@
   box-shadow: 0 0 45px hsl(187 100% 42% / 0.35) !important;
 }
 
+.hbspt-form input[type="submit"]:active,
+.hbspt-form button[type="submit"]:active {
+  transform: translateY(1px) !important;
+  box-shadow: 0 0 15px hsl(187 100% 42% / 0.2) !important;
+}
+
+.hbspt-form input[type="submit"]:focus-visible,
+.hbspt-form button[type="submit"]:focus-visible {
+  outline: 2px solid hsl(187 100% 42%) !important;
+  outline-offset: 3px !important;
+}
+
 /* Validation error messages */
 .hbspt-form .hs-error-msgs {
   list-style: none !important;
