@@ -143,11 +143,12 @@
   display: block !important;
 }
 
-/* Inputs, selects, textareas */
+/* Inputs, selects, textareas — target both attribute selectors and HubSpot's own .hs-input class */
 .hbspt-form input[type="text"],
 .hbspt-form input[type="email"],
 .hbspt-form input[type="tel"],
 .hbspt-form input[type="number"],
+.hbspt-form .hs-input,
 .hbspt-form select,
 .hbspt-form textarea {
   background-color: hsl(220 25% 10%) !important;
@@ -174,6 +175,17 @@
 .hbspt-form input::placeholder,
 .hbspt-form textarea::placeholder {
   color: hsl(220 10% 50%) !important;
+}
+
+/* Browser autofill — overrides the white autofill background that makes text invisible */
+.hbspt-form input:-webkit-autofill,
+.hbspt-form input:-webkit-autofill:hover,
+.hbspt-form input:-webkit-autofill:focus,
+.hbspt-form input:-webkit-autofill:active {
+  -webkit-text-fill-color: #fff !important;
+  -webkit-box-shadow: 0 0 0 1000px hsl(220 25% 10%) inset !important;
+  box-shadow: 0 0 0 1000px hsl(220 25% 10%) inset !important;
+  caret-color: #fff !important;
 }
 
 /* Select arrow colour fix */
