@@ -130,10 +130,10 @@ export const footerLinks = {
  */
 export const hubspotForm = {
   /** Numeric portal ID, e.g. "1234567". */
-  portalId: "YOUR_PORTAL_ID",
+  portalId: "26791207",
   /** Form GUID, e.g. "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx". */
-  formId: "YOUR_FORM_ID",
-  region: "na1",
+  formId: "66daf638-f969-4459-9c5b-1454be0fdb90",
+  region: "eu1",
 } as const;
 
 export const footerText = {
