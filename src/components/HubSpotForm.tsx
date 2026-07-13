@@ -29,6 +29,26 @@ export const HubSpotForm = () => {
         formId: hubspotForm.formId,
         target: `#${HS_FORM_TARGET}`,
         onFormReady: () => {
+          const container = document.getElementById(HS_FORM_TARGET);
+          const form = container?.querySelector("form");
+          const submitButton = form?.querySelector<HTMLInputElement | HTMLButtonElement>(
+            'input[type="submit"], button[type="submit"], input.hs-button, button.hs-button',
+          );
+          let submitTypeFixed = false;
+
+          if (submitButton instanceof HTMLInputElement && submitButton.type !== "submit") {
+            submitButton.type = "submit";
+            submitTypeFixed = true;
+          }
+          if (submitButton instanceof HTMLButtonElement && submitButton.type !== "submit") {
+            submitButton.type = "submit";
+            submitTypeFixed = true;
+          }
+
+          if (submitTypeFixed && form && submitButton) {
+            submitButton.addEventListener("click", () => form.requestSubmit(), { once: true });
+          }
+
           if (!cancelled) setLoaded(true);
         },
       });
