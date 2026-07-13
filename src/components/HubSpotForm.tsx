@@ -23,12 +23,38 @@ export const HubSpotForm = () => {
 
     const initForm = () => {
       if (cancelled || !window.hbspt) return;
+      const targetEl = document.getElementById(HS_FORM_TARGET);
+      if (!targetEl) return;
+
+      targetEl.innerHTML = "";
+
       window.hbspt.forms.create({
         region: hubspotForm.region,
         portalId: hubspotForm.portalId,
         formId: hubspotForm.formId,
         target: `#${HS_FORM_TARGET}`,
         onFormReady: () => {
+          const form = targetEl.querySelector("form");
+          if (form) {
+            const nativeSubmit = form.querySelector(
+              'input[type="submit"], button[type="submit"]',
+            );
+
+            if (!nativeSubmit) {
+              const submitContainer =
+                form.querySelector(".hs-submit") ?? form.querySelector(".actions");
+
+              if (submitContainer) {
+                const label = submitContainer.textContent?.trim() || "Submit";
+                submitContainer.textContent = "";
+                const button = document.createElement("button");
+                button.type = "submit";
+                button.textContent = label;
+                submitContainer.appendChild(button);
+              }
+            }
+          }
+
           if (!cancelled) setLoaded(true);
         },
       });
