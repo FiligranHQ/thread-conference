@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Agenda", href: "#agenda" },
   { label: "Speakers", href: "#speakers" },
   { label: "Venue", href: "#venue" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export const Navigation = () => {

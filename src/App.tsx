@@ -9,6 +9,7 @@ import { AgendaSection } from "@/components/AgendaSection";
 import { SpeakersSection } from "@/components/SpeakersSection";
 import { VenueSection } from "@/components/VenueSection";
 import { RegisterSection } from "@/components/RegisterSection";
+import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
 
 const App = () => (
@@ -24,6 +25,7 @@ const App = () => (
       <AgendaSection />
       <SpeakersSection />
       <VenueSection />
+      <FAQSection />
       <RegisterSection />
     </main>
     <Footer />

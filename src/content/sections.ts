@@ -174,3 +174,95 @@ export const communityExperiences = [
     description: "Limited-edition swag, cyber coins and collectible cards. Collect them all.",
   },
 ] as const;
+
+/** ---------------------------------------------------------------- FAQ */
+
+export const faq = {
+  kicker: "FAQ",
+  title: "Your questions, answered.",
+  description:
+    "Everything you need to know before joining THREAD — from logistics to agenda.",
+  categories: [
+    {
+      name: "Logistics & Practical Info",
+      items: [
+        {
+          q: "Are my travel expenses (hotel and transport) covered by Filigran?",
+          a: "No, travel expenses are entirely at your own charge.",
+        },
+      ],
+    },
+    {
+      name: "General / About THREAD",
+      items: [
+        {
+          q: "What is THREAD?",
+          a: "Thread, powered by Filigran, is the annual gathering of the global threat intelligence and cyber defense community. It's a community-driven experience, not a vendor conference, built around real practitioners and real leaders.",
+        },
+        {
+          q: "Is THREAD a Filigran product launch or sales event?",
+          a: "No. THREAD is explicitly positioned as not a vendor conference, trade show, or product launch. It's community-first and practitioner-led, with no sales agenda.",
+        },
+        {
+          q: "When and where does THREAD take place?",
+          a: "Thursday, October 15, 2026, at Les Jardins Saint Dominique, Paris (7th arrondissement). One full day, in person.",
+        },
+      ],
+    },
+    {
+      name: "Audience & Registration",
+      items: [
+        {
+          q: "Who is THREAD for?",
+          a: "Two core audiences: C-level/security leaders (high-touch, strategic, invitation-only feel) and practitioners (CTI analysts, SOC teams, red/blue/purple teamers, GRC practitioners, open-source contributors).",
+        },
+        {
+          q: "Is THREAD open to everyone, or is it invitation-only?",
+          a: "It's curated and selective by design (\"selected, not targeted\"), not an open trade show.",
+        },
+      ],
+    },
+    {
+      name: "Agenda & Format",
+      items: [
+        {
+          q: "What does a day at THREAD look like?",
+          a: "A shared morning plenary (keynotes, community/customer stories, a major product announcement), followed by an afternoon split across multiple tracks/zones, and closing with an awards ceremony and a private garden cocktail.",
+        },
+        {
+          q: "What are the five zones/experiences at THREAD?",
+          a: "Signal Room (main stage), Community Zone (expo/lounge, heart of the event), Strategy Room (exec roundtables), Intelligence Lab (hands-on workshops/certifications), and Simulation Zone (adversary validation, CTF).",
+        },
+        {
+          q: "Is the content more strategic or more hands-on?",
+          a: "It's a deliberate balance: roughly 50/50 between strategic/executive content and hands-on/interactive sessions, with about 20% dedicated to networking.",
+        },
+        {
+          q: "Will there be a product announcement?",
+          a: "Yes, a major product announcement is planned during the morning plenary.",
+        },
+        {
+          q: "Are there certifications available at THREAD?",
+          a: "Yes, the Intelligence Lab track includes Filigran Academy workshops and certification sessions.",
+        },
+      ],
+    },
+    {
+      name: "Community & Culture",
+      items: [
+        {
+          q: "What's the \"Community Zone\"?",
+          a: "It's described as the heart of the event, active all day: talk-to-the-dev booth, AMAs, contributor wall, roadmap booth, a gamified \"circuit\" experience, product demos, and more.",
+        },
+        {
+          q: "Is there a community awards moment?",
+          a: "Yes, there's a dedicated community awards segment called \"The Signals,\" plus an Awards Ceremony on the day's agenda.",
+        },
+        {
+          q: "What's the campaign theme for THREAD's launch?",
+          a: "\"Pull the Thread,\" rolling out on a bi-weekly cadence (teaser, reveal, recurring drops on tracks/speakers/sponsors, final push, event day).",
+        },
+      ],
+    },
+  ],
+} as const;
