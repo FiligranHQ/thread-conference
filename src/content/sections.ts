@@ -62,7 +62,7 @@ export const audiences = {
 
 export const zones = {
   kicker: "The experience",
-  title: "One venue, five spaces.",
+  title: "One venue, six spaces.",
   description:
     "A main stage, an expo floor and three breakout rooms, each with its own purpose, from keynotes to hands-on labs to roundtables. Plus the garden for the evening.",
   /**
