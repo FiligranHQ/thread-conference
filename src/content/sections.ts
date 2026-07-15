@@ -184,15 +184,6 @@ export const faq = {
     "Everything you need to know before joining THREAD — from logistics to agenda.",
   categories: [
     {
-      name: "Logistics & Practical Info",
-      items: [
-        {
-          q: "Are my travel expenses (hotel and transport) covered by Filigran?",
-          a: "No, travel expenses are entirely at your own charge.",
-        },
-      ],
-    },
-    {
       name: "General / About THREAD",
       items: [
         {
@@ -258,9 +249,14 @@ export const faq = {
           q: "Is there a community awards moment?",
           a: "Yes, there's a dedicated community awards segment called \"The Signals,\" plus an Awards Ceremony on the day's agenda.",
         },
+      ],
+    },
+    {
+      name: "Logistics & Practical Info",
+      items: [
         {
-          q: "What's the campaign theme for THREAD's launch?",
-          a: "\"Pull the Thread,\" rolling out on a bi-weekly cadence (teaser, reveal, recurring drops on tracks/speakers/sponsors, final push, event day).",
+          q: "Are my travel expenses (hotel and transport) covered by Filigran?",
+          a: "No, travel expenses are entirely at your own charge.",
         },
       ],
     },
