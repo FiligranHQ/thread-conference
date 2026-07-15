@@ -91,8 +91,21 @@ export const Hero = () => {
           <CountdownUnit value={countdown.seconds} label="seconds" />
         </div>
 
+        <p className="mt-5 text-sm text-foreground/55 animate-fade-in-slow">
+          <a href="#faq" className="transition-colors underline-offset-4 hover:text-cyan hover:underline">
+            Have questions? →
+          </a>
+        </p>
+
         <p className="mt-9 text-[0.95rem] text-foreground/65">
           {event.credential} <span className="text-[#16ebf9]">{event.credentialEmphasis}</span>
+        </p>
+
+        <p className="mt-2 text-[0.95rem] text-foreground/65 animate-fade-in-slow">
+          New to THREAD?{" "}
+          <a href="#faq" className="text-cyan transition-colors hover:text-cyan-glow">
+            Check the FAQ →
+          </a>
         </p>
       </div>
 

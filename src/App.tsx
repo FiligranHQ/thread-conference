@@ -11,6 +11,7 @@ import { VenueSection } from "@/components/VenueSection";
 import { RegisterSection } from "@/components/RegisterSection";
 import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
+import { FAQPill } from "@/components/FAQPill";
 
 const App = () => (
   <>
@@ -29,6 +30,7 @@ const App = () => (
       <RegisterSection />
     </main>
     <Footer />
+    <FAQPill />
   </>
 );
 
