@@ -135,7 +135,7 @@ export const speakers = {
     { name: "Guest speakers", role: "Inspirational voices from the field" },
     { name: "Community contributors", role: "The people who build the ecosystem, on stage" },
   ],
-  note: "Want to lead a session? The agenda is built with the community — reach out at",
+  note: "Want to lead a session? The agenda is built with the community, reach out at",
 } as const;
 
 /** ---------------------------------------------------------------- COMMUNITY ZONE */
