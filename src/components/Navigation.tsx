@@ -11,7 +11,7 @@ const navLinks = [
   { label: "Agenda", href: "#agenda" },
   { label: "Speakers", href: "#speakers" },
   { label: "Venue", href: "#venue" },
-  { label: "FAQ", href: "#faq" },
+  { label: "FAQ", href: "#faq", highlight: true },
 ];
 
 export const Navigation = () => {
@@ -46,7 +46,11 @@ export const Navigation = () => {
             <a
               key={link.href}
               href={link.href}
-              className="group relative text-sm text-foreground/75 transition-colors hover:text-foreground"
+              className={cn(
+                "group relative text-sm text-foreground/75 transition-colors hover:text-foreground",
+                link.highlight &&
+                  "rounded-full border border-cyan/30 px-2.5 py-0.5 text-cyan/80 hover:border-cyan/70 hover:text-cyan",
+              )}
             >
               {link.label}
               <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gradient-to-r from-cyan to-cyan-glow transition-all duration-300 group-hover:w-full" />
@@ -77,7 +81,7 @@ export const Navigation = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-base text-foreground/85"
+              className={cn("text-base text-foreground/85", link.highlight && "text-cyan/80")}
               onClick={() => setOpen(false)}
             >
               {link.label}
