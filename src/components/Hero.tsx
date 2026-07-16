@@ -25,7 +25,9 @@ export const Hero = () => {
   const countdown = useCountdown(event.countdownTo);
   const letters = event.name.split("");
   const heroProgress = useHeroScrollProgress("why");
-  const mosaicDensity = 0.12 + heroProgress * 0.45;
+  // density and cluster are fixed — they must not change on scroll, otherwise
+  // MosaicCanvas would rebuild the entire grid on every scroll pixel.
+  // Only opacity (compositor-only) and the vignette gradient vary with scroll.
   const mosaicOpacity = 0.35 + heroProgress * 0.35;
   const topDarkness = 0.9 - heroProgress * 0.2;
 
@@ -36,8 +38,8 @@ export const Hero = () => {
     >
       {/* V2 mosaic background — replaces animated threads + filigran gradient */}
       <MosaicCanvas
-        density={mosaicDensity}
-        cluster={0.1 + heroProgress * 0.1}
+        density={0.45}
+        cluster={0.15}
         opacity={mosaicOpacity}
         centerMask
       />

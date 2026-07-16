@@ -6,7 +6,12 @@ import { useEffect, useRef } from "react";
  * grain overlay, used as a background texture behind hero sections,
  * register bands and venue map placeholders.
  *
- * Respects prefers-reduced-motion (skips animation, renders static).
+ * Renders onto a single <canvas> instead of a DOM node per cell, so the grid
+ * is built once (and rebuilt only on resize) rather than on every scroll frame.
+ * Opacity changes from scroll are applied as a CSS property, which the browser
+ * handles entirely on the compositor thread with no repaint.
+ *
+ * Respects prefers-reduced-motion (skips resize-driven rebuilds, renders static).
  */
 
 const PALETTE = [
@@ -43,7 +48,15 @@ export const MosaicCanvas = ({
   className,
 }: MosaicCanvasProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  // Keep latest density/cluster in refs so build() always reads current values
+  // without listing them as effect dependencies — the grid rebuilds only on
+  // mount and resize, never on scroll.
+  const densityRef = useRef(density);
+  densityRef.current = density;
+  const clusterRef = useRef(cluster);
+  clusterRef.current = cluster;
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -52,68 +65,69 @@ export const MosaicCanvas = ({
 
     const build = () => {
       const container = containerRef.current;
-      const grid = gridRef.current;
-      if (!container || !grid) return;
+      const canvas = canvasRef.current;
+      if (!container || !canvas) return;
 
       const w = container.offsetWidth;
       const h = container.offsetHeight;
       if (!w || !h) return;
 
+      // Assigning width/height clears the canvas automatically.
+      canvas.width = w;
+      canvas.height = h;
+
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      const d = densityRef.current;
+      const c = clusterRef.current;
       const cols = Math.ceil(w / CELL_PX);
       const rows = Math.ceil(h / CELL_PX);
+      const cellW = w / cols;
+      const cellH = h / rows;
       const total = cols * rows;
-
-      grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-      grid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-
       const occ = new Array(total).fill(false);
-      const fragment = document.createDocumentFragment();
 
       for (let i = 0; i < total; i++) {
         if (occ[i]) continue;
         const row = Math.floor(i / cols);
         const col = i % cols;
-        const cell = document.createElement("div");
-        cell.style.position = "relative";
 
-        if (Math.random() < density) {
-          const color = PALETTE[Math.floor(Math.random() * PALETTE.length)];
-          cell.style.background = color;
-          cell.className = "mosaic-grain";
+        if (Math.random() < d) {
+          ctx.fillStyle = PALETTE[Math.floor(Math.random() * PALETTE.length)];
 
           // Occasionally expand to a 2×2 block
           if (
             !prefersReduced &&
-            Math.random() < cluster &&
+            Math.random() < c &&
             col < cols - 1 &&
             row < rows - 1 &&
             !occ[i + 1] &&
             !occ[i + cols] &&
             !occ[i + cols + 1]
           ) {
-            cell.style.gridColumn = `${col + 1} / span 2`;
-            cell.style.gridRow = `${row + 1} / span 2`;
+            ctx.fillRect(col * cellW, row * cellH, cellW * 2, cellH * 2);
             occ[i + 1] = occ[i + cols] = occ[i + cols + 1] = true;
+          } else {
+            ctx.fillRect(col * cellW, row * cellH, cellW, cellH);
           }
-        } else {
-          cell.style.background = "transparent";
         }
-
-        fragment.appendChild(cell);
       }
-
-      grid.replaceChildren(fragment);
     };
 
     build();
 
-    // Rebuild on resize only when reduced-motion is not preferred
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    // Rebuild on resize only when reduced-motion is not preferred.
+    if (!prefersReduced) {
       const ro = new ResizeObserver(build);
       if (containerRef.current) ro.observe(containerRef.current);
       return () => ro.disconnect();
     }
-  }, [density, cluster]);
+  // density and cluster are intentionally omitted from the dependency array.
+  // They are read via refs inside build() so rebuilds are driven by resize
+  // only — never by scroll-triggered prop changes.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div
@@ -121,14 +135,20 @@ export const MosaicCanvas = ({
       className={`absolute inset-0 overflow-hidden ${className ?? ""}`}
       aria-hidden="true"
     >
-      {/* Mosaic grid */}
-      <div
-        ref={gridRef}
-        className="absolute inset-0 grid"
-        style={{ opacity }}
+      {/* Single canvas — replaces the per-cell div grid.
+          opacity is a compositor-only property: changing it never triggers a
+          repaint, keeping scroll perfectly smooth. */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0"
+        style={{
+          opacity,
+          willChange: "opacity",
+          contain: "paint",
+        }}
       />
 
-      {/* Grain texture overlay */}
+      {/* Grain texture overlay — single element (replaces per-cell mosaic-grain ::after pseudo-elements) */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
