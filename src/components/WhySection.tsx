@@ -6,27 +6,37 @@ export const WhySection = () => (
     <div className="container">
       <div className="max-w-3xl">
         <Reveal>
-          <p className="mb-4 font-mono text-xs uppercase tracking-[0.35em] text-cyan">{why.kicker}</p>
+          <p className="eyebrow mb-4">{why.kicker}</p>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="mb-6 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-[2.9rem]">
+          <h2 className="mb-6 font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-[2.75rem]">
             {why.title}
           </h2>
         </Reveal>
         <div className="space-y-4">
           {why.paragraphs.map((paragraph, index) => (
             <Reveal key={index} delay={120 + index * 60}>
-              <p className="leading-relaxed text-foreground/[0.78]">{paragraph}</p>
+              <p className="font-sans leading-relaxed text-white/70">{paragraph}</p>
             </Reveal>
           ))}
         </div>
         <Reveal delay={400}>
+          {/* V2 tags: pill with dot + border tint, cyan variant */}
           <div className="mt-7 flex flex-wrap gap-2.5">
             {why.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-cyan/35 bg-cyan/[0.08] px-4 py-2 text-xs text-cyan-glow"
+                className="inline-flex items-center gap-[0.45em] rounded-full border px-4 py-2 font-sans text-xs font-semibold"
+                style={{
+                  borderColor: "rgba(0,216,240,0.4)",
+                  color: "#a9f3fb",
+                }}
               >
+                <span
+                  className="h-[7px] w-[7px] shrink-0 rounded-full"
+                  style={{ background: "hsl(var(--cyan))" }}
+                  aria-hidden="true"
+                />
                 {tag}
               </span>
             ))}

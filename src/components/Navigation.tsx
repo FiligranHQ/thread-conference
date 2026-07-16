@@ -29,15 +29,21 @@ export const Navigation = () => {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 border-b border-transparent transition-all duration-300",
-        scrolled && "border-border/50 bg-background/80 backdrop-blur-xl",
+        scrolled && "border-white/10 bg-card/90 backdrop-blur-xl",
       )}
     >
       <div className="container flex h-[76px] items-center justify-between gap-6">
-        <a href="/" className="flex items-center gap-2.5 text-foreground" aria-label={`${event.name}, ${event.poweredBy}`}>
+        <a
+          href="/"
+          className="flex items-center gap-2.5 text-foreground"
+          aria-label={`${event.name}, ${event.poweredBy}`}
+        >
           <ThreadKnot className="h-[34px] w-[34px] text-cyan" />
-          <span className="text-lg font-extrabold tracking-[0.24em]">
+          <span className="font-display text-lg font-extrabold tracking-[0.24em]">
             {event.name}
-            <sup className="ml-0.5 text-[0.65rem] font-semibold tracking-widest text-cyan">{event.edition}</sup>
+            <sup className="ml-0.5 text-[0.65rem] font-semibold tracking-widest text-cyan">
+              {event.edition}
+            </sup>
           </span>
         </a>
 
@@ -47,19 +53,21 @@ export const Navigation = () => {
               key={link.href}
               href={link.href}
               className={cn(
-                "group relative text-sm text-foreground/75 transition-colors hover:text-foreground",
+                "group relative font-sans text-sm text-white/65 transition-colors hover:text-white",
                 link.highlight &&
                   "rounded-full border border-cyan/30 px-2.5 py-0.5 text-cyan/80 hover:border-cyan/70 hover:text-cyan",
               )}
             >
               {link.label}
-              <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gradient-to-r from-cyan to-cyan-glow transition-all duration-300 group-hover:w-full" />
+              {!link.highlight && (
+                <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gradient-to-r from-cyan to-lime transition-all duration-300 group-hover:w-full" />
+              )}
             </a>
           ))}
         </nav>
 
         <div className="hidden md:block">
-          <ButtonLink href="/#register" variant="cta" size="sm">
+          <ButtonLink href="/#register" variant="outline" size="sm">
             Request your seat
           </ButtonLink>
         </div>
@@ -76,18 +84,25 @@ export const Navigation = () => {
       </div>
 
       {open ? (
-        <div className="flex flex-col gap-5 border-b border-border/50 bg-background/95 p-6 backdrop-blur-xl md:hidden">
+        <div className="flex flex-col gap-5 border-b border-white/10 bg-card/95 p-6 backdrop-blur-xl md:hidden">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={cn("text-base text-foreground/85", link.highlight && "text-cyan/80")}
+              className={cn(
+                "font-sans text-base text-white/80 transition-colors hover:text-white",
+                link.highlight && "text-cyan/80",
+              )}
               onClick={() => setOpen(false)}
             >
               {link.label}
             </a>
           ))}
-          <ButtonLink href="/#register" variant="cta" onClick={() => setOpen(false)}>
+          <ButtonLink
+            href="/#register"
+            variant="gradient"
+            onClick={() => setOpen(false)}
+          >
             Request your seat
           </ButtonLink>
         </div>

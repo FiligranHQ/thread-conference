@@ -36,17 +36,45 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        cyan: {
-          DEFAULT: "hsl(var(--cyan))",
-          glow: "hsl(var(--cyan-glow))",
-        },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // V2 brand palette
+        cyan: {
+          DEFAULT: "hsl(var(--cyan))",
+          glow: "hsl(var(--cyan-glow))",
+        },
+        blue: {
+          DEFAULT: "hsl(var(--blue))",
+          500: "hsl(var(--blue))",
+        },
+        lime: {
+          DEFAULT: "hsl(var(--lime))",
+        },
+        coral: {
+          DEFAULT: "hsl(var(--coral))",
+        },
+        magenta: {
+          DEFAULT: "hsl(var(--magenta))",
+        },
+        pink: {
+          DEFAULT: "hsl(var(--pink))",
+        },
+        purple: {
+          DEFAULT: "hsl(var(--purple))",
+        },
+        ink: {
+          DEFAULT: "hsl(var(--ink))",
+        },
+        surface: {
+          DEFAULT: "hsl(var(--card))",
+          "2": "hsl(var(--surface-2))",
+        },
       },
       fontFamily: {
-        sans: ["Sora", "Inter", "Segoe UI", "system-ui", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["Sora", "system-ui", "sans-serif"],
         mono: ["IBM Plex Mono", "ui-monospace", "monospace"],
       },
       borderRadius: {
@@ -55,8 +83,10 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        glow: "0 0 30px hsl(187 100% 42% / 0.15)",
-        card: "0 4px 20px -4px hsl(220 30% 5% / 0.5)",
+        glow: "0 0 30px hsl(186 100% 47% / 0.2)",
+        "glow-blue": "0 0 30px hsl(210 86% 57% / 0.2)",
+        "glow-lime": "0 0 30px hsl(78 73% 78% / 0.2)",
+        card: "0 4px 20px -4px hsl(240 25% 2% / 0.5)",
       },
       keyframes: {
         "fade-in": {
@@ -68,8 +98,8 @@ export default {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         glow: {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(187 100% 42% / 0.2)" },
-          "50%": { boxShadow: "0 0 30px hsl(187 100% 42% / 0.4)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(186 100% 47% / 0.2)" },
+          "50%": { boxShadow: "0 0 30px hsl(186 100% 47% / 0.4)" },
         },
         "letter-in": {
           "0%": { opacity: "0", transform: "translateY(40px) rotate(2deg)" },
@@ -84,9 +114,9 @@ export default {
           "100%": { transform: "rotate(360deg)" },
         },
         "pulse-dot": {
-          "0%": { boxShadow: "0 0 0 0 rgba(22, 235, 249, 0.55)" },
-          "70%": { boxShadow: "0 0 0 12px rgba(22, 235, 249, 0)" },
-          "100%": { boxShadow: "0 0 0 0 rgba(22, 235, 249, 0)" },
+          "0%": { boxShadow: "0 0 0 0 rgba(0, 216, 240, 0.55)" },
+          "70%": { boxShadow: "0 0 0 12px rgba(0, 216, 240, 0)" },
+          "100%": { boxShadow: "0 0 0 0 rgba(0, 216, 240, 0)" },
         },
         "slide-up": {
           "0%": { opacity: "0", transform: "translateY(24px)" },

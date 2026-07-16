@@ -67,7 +67,7 @@ export const zones = {
     "A main stage, an expo floor and three breakout rooms, each with its own purpose, from keynotes to hands-on labs to roundtables. Plus the garden for the evening.",
   /**
    * The `color` controls the top border of each card.
-   * Available colors: "electric" | "cyan" | "blue" | "indigo" | "green"
+   * V2 values: "blue" | "cyan" | "purple" | "lime" | "magenta" | "gradient"
    */
   cards: [
     {
@@ -76,7 +76,7 @@ export const zones = {
       kind: "Main stage · Auditorium",
       description:
         "Vision, keynotes and thought leadership. Community and customer stories, major announcements: the moments everyone shares.",
-      color: "electric" as const,
+      color: "blue" as const,
     },
     {
       id: "02",
@@ -92,7 +92,7 @@ export const zones = {
       kind: "Breakout · Executive",
       description:
         "Roundtables and industry exchanges for security leaders. Honest discussions between people facing the same challenges.",
-      color: "indigo" as const,
+      color: "purple" as const,
     },
     {
       id: "04",
@@ -100,7 +100,7 @@ export const zones = {
       kind: "Breakout · Hands-on",
       description:
         "From intel to action: hands-on labs, use-case workshops, Filigran Academy sessions and certification.",
-      color: "blue" as const,
+      color: "lime" as const,
     },
     {
       id: "05",
@@ -108,7 +108,7 @@ export const zones = {
       kind: "Breakout · Scenarios",
       description:
         "Command-center energy: scenario-based exercises, adversarial validation workshops and CTF sessions.",
-      color: "electric" as const,
+      color: "magenta" as const,
     },
     {
       id: "+",
@@ -116,7 +116,7 @@ export const zones = {
       kind: "Private garden · Evening",
       description:
         "The evening aperitif in the private garden. Cocktails at the OpenBAR and time with the community to close the day.",
-      color: "green" as const,
+      color: "gradient" as const,
     },
   ],
 } as const;
