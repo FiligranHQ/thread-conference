@@ -1,54 +1,62 @@
-@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Design system tokens — aligned with filigran.io (filigran-website/src/index.css) */
+/* Design system tokens — THREAD 2026 v2 */
 
 @layer base {
   :root {
-    --background: 220 30% 7%;
-    --foreground: 0 0% 100%;
-
-    --card: 220 25% 12%;
+    /* ── Backgrounds / surfaces ─────────────────────────────────── */
+    --background: 240 25% 2%;       /* #030305  page bg */
+    --bg-alt: 230 23% 5%;           /* #0A0B10  alternate section bg */
+    --card: 230 16% 7%;             /* #101116  card / block surface */
     --card-foreground: 0 0% 100%;
+    --surface-2: 227 17% 10%;       /* #16181F  nested surface / inputs */
 
-    --primary: 220 40% 15%;
+    /* ── Text ──────────────────────────────────────────────────── */
+    --foreground: 0 0% 100%;
+    --muted-foreground: 0 0% 68%;   /* rgba(255,255,255,.68) */
+
+    /* ── Brand palette (HSL channels) ──────────────────────────── */
+    --cyan: 186 100% 47%;           /* #00D8F0  primary interactive */
+    --cyan-glow: 186 100% 47%;
+    --blue: 210 86% 57%;            /* #3090F0  UI-safe */
+    --lime: 78 73% 78%;             /* #D8F0A0  UI-safe */
+    --coral: 8 86% 56%;             /* #F04830  tag/badge accent only */
+    --magenta: 330 85% 61%;         /* #F0489C  tag/badge + Simulation Zone */
+    --pink: 351 85% 61%;            /* #F04860  tag/badge */
+    --purple: 288 80% 71%;          /* #D878F0  tag/badge + Strategy Room */
+    --ink: 218 30% 6%;              /* #0A0D12  text-on-light-button */
+
+    /* ── Borders (white channels — use /10 for default) ───────── */
+    --border: 0 0% 100%;
+
+    /* ── Tailwind semantic aliases ─────────────────────────────── */
+    --input: 227 17% 10%;
+    --ring: 186 100% 47%;
+    --primary: 230 16% 7%;
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 220 30% 18%;
+    --secondary: 227 17% 10%;
     --secondary-foreground: 0 0% 100%;
-
-    --muted: 220 25% 25%;
-    --muted-foreground: 220 10% 65%;
-
-    --accent: 187 100% 42%;
-    --accent-foreground: 220 30% 7%;
-
-    --cyan: 187 100% 42%;
-    --cyan-glow: 187 100% 50%;
-
-    --border: 220 25% 20%;
-    --input: 220 25% 20%;
-    --ring: 187 100% 42%;
+    --muted: 227 17% 14%;
+    --accent: 186 100% 47%;
+    --accent-foreground: 218 30% 6%;
 
     --radius: 0.75rem;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", system-ui, sans-serif;
   }
 
   h1,
@@ -57,57 +65,89 @@
   h4,
   h5,
   h6 {
+    font-family: "Sora", system-ui, sans-serif;
     @apply font-bold;
   }
 
   ::selection {
-    background: hsl(187 100% 42% / 0.35);
+    background: hsl(186 100% 47% / 0.35);
     color: #fff;
   }
 }
 
 @layer utilities {
-  .text-gradient-cyan {
-    @apply bg-gradient-to-r from-cyan to-cyan-glow bg-clip-text text-transparent;
+  /* ── Typography helpers ─────────────────────────────────────── */
+  .font-display {
+    font-family: "Sora", system-ui, sans-serif;
   }
 
+  /* Signature cool gradient: blue → cyan → lime */
+  .gradient-cool {
+    background: linear-gradient(90deg, hsl(var(--blue)), hsl(var(--cyan)), hsl(var(--lime)));
+  }
+
+  .text-gradient-cool {
+    background: linear-gradient(90deg, hsl(var(--blue)), hsl(var(--cyan)), hsl(var(--lime)));
+    @apply bg-clip-text text-transparent;
+  }
+
+  /* Legacy alias kept for any remaining usages */
+  .text-gradient-cyan {
+    background: linear-gradient(90deg, hsl(var(--cyan)), hsl(var(--cyan-glow)));
+    @apply bg-clip-text text-transparent;
+  }
+
+  /* ── Eyebrow label pattern ──────────────────────────────────── */
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    @apply text-xs uppercase tracking-[0.22em] text-foreground/40 flex items-center gap-2.5;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply inline-block w-[22px] h-[2px] flex-none;
+    background: hsl(var(--cyan));
+  }
+
+  /* ── Card surface (v2: outlined dark, no glass blur) ────────── */
+  .card-surface {
+    @apply bg-card border border-white/10 rounded-[22px];
+  }
+
+  /* Kept for backward compat — alias of card-surface */
+  .card-glass {
+    @apply bg-card border border-white/10;
+    backdrop-filter: none;
+  }
+
+  /* ── Hover lift (unchanged) ─────────────────────────────────── */
   .hover-lift {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hover-lift:hover {
     transform: translateY(-4px);
-    box-shadow: 0 0 30px hsl(187 100% 42% / 0.15);
+    box-shadow: 0 0 30px hsl(var(--cyan) / 0.12);
   }
 
-  .card-glass {
-    @apply backdrop-blur-sm bg-card/50 border border-border/50;
+  /* ── Mosaic / grain texture ─────────────────────────────────── */
+  .mosaic-grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    mix-blend-mode: overlay;
+    opacity: 0.45;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
   }
 
-  /* Signature filigran.io hero gradient */
+  /* ── Legacy gradients (now unused but kept to avoid TS errors) ── */
   .hero-gradient {
-    background-color: #01091f;
-    background-image: radial-gradient(
-      96.21% 108.44% at 94.34% 113.69%,
-      rgb(22, 235, 249) 2%,
-      rgb(51, 120, 255) 32%,
-      rgba(51, 59, 255, 0.54) 63%,
-      rgba(51, 96, 255, 0) 100%
-    );
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-color: hsl(var(--background));
   }
 
   .register-gradient {
-    background-color: #01091f;
-    background-image: radial-gradient(
-      90% 120% at 6% 120%,
-      rgb(22, 235, 249) 0%,
-      rgb(51, 120, 255) 30%,
-      rgba(51, 59, 255, 0.5) 60%,
-      rgba(51, 96, 255, 0) 100%
-    );
+    background-color: hsl(var(--bg-alt));
   }
 
   .draw-thread {
@@ -137,7 +177,7 @@
 /* Labels */
 .hbspt-form label {
   color: hsl(0 0% 100% / 0.65) !important;
-  font-family: "Sora", sans-serif !important;
+  font-family: "Inter", sans-serif !important;
   font-size: 0.8rem !important;
   margin-bottom: 0.35rem !important;
   display: block !important;
@@ -151,13 +191,13 @@
 .hbspt-form .hs-input,
 .hbspt-form select,
 .hbspt-form textarea {
-  background-color: hsl(220 25% 10%) !important;
-  border: 1px solid hsl(220 25% 22%) !important;
+  background-color: hsl(227 17% 10%) !important;
+  border: 1px solid hsl(0 0% 100% / 0.12) !important;
   color: #fff !important;
-  border-radius: 0.75rem !important;
+  border-radius: 0.875rem !important;
   padding: 0.625rem 1rem !important;
   width: 100% !important;
-  font-family: "Sora", sans-serif !important;
+  font-family: "Inter", sans-serif !important;
   font-size: 0.9rem !important;
   transition: border-color 0.2s, box-shadow 0.2s !important;
   appearance: auto !important;
@@ -166,15 +206,15 @@
 .hbspt-form input:focus,
 .hbspt-form select:focus,
 .hbspt-form textarea:focus {
-  border-color: hsl(187 100% 42%) !important;
-  box-shadow: 0 0 0 3px hsl(187 100% 42% / 0.15) !important;
+  border-color: hsl(186 100% 47%) !important;
+  box-shadow: 0 0 0 3px hsl(186 100% 47% / 0.15) !important;
   outline: none !important;
 }
 
 /* Placeholder text */
 .hbspt-form input::placeholder,
 .hbspt-form textarea::placeholder {
-  color: hsl(220 10% 50%) !important;
+  color: hsl(0 0% 100% / 0.35) !important;
 }
 
 /* Browser autofill — overrides the white autofill background that makes text invisible */
@@ -183,14 +223,14 @@
 .hbspt-form input:-webkit-autofill:focus,
 .hbspt-form input:-webkit-autofill:active {
   -webkit-text-fill-color: #fff !important;
-  -webkit-box-shadow: 0 0 0 1000px hsl(220 25% 10%) inset !important;
-  box-shadow: 0 0 0 1000px hsl(220 25% 10%) inset !important;
+  -webkit-box-shadow: 0 0 0 1000px hsl(227 17% 10%) inset !important;
+  box-shadow: 0 0 0 1000px hsl(227 17% 10%) inset !important;
   caret-color: #fff !important;
 }
 
 /* Select arrow colour fix */
 .hbspt-form select option {
-  background-color: hsl(220 25% 12%) !important;
+  background-color: hsl(230 16% 7%) !important;
   color: #fff !important;
 }
 
@@ -198,7 +238,7 @@
 .hbspt-form input[type="checkbox"],
 .hbspt-form input[type="radio"] {
   width: auto !important;
-  accent-color: hsl(187 100% 42%) !important;
+  accent-color: hsl(186 100% 47%) !important;
 }
 
 /* Submit button */
@@ -209,17 +249,17 @@
 .hbspt-form input[type="submit"],
 .hbspt-form button[type="submit"],
 #hs-form-target .hs-button {
-  background: hsl(187 100% 42%) !important;
-  color: hsl(220 30% 7%) !important;
+  background: linear-gradient(90deg, hsl(210 86% 57%), hsl(186 100% 47%), hsl(78 73% 78%)) !important;
+  color: hsl(218 30% 6%) !important;
   border: none !important;
   border-radius: 9999px !important;
   padding: 0.75rem 2rem !important;
-  font-family: "Sora", sans-serif !important;
+  font-family: "Inter", sans-serif !important;
   font-size: 0.95rem !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   cursor: pointer !important;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s !important;
-  box-shadow: 0 0 30px hsl(187 100% 42% / 0.15) !important;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s !important;
+  box-shadow: 0 0 30px hsl(186 100% 47% / 0.2) !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -228,22 +268,21 @@
 .hbspt-form input[type="submit"]:hover,
 .hbspt-form button[type="submit"]:hover,
 #hs-form-target .hs-button:hover {
-  background: hsl(187 100% 50%) !important;
+  opacity: 0.9 !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 0 45px hsl(187 100% 42% / 0.35) !important;
+  box-shadow: 0 0 45px hsl(186 100% 47% / 0.35) !important;
 }
 
 .hbspt-form input[type="submit"]:active,
 .hbspt-form button[type="submit"]:active,
 #hs-form-target .hs-button:active {
   transform: translateY(1px) !important;
-  box-shadow: 0 0 15px hsl(187 100% 42% / 0.2) !important;
 }
 
 .hbspt-form input[type="submit"]:focus-visible,
 .hbspt-form button[type="submit"]:focus-visible,
 #hs-form-target .hs-button:focus-visible {
-  outline: 2px solid hsl(187 100% 42%) !important;
+  outline: 2px solid hsl(186 100% 47%) !important;
   outline-offset: 3px !important;
 }
 
@@ -270,23 +309,19 @@
 
 .hbspt-form .legal-consent-container a,
 .hbspt-form .hs-richtext a {
-  color: hsl(187 100% 42%) !important;
+  color: hsl(186 100% 47%) !important;
   text-decoration: underline !important;
 }
 
 /* Success message */
 .hbspt-form .submitted-message {
-  color: hsl(187 100% 42%) !important;
-  font-family: "Sora", sans-serif !important;
+  color: hsl(186 100% 47%) !important;
+  font-family: "Inter", sans-serif !important;
   text-align: center !important;
   padding: 1.5rem 0 !important;
 }
 
-/* Scoped input text fix — the global `color: inherit` reset resolves to white
-   inside the dark-themed modal; HubSpot's own stylesheet keeps .hs-input
-   backgrounds white, causing white-on-white invisible text.  The ID selector
-   gives higher specificity than both the reset and HubSpot's late-loaded rules
-   so !important is still required to beat the global reset cascade. */
+/* Scoped input text fix */
 #hs-form-target input.hs-input,
 #hs-form-target select.hs-input,
 #hs-form-target textarea.hs-input {
