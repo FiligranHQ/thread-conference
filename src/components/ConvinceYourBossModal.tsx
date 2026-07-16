@@ -3,26 +3,24 @@ import { Check, Copy, Mail, MessageSquare } from "lucide-react";
 import { Modal } from "@/components/ui/Modal";
 import { Button } from "@/components/ui/Button";
 
-const EMAIL_SUBJECT = "Request to attend THREAD 2026 — Paris, Oct 15";
+const EMAIL_SUBJECT = "Requesting approval to attend THREAD, Paris, October 15";
 
-const EMAIL_BODY = `Hi [Manager's name],
+const EMAIL_BODY = `Hi [Manager Name],
 
-I'd like to attend THREAD 2026, a one-day community conference in Paris on October 15, 2026. Here's why it makes sense:
+I'd like your approval to attend **THREAD**, Filigran's new conference for the threat intelligence and cyber defense community, on **Thursday, October 15** in **Paris**.
 
-• Free to attend — there is no registration fee.
-• Zero vendor agenda — it's explicitly not a sales event or product launch. It's practitioner-led, built for people who do the work.
-• Directly relevant to what I do — the agenda includes hands-on labs, real threat simulations, and peer sessions focused on threat intelligence and cyber defense.
-• Certification opportunity — the Intelligence Lab track includes Filigran Academy workshops and certification sessions.
-• High-quality peer network — a curated, selective event (not an open trade show) that brings together CTI analysts, SOC teams, and security leaders from leading organizations.
+It's practitioner-first, not a sales event: hands-on workshops, a CTF/adversarial simulation track, and peer conversations with other CTI, SOC, and security teams. I'd expect to come back with practical workflows we can use and a stronger read on how other teams are operationalizing threat intel.
 
-The only costs involved would be travel and accommodation, which I'm happy to discuss. Given that the event itself is free and the learning and networking value is high, I believe this is a worthwhile investment.
+**Logistics:** one day, in person, October 15. Note that travel/accommodation aren't covered by the event, so [I'll need travel budget approval / this isn't an issue since I'm local].
 
-I'll follow up to talk through the details.
+Happy to share a recap with the team afterward. Let me know if you need more detail.
 
 Thanks,
-[Your name]`;
+[Your Name]`;
 
-const SLACK_MESSAGE = `Hey — quick one: I'd like to attend THREAD 2026 (Paris, Oct 15). It's a free, one-day community conference for threat intel and cyber defense practitioners — no vendor pitches, hands-on labs, and a real chance to connect with people doing the same work we are. Only cost is travel/hotel. Happy to share more details if useful!`;
+const SLACK_MESSAGE = `Hey [Manager Name] 👋 can I get your okay to attend **THREAD** on **Oct 15 in Paris**? One day, practitioner-first conference on threat intel/cyber defense (not a sales event): hands-on labs, a CTF track, peer conversations with other CTI/SOC folks.
+
+I'd come back with practical workflows and a broader network. Heads up, travel/hotel isn't covered by the event, will flag separately if relevant. Let me know if you need anything to approve 🙏`;
 
 type Tab = "email" | "slack";
 
