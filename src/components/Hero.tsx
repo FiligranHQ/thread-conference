@@ -1,4 +1,5 @@
 import { ChevronDown } from "lucide-react";
+import filigranLogo from "@/assets/filigran-logo.svg";
 import threadLogo from "@/assets/thread-logo.svg";
 import { event } from "@/content/site";
 import { useCountdown } from "@/hooks/useCountdown";
@@ -23,7 +24,6 @@ const CountdownSeparator = () => (
 
 export const Hero = () => {
   const countdown = useCountdown(event.countdownTo);
-  const letters = event.name.split("");
   const heroProgress = useHeroScrollProgress("why");
   // density and cluster are fixed — they must not change on scroll, otherwise
   // MosaicCanvas would rebuild the entire grid on every scroll pixel.
@@ -69,21 +69,12 @@ export const Hero = () => {
         </p>
 
         {/* THREAD wordmark */}
-        <h1 className="mx-auto mb-2 w-fit font-display" aria-label={event.name}>
-          <span
-            className="flex gap-[clamp(0.3rem,1.5vw,1rem)] text-[clamp(3.4rem,13vw,9rem)] font-extrabold leading-none tracking-[0.06em]"
-            aria-hidden="true"
-          >
-            {letters.map((letter, index) => (
-              <span
-                key={index}
-                className="opacity-0 animate-letter-in"
-                style={{ animationDelay: `${0.1 + index * 0.08}s` }}
-              >
-                {letter}
-              </span>
-            ))}
-          </span>
+        <h1 className="mx-auto mb-2 w-fit" aria-label={event.name}>
+          <img
+            src={threadLogo}
+            alt={event.name}
+            className="h-auto w-[min(92vw,44rem)] animate-fade-in"
+          />
         </h1>
 
         {/* Powered by Filigran */}
@@ -97,7 +88,7 @@ export const Hero = () => {
             rel="noopener noreferrer"
             aria-label="Filigran"
           >
-            <img src={threadLogo} alt="Filigran" className="h-7 w-auto md:h-8" />
+            <img src={filigranLogo} alt="Filigran" className="h-7 w-auto md:h-8" />
           </a>
         </div>
 
