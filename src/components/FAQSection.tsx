@@ -34,9 +34,10 @@ export const FAQSection = () => {
                           />
                         </summary>
                         <div className="border-t border-border/50 px-6 pb-5 pt-4">
-                          <p className="text-[0.95rem] leading-relaxed text-foreground/[0.78]">
-                            {item.a}
-                          </p>
+                          <p
+                            className="text-[0.95rem] leading-relaxed text-foreground/[0.78]"
+                            dangerouslySetInnerHTML={{ __html: item.a }}
+                          />
                         </div>
                       </details>
                     </Reveal>
