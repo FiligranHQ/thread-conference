@@ -1,4 +1,4 @@
-import filigranLogo from "@/assets/filigran-logo.svg";
+import threadLogo from "@/assets/thread-logo.svg";
 import { footerLinks, footerText } from "@/content/site";
 
 const FooterColumn = ({
@@ -46,7 +46,7 @@ export const Footer = () => (
             rel="noopener noreferrer"
             aria-label="Filigran"
           >
-            <img src={filigranLogo} alt="Filigran" className="mb-6 h-8 w-auto" />
+            <img src={threadLogo} alt="Filigran" className="mb-6 h-8 w-auto" />
           </a>
           <p className="mb-4 max-w-sm font-sans text-sm leading-relaxed text-white/55">
             {footerText.description}

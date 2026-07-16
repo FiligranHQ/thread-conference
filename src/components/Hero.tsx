@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import filigranLogo from "@/assets/filigran-logo.svg";
+import threadLogo from "@/assets/thread-logo.svg";
 import { event } from "@/content/site";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useHeroScrollProgress } from "@/hooks/useHeroScrollProgress";
@@ -97,7 +97,7 @@ export const Hero = () => {
             rel="noopener noreferrer"
             aria-label="Filigran"
           >
-            <img src={filigranLogo} alt="Filigran" className="h-7 w-auto md:h-8" />
+            <img src={threadLogo} alt="Filigran" className="h-7 w-auto md:h-8" />
           </a>
         </div>
 
