@@ -1,0 +1,1 @@
+"This repo's design system reference lives at /design-system/index.html and its component pages. Reuse existing classes, tokens, and markup patterns from there when building new pages/components. Don't introduce new spacing/color values — check the tokens page first."
