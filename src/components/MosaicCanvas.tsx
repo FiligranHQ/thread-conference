@@ -72,12 +72,19 @@ export const MosaicCanvas = ({
       const h = container.offsetHeight;
       if (!w || !h) return;
 
+      const dpr = window.devicePixelRatio ?? 1;
+
+      // Scale backing buffer by DPR for crisp rendering on high-DPI screens.
+      // CSS dimensions are kept in CSS pixels via `absolute inset-0`.
       // Assigning width/height clears the canvas automatically.
-      canvas.width = w;
-      canvas.height = h;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
 
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
+
+      // Map drawing coordinates to CSS pixels so callers use CSS units.
+      ctx.scale(dpr, dpr);
 
       const d = densityRef.current;
       const c = clusterRef.current;
@@ -140,7 +147,7 @@ export const MosaicCanvas = ({
           repaint, keeping scroll perfectly smooth. */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           opacity,
           willChange: "opacity",
