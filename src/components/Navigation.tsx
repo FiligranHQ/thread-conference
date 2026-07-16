@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { event } from "@/content/site";
-import { ThreadKnot } from "@/components/ThreadKnot";
+import threadLogo from "@/assets/thread-logo.svg";
 import { ButtonLink } from "@/components/ui/Button";
 import { useHeroScrollProgress } from "@/hooks/useHeroScrollProgress";
 
@@ -34,16 +34,10 @@ export const Navigation = () => {
       <div className="container flex h-[76px] items-center justify-between gap-6">
         <a
           href="/"
-          className="flex items-center gap-2.5 text-foreground"
-          aria-label={`${event.name}, ${event.poweredBy}`}
+          className="flex items-center text-foreground"
+          aria-label={event.name}
         >
-          <ThreadKnot className="h-[34px] w-[34px] text-cyan" />
-          <span className="font-display text-lg font-extrabold tracking-[0.24em]">
-            {event.name}
-            <sup className="ml-0.5 text-[0.65rem] font-semibold tracking-widest text-cyan">
-              {event.edition}
-            </sup>
-          </span>
+          <img src={threadLogo} alt={event.name} className="h-8 w-auto" />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
