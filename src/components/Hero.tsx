@@ -1,5 +1,4 @@
 import { ChevronDown } from "lucide-react";
-import filigranLogo from "@/assets/filigran-logo.svg";
 import threadLogo from "@/assets/thread-logo.svg";
 import { event } from "@/content/site";
 import { useCountdown } from "@/hooks/useCountdown";
@@ -76,21 +75,6 @@ export const Hero = () => {
             className="h-auto w-[min(92vw,44rem)] animate-fade-in"
           />
         </h1>
-
-        {/* Powered by Filigran */}
-        <div className="mb-5 mt-10 flex items-center justify-center gap-3.5 animate-fade-in-slow">
-          <span className="font-mono text-sm uppercase tracking-[0.3em] text-white/60">
-            Powered by
-          </span>
-          <a
-            href="https://filigran.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Filigran"
-          >
-            <img src={filigranLogo} alt="Filigran" className="h-7 w-auto md:h-8" />
-          </a>
-        </div>
 
         {/* Pitch */}
         <p className="mx-auto mb-10 max-w-3xl font-sans text-lg leading-relaxed text-white/82 md:text-xl animate-fade-in-slow">
