@@ -2,6 +2,7 @@ import { ChevronDown } from "lucide-react";
 import filigranLogo from "@/assets/filigran-logo.svg";
 import { event } from "@/content/site";
 import { useCountdown } from "@/hooks/useCountdown";
+import { useHeroScrollProgress } from "@/hooks/useHeroScrollProgress";
 import { ButtonLink } from "@/components/ui/Button";
 import { MosaicCanvas } from "@/components/MosaicCanvas";
 
@@ -23,6 +24,10 @@ const CountdownSeparator = () => (
 export const Hero = () => {
   const countdown = useCountdown(event.countdownTo);
   const letters = event.name.split("");
+  const heroProgress = useHeroScrollProgress("why");
+  const mosaicDensity = 0.12 + heroProgress * 0.45;
+  const mosaicOpacity = 0.35 + heroProgress * 0.35;
+  const topDarkness = 0.9 - heroProgress * 0.2;
 
   return (
     <section
@@ -30,14 +35,19 @@ export const Hero = () => {
       id="top"
     >
       {/* V2 mosaic background — replaces animated threads + filigran gradient */}
-      <MosaicCanvas density={0.35} cluster={0.1} opacity={0.65} centerMask />
+      <MosaicCanvas
+        density={mosaicDensity}
+        cluster={0.1 + heroProgress * 0.1}
+        opacity={mosaicOpacity}
+        centerMask
+      />
 
       {/* Edge vignette to blend mosaic into page background */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, hsl(240 25% 2% / 0.6) 0%, transparent 20%, transparent 75%, hsl(240 25% 2%) 100%)",
+            `linear-gradient(180deg, hsl(240 25% 2% / ${topDarkness}) 0%, hsl(240 25% 2% / 0.42) 16%, transparent 36%, transparent 75%, hsl(240 25% 2%) 100%)`,
         }}
         aria-hidden="true"
       />
@@ -127,15 +137,6 @@ export const Hero = () => {
           <CountdownUnit value={countdown.seconds} label="seconds" />
         </div>
 
-        <p className="mt-5 text-sm text-white/50 animate-fade-in-slow">
-          <a
-            href="#faq"
-            className="transition-colors underline-offset-4 hover:text-cyan hover:underline"
-          >
-            Have questions? →
-          </a>
-        </p>
-
         {event.credential && (
           <p className="mt-9 font-sans text-[0.95rem] text-white/65">
             {event.credential}{" "}
@@ -145,7 +146,10 @@ export const Hero = () => {
 
         <p className="mt-2 font-sans text-[0.95rem] text-white/60 animate-fade-in-slow">
           New to THREAD?{" "}
-          <a href="#faq" className="text-cyan transition-colors hover:text-cyan-glow">
+          <a
+            href="/faq"
+            className="text-cyan transition-colors hover:text-cyan-glow"
+          >
             Check the FAQ →
           </a>
         </p>

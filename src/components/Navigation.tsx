@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { event } from "@/content/site";
 import { ThreadKnot } from "@/components/ThreadKnot";
 import { ButtonLink } from "@/components/ui/Button";
+import { useHeroScrollProgress } from "@/hooks/useHeroScrollProgress";
 
 const navLinks = [
   { label: "Why THREAD", href: "/#why" },
@@ -15,22 +16,20 @@ const navLinks = [
 ];
 
 export const Navigation = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const heroProgress = useHeroScrollProgress("why");
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b border-transparent transition-all duration-300",
-        scrolled && "border-white/10 bg-card/90 backdrop-blur-xl",
+        "fixed inset-x-0 top-0 z-50 border-b transition-all duration-300",
+        heroProgress > 0.08 && "shadow-[0_6px_20px_hsl(240_25%_2%_/_0.42)]",
       )}
+      style={{
+        backgroundColor: `hsl(240 25% 2% / ${0.95 - heroProgress * 0.2})`,
+        borderColor: `hsl(0 0% 100% / ${0.1 + heroProgress * 0.08})`,
+        backdropFilter: `blur(${10 + heroProgress * 8}px)`,
+      }}
     >
       <div className="container flex h-[76px] items-center justify-between gap-6">
         <a
@@ -53,7 +52,7 @@ export const Navigation = () => {
               key={link.href}
               href={link.href}
               className={cn(
-                "group relative font-sans text-sm text-white/65 transition-colors hover:text-white",
+                "group relative font-sans text-sm text-white/78 transition-colors hover:text-white",
                 link.highlight &&
                   "rounded-full border border-cyan/30 px-2.5 py-0.5 text-cyan/80 hover:border-cyan/70 hover:text-cyan",
               )}
