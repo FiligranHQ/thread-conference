@@ -51,7 +51,7 @@ export const VenueSection = () => {
             <div className="rounded-[22px] border border-white/10 bg-card p-5">
               <div className="overflow-hidden rounded-[14px] border border-white/10 bg-card">
                 <img
-                  src="/pictures/les-jardins-saint-dominique.png"
+                  src="/pictures/les_jardins_saint_dominique.png"
                   alt="Les Jardins de Saint-Dominique venue in Paris"
                   className="aspect-[4/3] w-full object-cover"
                   loading="lazy"
