@@ -6,12 +6,12 @@ import { ThreadKnot } from "@/components/ThreadKnot";
 import { ButtonLink } from "@/components/ui/Button";
 
 const navLinks = [
-  { label: "Why THREAD", href: "#why" },
-  { label: "Experience", href: "#experience" },
-  { label: "Agenda", href: "#agenda" },
-  { label: "Speakers", href: "#speakers" },
-  { label: "Venue", href: "#venue" },
-  { label: "FAQ", href: "#faq", highlight: true },
+  { label: "Why THREAD", href: "/#why" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Agenda", href: "/#agenda" },
+  { label: "Speakers", href: "/#speakers" },
+  { label: "Venue", href: "/#venue" },
+  { label: "FAQ", href: "/faq", highlight: true },
 ];
 
 export const Navigation = () => {
@@ -33,7 +33,7 @@ export const Navigation = () => {
       )}
     >
       <div className="container flex h-[76px] items-center justify-between gap-6">
-        <a href="#top" className="flex items-center gap-2.5 text-foreground" aria-label={`${event.name}, ${event.poweredBy}`}>
+        <a href="/" className="flex items-center gap-2.5 text-foreground" aria-label={`${event.name}, ${event.poweredBy}`}>
           <ThreadKnot className="h-[34px] w-[34px] text-cyan" />
           <span className="text-lg font-extrabold tracking-[0.24em]">
             {event.name}
@@ -59,7 +59,7 @@ export const Navigation = () => {
         </nav>
 
         <div className="hidden md:block">
-          <ButtonLink href="#register" variant="cta" size="sm">
+          <ButtonLink href="/#register" variant="cta" size="sm">
             Request your seat
           </ButtonLink>
         </div>
@@ -87,7 +87,7 @@ export const Navigation = () => {
               {link.label}
             </a>
           ))}
-          <ButtonLink href="#register" variant="cta" onClick={() => setOpen(false)}>
+          <ButtonLink href="/#register" variant="cta" onClick={() => setOpen(false)}>
             Request your seat
           </ButtonLink>
         </div>

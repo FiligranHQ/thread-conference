@@ -14,8 +14,8 @@ const FooterColumn = ({
       <a
         key={link.label}
         href={link.url}
-        target={link.url.startsWith("#") ? undefined : "_blank"}
-        rel={link.url.startsWith("#") ? undefined : "noopener noreferrer"}
+        target={link.url.startsWith("/") || link.url.startsWith("#") ? undefined : "_blank"}
+        rel={link.url.startsWith("/") || link.url.startsWith("#") ? undefined : "noopener noreferrer"}
         className="text-sm text-foreground/60 transition-colors hover:text-cyan"
       >
         {link.label}
@@ -25,12 +25,12 @@ const FooterColumn = ({
 );
 
 const threadLinks = [
-  { label: "Why THREAD", url: "#why" },
-  { label: "Experience", url: "#experience" },
-  { label: "Agenda", url: "#agenda" },
-  { label: "Venue", url: "#venue" },
-  { label: "FAQ", url: "#faq" },
-  { label: "Register your interest", url: "#register" },
+  { label: "Why THREAD", url: "/#why" },
+  { label: "Experience", url: "/#experience" },
+  { label: "Agenda", url: "/#agenda" },
+  { label: "Venue", url: "/#venue" },
+  { label: "FAQ", url: "/faq" },
+  { label: "Register your interest", url: "/#register" },
 ] as const;
 
 export const Footer = () => (
