@@ -177,6 +177,17 @@ export const communityExperiences = [
 
 /** ---------------------------------------------------------------- FAQ */
 
+export interface FaqItem {
+  q: string;
+  a: string;
+  cta?: { type: "convince-boss"; label: string };
+}
+
+export interface FaqCategory {
+  name: string;
+  items: FaqItem[];
+}
+
 export const faq = {
   kicker: "FAQ",
   title: "Your questions, answered.",
@@ -197,7 +208,7 @@ export const faq = {
       ],
     },
     {
-      name: "Date & Logistics",
+      name: "Logistics",
       items: [
         {
           q: "When and where does THREAD take place?",
@@ -211,20 +222,68 @@ export const faq = {
           q: "How much does it cost to attend?",
           a: "Attendance is completely free of charge.",
         },
+        {
+          q: "Are my travel expenses (hotel and transport) covered by Filigran?",
+          a: "No, travel expenses are entirely at your own charge.",
+        },
+        {
+          q: "How can I convince my boss to attend?",
+          a: "Need to convince your boss? We've got you covered.",
+          cta: { type: "convince-boss", label: "Get the Convince Your Manager Letter" },
+        },
       ],
     },
     {
-      name: "Attendance",
+      name: "Registration",
       items: [
         {
+          q: "When will registration open?",
+          a: "Registration is now open! Please request your seat via the registration form. We will confirm your participation within one week.",
+        },
+        {
           q: "Is THREAD open to everyone, or is it invitation-only?",
-          a: "It's curated and selective by design <s>(\"selected, not targeted\")</s>, not an open trade show. Registrations are individual and non-transferable.",
+          a: "It's curated and selective by design, not an open trade show. Registrations are individual and non-transferable.",
         },
         {
           q: "Why should I attend?",
-          a: "Honestly, why wouldn't you? One day, zero sales pitches, a room built entirely around people who actually do the work: hands-on labs, real threat simulations, and the kind of peer conversations that don't happen at a typical vendor event. Need to convince your boss? We've got you covered with our Convince Your Manager Letter.",
+          a: "Honestly, why wouldn't you? One day, zero sales pitches, a room built entirely around people who actually do the work: hands-on labs, real threat simulations, and the kind of peer conversations that don't happen at a typical vendor event.",
+          cta: { type: "convince-boss", label: "Need to convince your boss? We've got you covered." },
         },
       ],
     },
-  ],
+    {
+      name: "Agenda",
+      items: [
+        {
+          q: "What does a day at THREAD look like?",
+          a: "A shared morning plenary (keynotes, community/customer stories, a major product announcement), followed by an afternoon split across multiple tracks/zones, and closing with an awards ceremony and a private garden cocktail.",
+        },
+        {
+          q: "When will the full agenda be published?",
+          a: "The full event agenda will be available by mid-August. Check the Agenda tab for real-time updates.",
+        },
+        {
+          q: "Will there be a product announcement?",
+          a: "Yes, a major product announcement is planned during the morning plenary.",
+        },
+        {
+          q: "Are there certifications available at THREAD?",
+          a: "Yes, the Intelligence Lab track includes Filigran Academy workshops and certification sessions.",
+        },
+      ],
+    },
+    {
+      name: "Community",
+      items: [
+        {
+          q: 'What\'s the "Community Zone"?',
+          a: "It is the heart of the event, active all day: talk-to-the-dev booth, AMAs, contributor wall, roadmap booth, a gamified \"circuit\" experience, product demos, and more.",
+        },
+        {
+          q: "Is there a community awards moment?",
+          a: 'Yes, there\'s a dedicated community awards segment called "The Signals," plus an Awards Ceremony on the day\'s agenda.',
+        },
+      ],
+    },
+  ] satisfies FaqCategory[],
 } as const;

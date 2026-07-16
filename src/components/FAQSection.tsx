@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { faq } from "@/content/sections";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Button } from "@/components/ui/Button";
+import { ConvinceYourBossModal } from "@/components/ConvinceYourBossModal";
 
 export const FAQSection = () => {
   let globalIndex = 0;
+  const [bossModalOpen, setBossModalOpen] = useState(false);
 
   return (
     <section className="py-20 lg:py-32" id="faq">
@@ -42,6 +46,17 @@ export const FAQSection = () => {
                             className="font-sans text-[0.95rem] leading-relaxed text-white/70"
                             dangerouslySetInnerHTML={{ __html: item.a }}
                           />
+                          {item.cta?.type === "convince-boss" && (
+                            <div className="mt-4">
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => setBossModalOpen(true)}
+                              >
+                                {item.cta.label}
+                              </Button>
+                            </div>
+                          )}
                         </div>
                       </details>
                     </Reveal>
@@ -52,6 +67,11 @@ export const FAQSection = () => {
           ))}
         </div>
       </div>
+
+      <ConvinceYourBossModal
+        open={bossModalOpen}
+        onClose={() => setBossModalOpen(false)}
+      />
     </section>
   );
 };
