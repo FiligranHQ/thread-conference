@@ -45,7 +45,6 @@ export const Modal = ({ open, onClose, children, className }: ModalProps) => {
       <div
         className="absolute inset-0 bg-background/80 backdrop-blur-md"
         aria-hidden="true"
-        onClick={onClose}
       />
 
       {/* Panel */}
