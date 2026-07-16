@@ -14,7 +14,7 @@ export const SponsorsSection = () => {
   });
 
   return (
-    <section className="border-t border-border/50 py-16 lg:py-24" id="sponsors">
+    <section className="border-t border-white/10 py-16 lg:py-24" id="sponsors">
       <div className="container">
         <SectionHeading
           kicker={sponsors.kicker}

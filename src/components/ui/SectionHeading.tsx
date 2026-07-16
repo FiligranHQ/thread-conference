@@ -8,13 +8,19 @@ interface SectionHeadingProps {
   align?: "left" | "center";
 }
 
-export const SectionHeading = ({ kicker, title, description, align = "left" }: SectionHeadingProps) => (
+export const SectionHeading = ({
+  kicker,
+  title,
+  description,
+  align = "left",
+}: SectionHeadingProps) => (
   <div className={cn(align === "center" && "text-center")}>
     <Reveal>
-      <p className="mb-4 font-mono text-xs uppercase tracking-[0.35em] text-cyan">{kicker}</p>
+      {/* Eyebrow: IBM Plex Mono, uppercase, faint, with cyan rule */}
+      <p className="eyebrow mb-4">{kicker}</p>
     </Reveal>
     <Reveal delay={80}>
-      <h2 className="mb-4 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-[2.9rem]">
+      <h2 className="mb-4 font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-[2.75rem]">
         {title}
       </h2>
     </Reveal>
@@ -22,7 +28,7 @@ export const SectionHeading = ({ kicker, title, description, align = "left" }: S
       <Reveal delay={160}>
         <p
           className={cn(
-            "mb-10 max-w-2xl text-[1.05rem] leading-relaxed text-foreground/70",
+            "mb-10 max-w-2xl font-sans text-[1.05rem] leading-relaxed text-white/65",
             align === "center" && "mx-auto",
           )}
         >
