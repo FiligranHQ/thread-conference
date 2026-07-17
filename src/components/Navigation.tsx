@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { event } from "@/content/site";
-import threadLogo from "@/assets/thread-logo.svg";
+import threadLogo from "@/assets/Logo_THREAD_white_nowbl.svg";
 import { ButtonLink } from "@/components/ui/Button";
 import { useHeroScrollProgress } from "@/hooks/useHeroScrollProgress";
 
