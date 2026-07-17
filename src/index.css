@@ -384,6 +384,20 @@
   margin-top: 0.75rem !important;
 }
 
+/* Breathing room between the "I agree to receive communications…" checkbox
+   row and the "You can withdraw consent…" text directly below it — this is
+   a second .hs-richtext block inside .legal-consent-container (the third
+   child overall: paragraph, checkbox row, then this text). Without it the
+   text sits glued to the checkbox above while every other gap in this block
+   has spacing. Scoped with :last-child as a fallback in case the container
+   doesn't always render exactly three children. */
+.hbspt-form .legal-consent-container > div:nth-child(3),
+#hs-form-target .legal-consent-container > div:nth-child(3),
+.hbspt-form .legal-consent-container > div:last-child,
+#hs-form-target .legal-consent-container > div:last-child {
+  margin-top: 0.875rem !important;
+}
+
 .hbspt-form .legal-consent-container a,
 .hbspt-form .hs-richtext a,
 #hs-form-target .legal-consent-container a,
