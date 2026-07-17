@@ -3,6 +3,36 @@ import { Check, Copy, Mail, MessageSquare } from "lucide-react";
 import { Modal } from "@/components/ui/Modal";
 import { Button } from "@/components/ui/Button";
 
+/** Renders a plain-text string with **bold** markers as <strong> elements. */
+function BoldText({ text }: { text: string }) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        part.startsWith("**") && part.endsWith("**") ? (
+          <strong key={i}>{part.slice(2, -2)}</strong>
+        ) : (
+          part
+        ),
+      )}
+    </>
+  );
+}
+
+/** Renders multi-line text with **bold** markers, preserving newlines. */
+function FormattedText({ text }: { text: string }) {
+  return (
+    <>
+      {text.split("\n").map((line, i, arr) => (
+        <span key={i}>
+          <BoldText text={line} />
+          {i < arr.length - 1 && "\n"}
+        </span>
+      ))}
+    </>
+  );
+}
+
 const EMAIL_SUBJECT = "Requesting approval to attend THREAD, Paris, October 15";
 
 const EMAIL_BODY = `Hi [Manager Name],
@@ -101,7 +131,7 @@ export const ConvinceYourBossModal = ({
               {EMAIL_SUBJECT}
             </p>
             <pre className="whitespace-pre-wrap font-sans text-[0.85rem] leading-relaxed text-white/80">
-              {EMAIL_BODY}
+              <FormattedText text={EMAIL_BODY} />
             </pre>
           </div>
           <Button
@@ -130,7 +160,7 @@ export const ConvinceYourBossModal = ({
         <div>
           <div className="mb-3 rounded-xl border border-white/10 bg-background/50 p-4">
             <pre className="whitespace-pre-wrap font-sans text-[0.85rem] leading-relaxed text-white/80">
-              {SLACK_MESSAGE}
+              <FormattedText text={SLACK_MESSAGE} />
             </pre>
           </div>
           <Button

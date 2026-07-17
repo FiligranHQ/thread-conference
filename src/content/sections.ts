@@ -208,32 +208,6 @@ export const faq = {
       ],
     },
     {
-      name: "Logistics",
-      items: [
-        {
-          q: "When and where does THREAD take place?",
-          a: "Thursday, October 15, 2026, at Les Jardins Saint Dominique, Paris (7th arrondissement). One full day, in person.",
-        },
-        {
-          q: "Will there be a broadcast of the event?",
-          a: "No, the event will not be live-streamed. However, the sessions will be recorded and made available afterward for those who are unable to attend in person.",
-        },
-        {
-          q: "How much does it cost to attend?",
-          a: "Attendance is completely free of charge.",
-        },
-        {
-          q: "Are my travel expenses (hotel and transport) covered by Filigran?",
-          a: "No, travel expenses are entirely at your own charge.",
-        },
-        {
-          q: "How can I convince my boss to attend?",
-          a: "Need to convince your boss? We've got you covered.",
-          cta: { type: "convince-boss", label: "Get the Convince Your Manager Letter" },
-        },
-      ],
-    },
-    {
       name: "Registration",
       items: [
         {
@@ -245,9 +219,35 @@ export const faq = {
           a: "It's curated and selective by design, not an open trade show. Registrations are individual and non-transferable.",
         },
         {
+          q: "How much does it cost to attend?",
+          a: "Attendance is completely free of charge.",
+        },
+        {
+          q: "How can I convince my boss to attend?",
+          a: "Need to convince your boss? We've got you covered.",
+          cta: { type: "convince-boss", label: "Get the Convince Your Manager Letter" },
+        },
+        {
           q: "Why should I attend?",
           a: "Honestly, why wouldn't you? One day, zero sales pitches, a room built entirely around people who actually do the work: hands-on labs, real threat simulations, and the kind of peer conversations that don't happen at a typical vendor event.",
           cta: { type: "convince-boss", label: "Need to convince your boss? We've got you covered." },
+        },
+      ],
+    },
+    {
+      name: "Logistics",
+      items: [
+        {
+          q: "When and where does THREAD take place?",
+          a: "Thursday, October 15, 2026, at Les Jardins Saint Dominique, Paris (7th arrondissement). One full day, in person.",
+        },
+        {
+          q: "Will there be a broadcast of the event?",
+          a: "No, the event will not be live-streamed. However, the sessions will be recorded and made available afterward for those who are unable to attend in person.",
+        },
+        {
+          q: "Are my travel expenses (hotel and transport) covered by Filigran?",
+          a: "No, travel expenses are entirely at your own charge.",
         },
       ],
     },
