@@ -140,12 +140,7 @@ export const agendaTracks: AgendaTrack[] = [
         locations: ["signal"],
       },
       {
-        time: "17:15",
-        title: "Closing session",
-        locations: ["signal"],
-      },
-      {
-        time: "18:00",
+        time: "17:00",
         title: "Garden cocktail & community aperitif",
         locations: ["garden"],
         evening: true,
@@ -187,12 +182,7 @@ export const agendaTracks: AgendaTrack[] = [
         locations: ["community"],
       },
       {
-        time: "17:15",
-        title: "Closing session + community recognition",
-        locations: ["signal"],
-      },
-      {
-        time: "18:00",
+        time: "17:00",
         title: "Garden cocktail & community aperitif",
         locations: ["garden"],
         evening: true,
