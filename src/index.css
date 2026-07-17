@@ -236,18 +236,50 @@
    laying that row out as flex with a gap keeps the input and label aligned
    with consistent spacing regardless of label length/wrapping. Also scoped
    via #hs-form-target as a fallback in case the .hbspt-form wrapper class
-   isn't present on the injected markup. */
+   isn't present on the injected markup.
+
+   The legal-consent checkbox sits one DOM level deeper than the community
+   checkbox (nested inside .legal-consent-container > div > .hs-dependent-field)
+   and was inheriting extra padding/margin from that wrapper plus its own
+   nested <span>/<p> text node, which produced a much wider, inconsistent
+   gap than the community checkbox. The rules below explicitly repeat the
+   flex/gap declaration scoped under .legal-consent-container so it always
+   wins the cascade over the more specific nested selector, and reset the
+   margin/padding on every element that can sit between the checkbox and its
+   label text (wrapper divs, span, p) so both checkboxes render with the
+   identical 0.625rem gap. */
 .hbspt-form .hs-form-booleancheckbox-display,
-#hs-form-target .hs-form-booleancheckbox-display {
+#hs-form-target .hs-form-booleancheckbox-display,
+.hbspt-form .legal-consent-container .hs-form-booleancheckbox-display,
+#hs-form-target .legal-consent-container .hs-form-booleancheckbox-display {
   display: flex !important;
   align-items: flex-start !important;
   gap: 0.625rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .hbspt-form .hs-form-booleancheckbox-display input[type="checkbox"],
-#hs-form-target .hs-form-booleancheckbox-display input[type="checkbox"] {
+#hs-form-target .hs-form-booleancheckbox-display input[type="checkbox"],
+.hbspt-form .legal-consent-container .hs-form-booleancheckbox-display input[type="checkbox"],
+#hs-form-target .legal-consent-container .hs-form-booleancheckbox-display input[type="checkbox"] {
   flex-shrink: 0 !important;
   margin: 0.2rem 0 0 0 !important;
+  padding: 0 !important;
+}
+
+/* Reset any inherited margin/padding on the wrapper(s) and text node between
+   the checkbox and its label inside .legal-consent-container specifically —
+   this is the nesting that was drifting out of alignment with the community
+   checkbox's gap. */
+.hbspt-form .legal-consent-container .hs-dependent-field,
+#hs-form-target .legal-consent-container .hs-dependent-field,
+.hbspt-form .legal-consent-container .hs-form-booleancheckbox-display span,
+.hbspt-form .legal-consent-container .hs-form-booleancheckbox-display p,
+#hs-form-target .legal-consent-container .hs-form-booleancheckbox-display span,
+#hs-form-target .legal-consent-container .hs-form-booleancheckbox-display p {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Fallback for any checkbox not wrapped in .hs-form-booleancheckbox-display */
