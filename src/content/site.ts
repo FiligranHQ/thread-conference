@@ -86,8 +86,8 @@ export const venue = {
   description:
     "In the heart of the 7th arrondissement, minutes from Les Invalides — an auditorium, breakout salons, an exhibition floor and a garden for the evening aperitif.",
   address: "49-51 rue Saint-Dominique, 75007 Paris",
-  dateAndHours: "Thursday, October 15, 2026 — 08:30 to 19:00",
-  capacity: "Open to the community — registration opening soon",
+  dateAndHours: "Thursday, October 15, 2026 — 9:00am to 6:00pm",
+  capacity: "Open to the community — registration now open",
   gardenNote: "Private garden for the evening cocktail",
   landmarks: "Les Invalides · Musée d'Orsay · Assemblée Nationale",
   transit: "Métro 8 · 12 · 13 / RER C — Invalides",
