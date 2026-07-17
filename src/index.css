@@ -229,12 +229,30 @@
   accent-color: hsl(186 100% 47%) !important;
 }
 
-/* Gap between the standalone "Are you a member of our Community?" checkbox
-   and its label text. Excludes checkboxes inside .legal-consent-container
-   (e.g. the "I agree to receive communications…" checkbox), which already
-   has correct spacing from HubSpot's own markup. */
-.hbspt-form input[type="checkbox"]:not(.legal-consent-container input[type="checkbox"]) {
-  margin-right: 0.5rem !important;
+/* Gap between the tick box and its label text — applies to BOTH checkboxes:
+   the standalone "Are you a member of our Community?" field and the
+   "I agree to receive communications…" field inside .legal-consent-container.
+   HubSpot wraps each checkbox + label in .hs-form-booleancheckbox-display;
+   laying that row out as flex with a gap keeps the input and label aligned
+   with consistent spacing regardless of label length/wrapping. Also scoped
+   via #hs-form-target as a fallback in case the .hbspt-form wrapper class
+   isn't present on the injected markup. */
+.hbspt-form .hs-form-booleancheckbox-display,
+#hs-form-target .hs-form-booleancheckbox-display {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.625rem !important;
+}
+
+.hbspt-form .hs-form-booleancheckbox-display input[type="checkbox"],
+#hs-form-target .hs-form-booleancheckbox-display input[type="checkbox"] {
+  flex-shrink: 0 !important;
+  margin: 0.2rem 0 0 0 !important;
+}
+
+/* Fallback for any checkbox not wrapped in .hs-form-booleancheckbox-display */
+.hbspt-form input[type="checkbox"] {
+  margin-right: 0.625rem !important;
 }
 
 /* Submit button */
@@ -323,7 +341,15 @@
 #hs-form-target .hs-richtext p {
   color: hsl(0 0% 100% / 0.7) !important;
   font-size: 0.75rem !important;
-  line-height: 1.5 !important;
+  line-height: 1.6 !important;
+}
+
+/* Small breathing room between the legal paragraph and the "I agree to
+   receive communications…" checkbox row directly below it — the tighter
+   checkbox spacing above makes this area feel dense without it. */
+.hbspt-form .legal-consent-container > div:nth-child(2),
+#hs-form-target .legal-consent-container > div:nth-child(2) {
+  margin-top: 0.75rem !important;
 }
 
 .hbspt-form .legal-consent-container a,
