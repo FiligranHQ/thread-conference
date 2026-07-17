@@ -295,23 +295,41 @@
   margin-bottom: 0 !important;
 }
 
+/* GDPR consent / legal text block — spacing above it, separating it from the
+   preceding "Are you a member of our Community?" checkbox field. Also scoped
+   via #hs-form-target as a fallback in case HubSpot's embed doesn't render
+   the .hbspt-form wrapper class on the injected markup. */
+.hbspt-form .legal-consent-container,
+#hs-form-target .legal-consent-container {
+  margin-top: 1.25rem !important;
+}
+
 /* GDPR consent / legal text — fine print. Targets the container and its
    nested text elements (HubSpot sometimes wraps the copy in child <p>/<div>/
    <span> tags whose own font-size would otherwise win over an ancestor rule
-   that only sets font-size on the container). */
+   that only sets font-size on the container). Also scoped via #hs-form-target
+   as a fallback in case the .hbspt-form wrapper class isn't present. */
 .hbspt-form .legal-consent-container,
 .hbspt-form .legal-consent-container p,
 .hbspt-form .legal-consent-container div,
 .hbspt-form .legal-consent-container span,
 .hbspt-form .hs-richtext,
-.hbspt-form .hs-richtext p {
+.hbspt-form .hs-richtext p,
+#hs-form-target .legal-consent-container,
+#hs-form-target .legal-consent-container p,
+#hs-form-target .legal-consent-container div,
+#hs-form-target .legal-consent-container span,
+#hs-form-target .hs-richtext,
+#hs-form-target .hs-richtext p {
   color: hsl(0 0% 100% / 0.7) !important;
   font-size: 0.75rem !important;
   line-height: 1.5 !important;
 }
 
 .hbspt-form .legal-consent-container a,
-.hbspt-form .hs-richtext a {
+.hbspt-form .hs-richtext a,
+#hs-form-target .legal-consent-container a,
+#hs-form-target .hs-richtext a {
   color: hsl(186 100% 47%) !important;
   text-decoration: underline !important;
 }
