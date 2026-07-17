@@ -147,7 +147,7 @@ export const communityExperiences = [
   },
   {
     name: "Debug Live",
-    description: "Watch real issues get fixed, live. Bring your own edge cases.",
+    description: "Watch real issues get fixed, live.",
   },
   {
     name: "Contribution Wall",
@@ -163,11 +163,11 @@ export const communityExperiences = [
   },
   {
     name: "The OpenBAR",
-    description: "Theme cocktails named after the conference names that did not make it.",
+    description: "Wine and champagne to toast the community, no theme required.",
   },
   {
     name: "FiligraM photo zone",
-    description: "A long-lasting memento. Yes, there will be a photobooth.",
+    description: "A long-lasting memento. Yes, there might be a photobooth.",
   },
   {
     name: "Swag & collectibles",
