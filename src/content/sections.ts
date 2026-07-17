@@ -230,7 +230,6 @@ export const faq = {
         {
           q: "Why should I attend?",
           a: "Honestly, why wouldn't you? One day, zero sales pitches, a room built entirely around people who actually do the work: hands-on labs, real threat simulations, and the kind of peer conversations that don't happen at a typical vendor event.",
-          cta: { type: "convince-boss", label: "Need to convince your boss? We've got you covered." },
         },
       ],
     },
