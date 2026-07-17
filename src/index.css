@@ -229,6 +229,14 @@
   accent-color: hsl(186 100% 47%) !important;
 }
 
+/* Gap between the standalone "Are you a member of our Community?" checkbox
+   and its label text. Excludes checkboxes inside .legal-consent-container
+   (e.g. the "I agree to receive communications…" checkbox), which already
+   has correct spacing from HubSpot's own markup. */
+.hbspt-form input[type="checkbox"]:not(.legal-consent-container input[type="checkbox"]) {
+  margin-right: 0.5rem !important;
+}
+
 /* Submit button */
 .hbspt-form .hs-submit {
   margin-top: 1.5rem !important;
@@ -287,9 +295,16 @@
   margin-bottom: 0 !important;
 }
 
-/* GDPR consent / legal text */
+/* GDPR consent / legal text — fine print. Targets the container and its
+   nested text elements (HubSpot sometimes wraps the copy in child <p>/<div>/
+   <span> tags whose own font-size would otherwise win over an ancestor rule
+   that only sets font-size on the container). */
 .hbspt-form .legal-consent-container,
-.hbspt-form .hs-richtext {
+.hbspt-form .legal-consent-container p,
+.hbspt-form .legal-consent-container div,
+.hbspt-form .legal-consent-container span,
+.hbspt-form .hs-richtext,
+.hbspt-form .hs-richtext p {
   color: hsl(0 0% 100% / 0.7) !important;
   font-size: 0.75rem !important;
   line-height: 1.5 !important;
