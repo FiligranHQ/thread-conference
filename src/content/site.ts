@@ -84,7 +84,7 @@ export const venue = {
   kicker: "The venue",
   title: "Les Jardins de Saint-Dominique",
   description:
-    "In the heart of the 7th arrondissement, minutes from Les Invalides — an auditorium, breakout salons, an exhibition floor and a garden for the evening aperitif.",
+    "In the heart of the 7th arrondissement, 5 minutes from Les Invalides — an auditorium, breakout salons, an exhibition floor and a garden for the evening aperitif.",
   address: "49-51 rue Saint-Dominique, 75007 Paris",
   dateAndHours: "Thursday, October 15, 2026 — 9:00am to 6:00pm",
   capacity: "Open to the community — registration now open",
