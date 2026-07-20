@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { formatAgendaTime } from "@/lib/time";
+import { formatAgendaStartTime } from "@/lib/time";
 import { agendaIntro, agendaTracks, roomLabels, type RoomId, type Session } from "@/content/agenda";
 import { communityExperiences } from "@/content/sections";
 import { Reveal } from "@/components/ui/Reveal";
@@ -85,11 +85,11 @@ const SessionItem = ({
     <Reveal
       as="li"
       delay={index * 60}
-      className="relative grid gap-1.5 py-4 pl-12 sm:grid-cols-[88px_1fr] sm:gap-10 sm:pl-0"
+      className="relative grid gap-1.5 py-4 pl-12 sm:grid-cols-[76px_1fr] sm:gap-10 sm:pl-0"
     >
-      {/* Timeline dot */}
+      {/* Timeline dot: positioned relative to the vertical rail, independent of the time label's length */}
       <span
-        className="absolute left-[15px] top-7 z-[1] h-2.5 w-2.5 rounded-full border-2 bg-background sm:left-[103px]"
+        className="absolute left-[15px] top-7 z-[1] h-2.5 w-2.5 rounded-full border-2 bg-background sm:left-[91px]"
         style={{ borderColor: dotBorder }}
         aria-hidden="true"
       />
@@ -97,7 +97,7 @@ const SessionItem = ({
         className="mb-0.5 whitespace-nowrap font-mono text-[0.95rem] sm:mb-0 sm:pt-1 sm:text-right"
         style={{ color: timeColor }}
       >
-        {formatAgendaTime(session.time)}
+        {formatAgendaStartTime(session.time)}
       </span>
       <div>
         <h4

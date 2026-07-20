@@ -26,8 +26,9 @@ export type RoomId = "signal" | "community" | "strategy" | "lab" | "forum" | "ga
 
 export interface Session {
   /**
-   * Time range (example: "9:30 AM–9:45 AM"). Formatted for display via
-   * `formatAgendaTime` (drops duplicate meridiem, adds non-breaking spaces).
+   * Time range (example: "9:30 AM–9:45 AM"). Only the start time is
+   * rendered in the timeline via `formatAgendaStartTime` (adds a
+   * non-breaking space before the meridiem).
    */
   time: string;
   /** Session title. */
