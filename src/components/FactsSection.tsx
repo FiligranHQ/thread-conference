@@ -11,10 +11,10 @@ const icons = {
 
 /** Icon accent colors per glance card (cool set only, per v2 rules). */
 const iconColors = [
-  "hsl(var(--cyan))",
-  "hsl(var(--blue))",
-  "hsl(var(--lime))",
-  "hsl(var(--cyan))",
+  "var(--cyan)",
+  "var(--blue)",
+  "var(--lime)",
+  "var(--cyan)",
 ] as const;
 
 export const FactsSection = () => (
@@ -30,8 +30,8 @@ export const FactsSection = () => (
                 <span
                   className="mb-5 flex h-12 w-12 items-center justify-center rounded-[14px]"
                   style={{
-                    background: `${iconColor.replace("hsl", "hsla").replace(")", ", 0.1)")}`,
-                    color: iconColor,
+                    background: `hsl(${iconColor} / 0.1)`,
+                    color: `hsl(${iconColor})`,
                   }}
                 >
                   <Icon className="h-6 w-6" />
