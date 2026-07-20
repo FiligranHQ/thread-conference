@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { RegisterModalProvider } from "@/context/RegisterModalContext";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 // import { Marquee } from "@/components/Marquee";
@@ -35,10 +36,12 @@ const HomePage = () => (
 );
 
 const App = () => (
-  <Routes>
-    <Route path="/" element={<HomePage />} />
-    <Route path="/faq" element={<FAQPage />} />
-  </Routes>
+  <RegisterModalProvider>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/faq" element={<FAQPage />} />
+    </Routes>
+  </RegisterModalProvider>
 );
 
 export default App;
