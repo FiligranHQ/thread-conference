@@ -6,7 +6,6 @@ import { Hero } from "@/components/Hero";
 import { WhySection } from "@/components/WhySection";
 import { FactsSection } from "@/components/FactsSection";
 import { AudiencesSection } from "@/components/AudiencesSection";
-import { ZonesSection } from "@/components/ZonesSection";
 import { AgendaSection } from "@/components/AgendaSection";
 import { SpeakersSection } from "@/components/SpeakersSection";
 import { VenueSection } from "@/components/VenueSection";
@@ -24,7 +23,6 @@ const HomePage = () => (
       <WhySection />
       <FactsSection />
       <AudiencesSection />
-      <ZonesSection />
       <AgendaSection />
       <SpeakersSection />
       <VenueSection />

@@ -28,7 +28,6 @@ const FooterColumn = ({
 
 const threadLinks = [
   { label: "Why THREAD", url: "/#why" },
-  { label: "Experience", url: "/#experience" },
   { label: "Agenda", url: "/#agenda" },
   { label: "Venue", url: "/#venue" },
   { label: "FAQ", url: "/faq" },
