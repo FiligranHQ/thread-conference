@@ -34,7 +34,7 @@ const pillStyles: Record<
     dot: "hsl(var(--lime))",
     timeColor: "hsl(var(--lime))",
   },
-  simulation: {
+  forum: {
     border: "rgba(240,72,156,0.4)",
     color: "#ffb2da",
     dot: "hsl(var(--magenta))",
