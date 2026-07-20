@@ -1,14 +1,12 @@
-import { useState } from "react";
 import { register } from "@/content/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { HubSpotForm } from "@/components/HubSpotForm";
-import { Modal } from "@/components/ui/Modal";
 import { Button } from "@/components/ui/Button";
 import { MosaicCanvas } from "@/components/MosaicCanvas";
+import { useRegisterModal } from "@/context/RegisterModalContext";
 
 export const RegisterSection = () => {
-  const [formOpen, setFormOpen] = useState(false);
+  const { openRegisterModal } = useRegisterModal();
 
   return (
     <section
@@ -40,7 +38,7 @@ export const RegisterSection = () => {
             <Button
               variant="gradient"
               size="lg"
-              onClick={() => setFormOpen(true)}
+              onClick={openRegisterModal}
             >
               {register.primaryButton}
             </Button>
@@ -48,18 +46,6 @@ export const RegisterSection = () => {
           <p className="mt-3 font-sans text-sm text-white/45">{register.note}</p>
         </Reveal>
       </div>
-
-      <Modal open={formOpen} onClose={() => setFormOpen(false)}>
-        <div className="mb-6">
-          <p className="mb-1 font-mono text-xs uppercase tracking-[0.3em] text-cyan">
-            {register.kicker}
-          </p>
-          <h2 className="font-display text-xl font-bold leading-snug md:text-2xl">
-            {register.title}
-          </h2>
-        </div>
-        <HubSpotForm />
-      </Modal>
     </section>
   );
 };

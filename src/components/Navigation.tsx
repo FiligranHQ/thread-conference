@@ -3,8 +3,9 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { event } from "@/content/site";
 import threadLogo from "@/assets/Logo_THREAD_white_nowbl.svg";
-import { ButtonLink } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import { useHeroScrollProgress } from "@/hooks/useHeroScrollProgress";
+import { useRegisterModal } from "@/context/RegisterModalContext";
 
 const navLinks = [
   { label: "Why THREAD", href: "/#why" },
@@ -18,6 +19,7 @@ const navLinks = [
 export const Navigation = () => {
   const [open, setOpen] = useState(false);
   const heroProgress = useHeroScrollProgress("why");
+  const { openRegisterModal } = useRegisterModal();
 
   return (
     <header
@@ -60,9 +62,9 @@ export const Navigation = () => {
         </nav>
 
         <div className="hidden md:block">
-          <ButtonLink href="/#register" variant="outline" size="sm">
+          <Button variant="outline" size="sm" onClick={openRegisterModal}>
             Request your seat
-          </ButtonLink>
+          </Button>
         </div>
 
         <button
@@ -91,13 +93,15 @@ export const Navigation = () => {
               {link.label}
             </a>
           ))}
-          <ButtonLink
-            href="/#register"
+          <Button
             variant="gradient"
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              setOpen(false);
+              openRegisterModal();
+            }}
           >
             Request your seat
-          </ButtonLink>
+          </Button>
         </div>
       ) : null}
     </header>

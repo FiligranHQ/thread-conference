@@ -3,8 +3,9 @@ import threadLogo from "@/assets/thread-logo.svg";
 import { event } from "@/content/site";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useHeroScrollProgress } from "@/hooks/useHeroScrollProgress";
-import { ButtonLink } from "@/components/ui/Button";
+import { Button, ButtonLink } from "@/components/ui/Button";
 import { MosaicCanvas } from "@/components/MosaicCanvas";
+import { useRegisterModal } from "@/context/RegisterModalContext";
 
 const CountdownUnit = ({ value, label }: { value: string; label: string }) => (
   <div className="flex min-w-[44px] flex-col items-center sm:min-w-[58px]">
@@ -24,6 +25,7 @@ const CountdownSeparator = () => (
 export const Hero = () => {
   const countdown = useCountdown(event.countdownTo);
   const heroProgress = useHeroScrollProgress("why");
+  const { openRegisterModal } = useRegisterModal();
   // density and cluster are fixed — they must not change on scroll, otherwise
   // MosaicCanvas would rebuild the entire grid on every scroll pixel.
   // Only opacity (compositor-only) and the vignette gradient vary with scroll.
@@ -91,9 +93,9 @@ export const Hero = () => {
 
         {/* CTA buttons */}
         <div className="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-in-slow">
-          <ButtonLink href="#register" variant="gradient" size="lg">
+          <Button variant="gradient" size="lg" onClick={openRegisterModal}>
             Request your seat →
-          </ButtonLink>
+          </Button>
           <ButtonLink href="#agenda" variant="outline" size="lg">
             Explore the day
           </ButtonLink>

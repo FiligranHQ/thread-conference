@@ -152,7 +152,7 @@ export const agendaTracks: AgendaTrack[] = [
     label: "Practitioner track",
     sessions: [
       {
-        time: "13:30",
+        time: "13:15 – 14:15",
         title: "Intelligence Lab: From intel to action workflows",
         description: "Filigran-led, with real customer workflows.",
         locations: ["lab"],
@@ -164,10 +164,10 @@ export const agendaTracks: AgendaTrack[] = [
         locations: ["simulation"],
       },
       {
-        time: "14:30",
+        time: "14:15 – 15:00",
         title: "Community-led session block",
         description: "Workshops, demos and case studies proposed by the community.",
-        locations: ["lab", "simulation"],
+        locations: ["lab"],
       },
       {
         time: "15:45",
