@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { formatAgendaTime } from "@/lib/time";
 import { agendaIntro, agendaTracks, roomLabels, type RoomId, type Session } from "@/content/agenda";
 import { communityExperiences } from "@/content/sections";
 import { Reveal } from "@/components/ui/Reveal";
@@ -84,19 +85,19 @@ const SessionItem = ({
     <Reveal
       as="li"
       delay={index * 60}
-      className="relative grid gap-1.5 py-4 pl-12 sm:grid-cols-[72px_1fr] sm:gap-10 sm:pl-0"
+      className="relative grid gap-1.5 py-4 pl-12 sm:grid-cols-[88px_1fr] sm:gap-10 sm:pl-0"
     >
       {/* Timeline dot */}
       <span
-        className="absolute left-[15px] top-7 z-[1] h-2.5 w-2.5 rounded-full border-2 bg-background sm:left-[87px]"
+        className="absolute left-[15px] top-7 z-[1] h-2.5 w-2.5 rounded-full border-2 bg-background sm:left-[103px]"
         style={{ borderColor: dotBorder }}
         aria-hidden="true"
       />
       <span
-        className="pt-1 font-mono text-[0.95rem] sm:text-right"
+        className="mb-0.5 whitespace-nowrap font-mono text-[0.95rem] sm:mb-0 sm:pt-1 sm:text-right"
         style={{ color: timeColor }}
       >
-        {session.time}
+        {formatAgendaTime(session.time)}
       </span>
       <div>
         <h4
@@ -164,7 +165,7 @@ export const AgendaSection = () => {
           <ol className="relative">
             {/* Vertical timeline line */}
             <span
-              className="absolute bottom-2 left-[19px] top-2 w-px sm:left-[91px]"
+              className="absolute bottom-2 left-[19px] top-2 w-px sm:left-[107px]"
               style={{
                 background:
                   "linear-gradient(to bottom, hsl(var(--cyan)/0.6), hsl(var(--blue)/0.3), hsl(var(--cyan)/0.08))",
