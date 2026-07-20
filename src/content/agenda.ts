@@ -25,7 +25,10 @@
 export type RoomId = "signal" | "community" | "strategy" | "lab" | "forum" | "garden";
 
 export interface Session {
-  /** Time range, displayed as-is (example: "9:30 AM–9:45 AM"). */
+  /**
+   * Time range (example: "9:30 AM–9:45 AM"). Formatted for display via
+   * `formatAgendaTime` (drops duplicate meridiem, adds non-breaking spaces).
+   */
   time: string;
   /** Session title. */
   title: string;
