@@ -87,10 +87,12 @@ const SessionItem = ({
       delay={index * 60}
       className="relative grid gap-1.5 py-4 pl-12 sm:grid-cols-[76px_1fr] sm:gap-10 sm:pl-0"
     >
-      {/* Timeline dot: centered on the vertical rail line (rail is at left-[19px]/sm:left-[107px]),
-          offset by half the dot's rendered width (10px box + 2x2px border = 14px, so -7px) */}
+      {/* Timeline dot: centered on the vertical rail line (rail is at left-[19px]/sm:left-[107px]).
+          Positioned at the rail's exact left offset, then shifted left by half its own
+          width via -translate-x-1/2 so it stays perfectly centered regardless of the
+          dot's box size or border width (avoids brittle hand-calculated pixel offsets). */}
       <span
-        className="absolute left-3 top-7 z-[1] h-2.5 w-2.5 rounded-full border-2 bg-background sm:left-[100px]"
+        className="absolute left-[19px] top-7 z-[1] h-2.5 w-2.5 -translate-x-1/2 rounded-full border-2 bg-background sm:left-[107px]"
         style={{ borderColor: dotBorder }}
         aria-hidden="true"
       />
