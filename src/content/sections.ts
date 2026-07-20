@@ -5,7 +5,6 @@
  * All the editorial text of the page sections lives here:
  *   - "Why THREAD"  (the story)
  *   - Audiences     (executives / practitioners)
- *   - Zones         (the five experience zones)
  *   - Speakers      (placeholder cards until the line-up is announced)
  *
  * Edit the text between quotes ("...") — no code knowledge required.
@@ -54,69 +53,6 @@ export const audiences = {
         "A community-first gathering: CTI analysts, SOC teams, red/blue/purple teamers, GRC practitioners, open-source contributors — all in the same room. This is your event.",
         "Expect hands-on labs, Filigran certification sessions, adversarial simulations, CTF challenges, and the kind of frank, unfiltered conversations that only happen when the right people are in the same room.",
       ],
-    },
-  ],
-} as const;
-
-/** ---------------------------------------------------------------- ZONES */
-
-export const zones = {
-  kicker: "The experience",
-  title: "One venue, six spaces.",
-  description:
-    "A main stage, an expo floor and three breakout rooms, each with its own purpose, from keynotes to hands-on labs to roundtables. Plus the garden for the evening.",
-  /**
-   * The `color` controls the top border of each card.
-   * V2 values: "blue" | "cyan" | "purple" | "lime" | "magenta" | "gradient"
-   */
-  cards: [
-    {
-      id: "01",
-      name: "Signal Room",
-      kind: "Main stage · Auditorium",
-      description:
-        "Vision, keynotes and thought leadership. Community and customer stories, major announcements: the moments everyone shares.",
-      color: "blue" as const,
-    },
-    {
-      id: "02",
-      name: "Community Zone",
-      kind: "Expo floor · All day",
-      description:
-        "The heart of THREAD. Talk-to-the-Dev, Ask-Me-Anything corner, Debug Live, contribution wall, roadmap booth, the OpenBAR and the interactive circuit.",
-      color: "cyan" as const,
-    },
-    {
-      id: "03",
-      name: "Strategy Room",
-      kind: "Breakout · Executive",
-      description:
-        "Roundtables and industry exchanges for security leaders. Honest discussions between people facing the same challenges.",
-      color: "purple" as const,
-    },
-    {
-      id: "04",
-      name: "Intelligence Lab",
-      kind: "Breakout · Hands-on",
-      description:
-        "From intel to action: hands-on labs, use-case workshops, Filigran Academy sessions and certification.",
-      color: "lime" as const,
-    },
-    {
-      id: "05",
-      name: "Simulation Zone",
-      kind: "Breakout · Scenarios",
-      description:
-        "Command-center energy: scenario-based exercises, adversarial validation workshops and CTF sessions.",
-      color: "magenta" as const,
-    },
-    {
-      id: "+",
-      name: "The Garden",
-      kind: "Private garden · Evening",
-      description:
-        "The evening aperitif in the private garden. Cocktails at the OpenBAR and time with the community to close the day.",
-      color: "gradient" as const,
     },
   ],
 } as const;

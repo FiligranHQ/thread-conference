@@ -9,7 +9,6 @@ import { useRegisterModal } from "@/context/RegisterModalContext";
 
 const navLinks = [
   { label: "Why THREAD", href: "/#why" },
-  { label: "Experience", href: "/#experience" },
   { label: "Agenda", href: "/#agenda" },
   { label: "Speakers", href: "/#speakers" },
   { label: "Venue", href: "/#venue" },
