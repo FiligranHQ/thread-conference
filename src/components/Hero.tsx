@@ -81,13 +81,7 @@ export const Hero = () => {
         {/* Pitch */}
         <p className="mx-auto mb-10 max-w-3xl font-sans text-lg leading-relaxed text-white/82 md:text-xl animate-fade-in-slow">
           The annual gathering of the global threat intelligence and cyber defense
-          community — where{" "}
-          <span className="text-gradient-cool font-semibold">intelligence</span>,{" "}
-          <span className="text-gradient-cool font-semibold">
-            exposure management
-          </span>{" "}
-          and{" "}
-          <span className="text-gradient-cool font-semibold">action</span> come
+          community — where intelligence, exposure management and action come
           together.
         </p>
 
