@@ -1,5 +1,5 @@
 import { Calendar, Flower2, MapPin, Users } from "lucide-react";
-import { venue } from "@/content/site";
+import { venue, venueUberUrl } from "@/content/site";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -36,14 +36,27 @@ export const VenueSection = () => {
               </ul>
             </Reveal>
             <Reveal delay={280}>
-              <ButtonLink
-                href={venue.mapsUrl}
-                variant="outline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open in Maps
-              </ButtonLink>
+              <div className="flex flex-wrap gap-3">
+                <ButtonLink
+                  href={venue.mapsUrl}
+                  variant="outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open in Maps
+                </ButtonLink>
+                <ButtonLink href="/hotels" variant="cyan">
+                  Nearby hotels
+                </ButtonLink>
+                <ButtonLink
+                  href={venueUberUrl}
+                  variant="ghost"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get a ride (Uber)
+                </ButtonLink>
+              </div>
             </Reveal>
           </div>
 
