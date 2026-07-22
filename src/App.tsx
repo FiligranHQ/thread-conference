@@ -13,6 +13,7 @@ import { RegisterSection } from "@/components/RegisterSection";
 import { Footer } from "@/components/Footer";
 import { FAQPill } from "@/components/FAQPill";
 import FAQPage from "@/pages/FAQPage";
+import HotelsPage from "@/pages/HotelsPage";
 
 const HomePage = () => (
   <>
@@ -38,6 +39,7 @@ const App = () => (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/faq" element={<FAQPage />} />
+      <Route path="/hotels" element={<HotelsPage />} />
     </Routes>
   </RegisterModalProvider>
 );

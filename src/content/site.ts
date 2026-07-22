@@ -95,6 +95,52 @@ export const venue = {
     "https://maps.google.com/?q=Les+Jardins+de+Saint-Dominique,+49+Rue+Saint-Dominique,+75007+Paris",
 } as const;
 
+/**
+ * Uber deep link that pre-fills the venue address as the drop-off point.
+ * Falls back gracefully to the Uber homepage if the app isn't installed.
+ */
+export const venueUberUrl = `https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=${encodeURIComponent(
+  `${venue.title}, ${venue.address}`,
+)}`;
+
+/** Suggested hotels near the venue, for the dedicated "Nearby hotels" page. */
+export const hotels = [
+  {
+    name: "Hôtel Bourgogne & Montana",
+    mapsUrl:
+      "https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e66fd446ca113b:0x6d06468c5f16ec69?sa=X&ved=1t:8290&hl=fr-FR&ictx=111",
+  },
+  {
+    name: "Hôtel de L'Empereur",
+    mapsUrl:
+      "https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e67027ed87adb9:0x92b6d4a9938a4fbd?sa=X&ved=1t:8290&hl=fr-FR&ictx=111",
+  },
+  {
+    name: "Le Pavillon Hôtel",
+    mapsUrl:
+      "https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e66fd9b7d5e1c7:0x371399a68b45e247?sa=X&ved=1t:8290&hl=fr-FR&ictx=111",
+  },
+  {
+    name: "Timhotel Invalides Eiffel",
+    mapsUrl:
+      "https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e66fd8329a331f:0xaa35dda874c16329?sa=X&ved=1t:8290&hl=fr-FR&ictx=111",
+  },
+  {
+    name: "L'Opale Noire",
+    mapsUrl:
+      "https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e66fa309530ef1:0x53eafdcbd6fd7085?sa=X&ved=1t:8290&ictx=111",
+  },
+] as const;
+
+/** Copy for the dedicated "Nearby hotels" page. */
+export const hotelsPage = {
+  kicker: "Where to stay",
+  title: "Hotels near the venue",
+  description:
+    "A handful of hotels within walking distance of Les Jardins de Saint-Dominique, in the 7th arrondissement. These are independent suggestions, not official partners — book directly with the hotel of your choice.",
+  note: "Not affiliated with or booked by Filigran. Availability and rates are managed by each hotel.",
+} as const;
+
 /** Final call-to-action section, at the bottom of the page. */
 export const register = {
   kicker: "Join us",
