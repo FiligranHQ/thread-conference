@@ -141,9 +141,24 @@ export const AgendaSection = () => {
           description={agendaIntro.description}
         />
 
-        {/* Tab bar */}
-        <Reveal>
-          <div className="mb-10 flex flex-wrap gap-2.5" role="tablist" aria-label="Agenda tracks">
+        {/* Tab bar — sticky with horizontal scroll on mobile so users can switch
+            tracks without scrolling back up; static and wrapping on desktop.
+            Note: this must NOT be wrapped in <Reveal>, since Reveal applies a
+            (transform-based) translate-y which would break position: sticky. */}
+        <div
+          className={cn(
+            "sticky top-[76px] z-20 -mx-8 mb-10 overflow-x-auto px-8 py-3",
+            "shadow-[0_12px_24px_-12px_rgba(0,0,0,0.65)] [scrollbar-width:none] [-ms-overflow-style:none]",
+            "[&::-webkit-scrollbar]:hidden",
+            "bg-background/95 backdrop-blur-sm",
+            "lg:static lg:z-auto lg:mx-0 lg:overflow-visible lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none lg:backdrop-blur-0",
+          )}
+        >
+          <div
+            className="flex flex-nowrap gap-2.5 lg:flex-wrap"
+            role="tablist"
+            aria-label="Agenda tracks"
+          >
             {tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -152,7 +167,7 @@ export const AgendaSection = () => {
                 aria-selected={activeTab === tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
-                  "rounded-full border px-6 py-2.5 font-sans text-sm font-semibold transition-all duration-200",
+                  "shrink-0 rounded-full border px-6 py-2.5 font-sans text-sm font-semibold transition-all duration-200",
                   activeTab === tab.id
                     ? "border-cyan bg-cyan text-ink shadow-glow"
                     : "border-white/10 bg-white/5 text-white/60 hover:border-cyan/60 hover:text-cyan",
@@ -162,7 +177,7 @@ export const AgendaSection = () => {
               </button>
             ))}
           </div>
-        </Reveal>
+        </div>
 
         {activeTrack ? (
           <ol className="relative">
