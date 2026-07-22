@@ -1,10 +1,17 @@
+import { Car } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { FAQPill } from "@/components/FAQPill";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
-import { hotels, hotelsPage, venue, venueUberUrl } from "@/content/site";
+import {
+  hotels,
+  hotelsPage,
+  hotelUberUrls,
+  venue,
+  venueUberUrl,
+} from "@/content/site";
 
 const HotelsPage = () => (
   <>
@@ -31,9 +38,11 @@ const HotelsPage = () => (
               <ButtonLink
                 href={venueUberUrl}
                 variant="ghost"
+                size="sm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <Car className="h-4 w-4" />
                 Get a ride (Uber)
               </ButtonLink>
             </div>
@@ -46,15 +55,27 @@ const HotelsPage = () => (
                   <p className="font-display text-lg font-semibold leading-snug">
                     {hotel.name}
                   </p>
-                  <ButtonLink
-                    href={hotel.mapsUrl}
-                    variant="outline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="self-start"
-                  >
-                    View on Google Maps
-                  </ButtonLink>
+                  <div className="flex flex-wrap gap-2.5">
+                    <ButtonLink
+                      href={hotel.mapsUrl}
+                      variant="outline"
+                      size="sm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View on Google Maps
+                    </ButtonLink>
+                    <ButtonLink
+                      href={hotelUberUrls[index].url}
+                      variant="ghost"
+                      size="sm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Car className="h-4 w-4" />
+                      Get a ride (Uber)
+                    </ButtonLink>
+                  </div>
                 </div>
               </Reveal>
             ))}

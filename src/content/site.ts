@@ -96,41 +96,56 @@ export const venue = {
 } as const;
 
 /**
- * Uber deep link that pre-fills the venue address as the drop-off point.
- * Falls back gracefully to the Uber homepage if the app isn't installed.
+ * Builds an Uber deep link that pre-fills the given address as the drop-off
+ * point. Falls back gracefully to the Uber homepage if the app isn't installed.
  */
-export const venueUberUrl = `https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=${encodeURIComponent(
-  `${venue.title}, ${venue.address}`,
-)}`;
+const buildUberUrl = (formattedAddress: string) =>
+  `https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=${encodeURIComponent(
+    formattedAddress,
+  )}`;
+
+/** Uber deep link that pre-fills the venue address as the drop-off point. */
+export const venueUberUrl = buildUberUrl(`${venue.title}, ${venue.address}`);
 
 /** Suggested hotels near the venue, for the dedicated "Nearby hotels" page. */
 export const hotels = [
   {
     name: "Hôtel Bourgogne & Montana",
+    address: "3 Rue de Bourgogne, 75007 Paris",
     mapsUrl:
       "https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e66fd446ca113b:0x6d06468c5f16ec69?sa=X&ved=1t:8290&hl=fr-FR&ictx=111",
   },
   {
     name: "Hôtel de L'Empereur",
+    address: "2 Rue Chevert, 75007 Paris",
     mapsUrl:
       "https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e67027ed87adb9:0x92b6d4a9938a4fbd?sa=X&ved=1t:8290&hl=fr-FR&ictx=111",
   },
   {
     name: "Le Pavillon Hôtel",
+    address: "54 Rue Saint-Dominique, 75007 Paris",
     mapsUrl:
       "https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e66fd9b7d5e1c7:0x371399a68b45e247?sa=X&ved=1t:8290&hl=fr-FR&ictx=111",
   },
   {
     name: "Timhotel Invalides Eiffel",
+    address: "35 Boulevard de la Tour-Maubourg, 75007 Paris",
     mapsUrl:
       "https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e66fd8329a331f:0xaa35dda874c16329?sa=X&ved=1t:8290&hl=fr-FR&ictx=111",
   },
   {
     name: "L'Opale Noire",
+    address: "20 Rue de Bellechasse, 75007 Paris",
     mapsUrl:
       "https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e66fa309530ef1:0x53eafdcbd6fd7085?sa=X&ved=1t:8290&ictx=111",
   },
 ] as const;
+
+/** Per-hotel Uber deep links, keyed by the hotel's own address. */
+export const hotelUberUrls = hotels.map((hotel) => ({
+  name: hotel.name,
+  url: buildUberUrl(`${hotel.name}, ${hotel.address}`),
+}));
 
 /** Copy for the dedicated "Nearby hotels" page. */
 export const hotelsPage = {
