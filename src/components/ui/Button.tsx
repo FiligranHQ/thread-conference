@@ -31,8 +31,8 @@ const variantClasses: Record<ButtonVariant, string> = {
     "border border-white/24 text-foreground bg-transparent " +
     "hover:border-cyan hover:text-cyan",
   ghost:
-    "bg-transparent text-foreground/65 " +
-    "hover:text-foreground",
+    "border border-white/14 text-foreground/75 bg-white/[0.03] " +
+    "hover:border-cyan/50 hover:bg-white/[0.06] hover:text-foreground hover:-translate-y-px active:translate-y-0",
   // Backward-compat aliases
   primary:
     "bg-[linear-gradient(90deg,hsl(var(--blue)),hsl(var(--cyan)),hsl(var(--lime)))] text-ink font-bold " +
