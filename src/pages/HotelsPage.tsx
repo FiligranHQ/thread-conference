@@ -26,28 +26,39 @@ const HotelsPage = () => (
           />
 
           <Reveal delay={200}>
-            <div className="mb-10 flex flex-wrap gap-3">
-              <ButtonLink
-                href={venue.mapsUrl}
-                variant="outline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open venue in Maps
-              </ButtonLink>
-              <ButtonLink
-                href={venueUberUrl}
-                variant="ghost"
-                size="sm"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Car className="h-4 w-4" />
-                Get a ride (Uber)
-              </ButtonLink>
+            <div className="mb-10 rounded-[18px] border border-white/10 bg-card p-4 sm:p-5">
+              <span className="mb-3 block font-mono text-[0.7rem] uppercase tracking-[0.2em] text-cyan">
+                Getting to the venue
+              </span>
+              <div className="flex flex-nowrap gap-2 sm:flex-wrap sm:gap-3">
+                <ButtonLink
+                  href={venue.mapsUrl}
+                  variant="outline"
+                  size="sm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 justify-center whitespace-nowrap px-3 sm:flex-none sm:px-5"
+                >
+                  Open venue in Maps
+                </ButtonLink>
+                <ButtonLink
+                  href={venueUberUrl}
+                  variant="ghost"
+                  size="sm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 justify-center whitespace-nowrap px-3 sm:flex-none sm:px-5"
+                >
+                  <Car className="h-4 w-4" />
+                  Go with Uber
+                </ButtonLink>
+              </div>
             </div>
           </Reveal>
 
+          <span className="mb-4 block font-mono text-[0.7rem] uppercase tracking-[0.2em] text-white/40">
+            Pick a hotel
+          </span>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {hotels.map((hotel, index) => (
               <Reveal key={hotel.name} delay={(index % 6) * 60}>
@@ -73,7 +84,7 @@ const HotelsPage = () => (
                       rel="noopener noreferrer"
                     >
                       <Car className="h-4 w-4" />
-                      Get a ride (Uber)
+                      Go with Uber
                     </ButtonLink>
                   </div>
                 </div>

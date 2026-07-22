@@ -1,5 +1,5 @@
-import { Calendar, Car, Flower2, MapPin, Users } from "lucide-react";
-import { venue, venueUberUrl } from "@/content/site";
+import { Calendar, Flower2, MapPin, Users } from "lucide-react";
+import { venue } from "@/content/site";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -46,17 +46,7 @@ export const VenueSection = () => {
                   Open in Maps
                 </ButtonLink>
                 <ButtonLink href="/hotels" variant="cyan">
-                  Nearby hotels
-                </ButtonLink>
-                <ButtonLink
-                  href={venueUberUrl}
-                  variant="ghost"
-                  size="sm"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Car className="h-4 w-4" />
-                  Get a ride (Uber)
+                  Nearby hotels & getting there
                 </ButtonLink>
               </div>
             </Reveal>
