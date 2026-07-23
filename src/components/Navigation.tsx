@@ -27,7 +27,7 @@ export const Navigation = () => {
         heroProgress > 0.08 && "shadow-[0_6px_20px_hsl(240_25%_2%_/_0.42)]",
       )}
       style={{
-        backgroundColor: `hsl(240 25% 2% / ${0.95 - heroProgress * 0.2})`,
+        backgroundColor: `hsl(0 0% 4% / ${0.95 - heroProgress * 0.2})`,
         borderColor: `hsl(0 0% 100% / ${0.1 + heroProgress * 0.08})`,
         backdropFilter: `blur(${10 + heroProgress * 8}px)`,
       }}

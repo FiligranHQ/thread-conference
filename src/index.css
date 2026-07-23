@@ -1,48 +1,50 @@
-@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Elms+Sans:wght@100..900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Design system tokens — THREAD 2026 v2 */
+/* Design system tokens — THREAD 2026 v4 */
 
 @layer base {
   :root {
     /* ── Backgrounds / surfaces ─────────────────────────────────── */
-    --background: 240 25% 2%;       /* #030305  page bg */
-    --bg-alt: 230 23% 5%;           /* #0A0B10  alternate section bg */
-    --card: 230 16% 7%;             /* #101116  card / block surface */
-    --card-foreground: 0 0% 100%;
-    --surface-2: 227 17% 10%;       /* #16181F  nested surface / inputs */
+    --background: 0 0% 4%;          /* #0A0A0A  page bg */
+    --bg-alt: 0 0% 6%;              /* #101010  alternate section bg */
+    --card: 0 0% 7%;                /* #131313  card / block surface */
+    --card-foreground: 0 0% 98%;
+    --surface-2: 0 0% 10%;          /* #1A1A1A  nested surface / inputs */
 
     /* ── Text ──────────────────────────────────────────────────── */
-    --foreground: 0 0% 100%;
-    --muted-foreground: 0 0% 68%;   /* rgba(255,255,255,.68) */
+    --foreground: 0 0% 98%;         /* #FBFBFB */
+    --muted-foreground: 0 0% 68%;   /* rgba(251,251,251,.68) */
 
     /* ── Brand palette (HSL channels) ──────────────────────────── */
-    --cyan: 186 100% 47%;           /* #00D8F0  primary interactive */
-    --cyan-glow: 186 100% 47%;
-    --blue: 210 86% 57%;            /* #3090F0  UI-safe */
-    --lime: 78 73% 78%;             /* #D8F0A0  UI-safe */
-    --coral: 8 86% 56%;             /* #F04830  tag/badge accent only */
-    --magenta: 330 85% 61%;         /* #F0489C  tag/badge + Simulation Zone */
-    --pink: 351 85% 61%;            /* #F04860  tag/badge */
-    --purple: 288 80% 71%;          /* #D878F0  tag/badge + Strategy Room */
-    --ink: 218 30% 6%;              /* #0A0D12  text-on-light-button */
+    --cyan: 187 100% 50%;           /* #00E0FF  primary interactive */
+    --cyan-glow: 187 100% 50%;
+    --blue: 212 100% 60%;           /* #3492FF  UI-safe */
+    --lime: 82 100% 83%;            /* #DFFFA6  UI-safe */
+    --mint: 134 100% 91%;           /* #D0FFDB  UI-safe accent, tag */
+    --gradient-mid: 202 65% 71%;    /* #86C2E5  gradient mid-stop only */
+    --coral: 6 98% 61%;             /* #FD4B39  tag/badge accent only */
+    --pink: 353 98% 66%;            /* #FD5568  tag/badge + Simulation Zone */
+    --purple: 285 100% 76%;         /* #E184FF  tag/badge + Strategy Room */
+    --mauve: 302 38% 75%;           /* #D8A8D6  tag/badge accent */
+    --ink: 218 29% 5%;              /* #0A0D12  text-on-light-button */
 
     /* ── Borders (white channels — use /10 for default) ───────── */
-    --border: 0 0% 100%;
+    --border: 0 0% 98%;
 
     /* ── Tailwind semantic aliases ─────────────────────────────── */
-    --input: 227 17% 10%;
-    --ring: 186 100% 47%;
-    --primary: 230 16% 7%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 227 17% 10%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 227 17% 14%;
-    --accent: 186 100% 47%;
-    --accent-foreground: 218 30% 6%;
+    --input: 0 0% 10%;
+    --ring: 187 100% 50%;
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14%;
+    --accent: 187 100% 50%;
+    --accent-foreground: 218 29% 5%;
 
     --radius: 0.75rem;
   }
@@ -56,7 +58,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
   }
 
   h1,
@@ -65,12 +67,12 @@
   h4,
   h5,
   h6 {
-    font-family: "Sora", system-ui, sans-serif;
+    font-family: "Elms Sans", system-ui, sans-serif;
     @apply font-bold;
   }
 
   ::selection {
-    background: hsl(186 100% 47% / 0.35);
+    background: hsl(var(--cyan) / 0.35);
     color: #fff;
   }
 }
@@ -78,16 +80,26 @@
 @layer utilities {
   /* ── Typography helpers ─────────────────────────────────────── */
   .font-display {
-    font-family: "Sora", system-ui, sans-serif;
+    font-family: "Elms Sans", system-ui, sans-serif;
   }
 
-  /* Signature cool gradient: blue → cyan → lime */
+  /* Signature cool gradient: lime → sky → blue */
   .gradient-cool {
-    background: linear-gradient(90deg, hsl(var(--blue)), hsl(var(--cyan)), hsl(var(--lime)));
+    background: linear-gradient(
+      90deg,
+      hsl(var(--lime)) 0%,
+      hsl(var(--gradient-mid)) 56%,
+      hsl(var(--blue)) 96%
+    );
   }
 
   .text-gradient-cool {
-    background: linear-gradient(90deg, hsl(var(--blue)), hsl(var(--cyan)), hsl(var(--lime)));
+    background: linear-gradient(
+      90deg,
+      hsl(var(--lime)) 0%,
+      hsl(var(--gradient-mid)) 56%,
+      hsl(var(--blue)) 96%
+    );
     @apply bg-clip-text text-transparent;
   }
 
@@ -108,7 +120,7 @@
     background: hsl(var(--cyan));
   }
 
-  /* ── Card surface (v2: outlined dark, no glass blur) ────────── */
+  /* ── Card surface (v4: outlined dark, no glass blur) ────────── */
   .card-surface {
     @apply bg-card border border-white/10 rounded-[22px];
   }
@@ -165,7 +177,7 @@
 /* Labels */
 .hbspt-form label {
   color: hsl(0 0% 100% / 0.65) !important;
-  font-family: "Inter", sans-serif !important;
+  font-family: "IBM Plex Sans", sans-serif !important;
   font-size: 0.8rem !important;
   margin-bottom: 0.35rem !important;
   display: block !important;
@@ -179,13 +191,13 @@
 .hbspt-form .hs-input,
 .hbspt-form select,
 .hbspt-form textarea {
-  background-color: hsl(227 17% 10%) !important;
+  background-color: hsl(var(--surface-2)) !important;
   border: 1px solid hsl(0 0% 100% / 0.12) !important;
   color: #fff !important;
   border-radius: 0.875rem !important;
   padding: 0.625rem 1rem !important;
   width: 100% !important;
-  font-family: "Inter", sans-serif !important;
+  font-family: "IBM Plex Sans", sans-serif !important;
   font-size: 0.9rem !important;
   transition: border-color 0.2s, box-shadow 0.2s !important;
   appearance: auto !important;
@@ -194,8 +206,8 @@
 .hbspt-form input:focus,
 .hbspt-form select:focus,
 .hbspt-form textarea:focus {
-  border-color: hsl(186 100% 47%) !important;
-  box-shadow: 0 0 0 3px hsl(186 100% 47% / 0.15) !important;
+  border-color: hsl(var(--cyan)) !important;
+  box-shadow: 0 0 0 3px hsl(var(--cyan) / 0.15) !important;
   outline: none !important;
 }
 
@@ -211,14 +223,14 @@
 .hbspt-form input:-webkit-autofill:focus,
 .hbspt-form input:-webkit-autofill:active {
   -webkit-text-fill-color: #fff !important;
-  -webkit-box-shadow: 0 0 0 1000px hsl(227 17% 10%) inset !important;
-  box-shadow: 0 0 0 1000px hsl(227 17% 10%) inset !important;
+  -webkit-box-shadow: 0 0 0 1000px hsl(var(--surface-2)) inset !important;
+  box-shadow: 0 0 0 1000px hsl(var(--surface-2)) inset !important;
   caret-color: #fff !important;
 }
 
 /* Select arrow colour fix */
 .hbspt-form select option {
-  background-color: hsl(230 16% 7%) !important;
+  background-color: hsl(var(--card)) !important;
   color: #fff !important;
 }
 
@@ -226,7 +238,7 @@
 .hbspt-form input[type="checkbox"],
 .hbspt-form input[type="radio"] {
   width: auto !important;
-  accent-color: hsl(186 100% 47%) !important;
+  accent-color: hsl(var(--cyan)) !important;
 }
 
 /* Gap between the tick box and its label text — applies to BOTH checkboxes:
@@ -295,17 +307,17 @@
 .hbspt-form input[type="submit"],
 .hbspt-form button[type="submit"],
 #hs-form-target .hs-button {
-  background: linear-gradient(90deg, hsl(210 86% 57%), hsl(186 100% 47%), hsl(78 73% 78%)) !important;
-  color: hsl(218 30% 6%) !important;
+  background: linear-gradient(90deg, hsl(var(--lime)) 0%, hsl(var(--gradient-mid)) 56%, hsl(var(--blue)) 96%) !important;
+  color: hsl(var(--ink)) !important;
   border: none !important;
   border-radius: 9999px !important;
   padding: 0.75rem 2rem !important;
-  font-family: "Inter", sans-serif !important;
+  font-family: "IBM Plex Sans", sans-serif !important;
   font-size: 0.95rem !important;
   font-weight: 700 !important;
   cursor: pointer !important;
   transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s !important;
-  box-shadow: 0 0 30px hsl(186 100% 47% / 0.2) !important;
+  box-shadow: 0 0 30px hsl(var(--cyan) / 0.2) !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -316,7 +328,7 @@
 #hs-form-target .hs-button:hover {
   opacity: 0.9 !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 0 45px hsl(186 100% 47% / 0.35) !important;
+  box-shadow: 0 0 45px hsl(var(--cyan) / 0.35) !important;
 }
 
 .hbspt-form input[type="submit"]:active,
@@ -328,7 +340,7 @@
 .hbspt-form input[type="submit"]:focus-visible,
 .hbspt-form button[type="submit"]:focus-visible,
 #hs-form-target .hs-button:focus-visible {
-  outline: 2px solid hsl(186 100% 47%) !important;
+  outline: 2px solid hsl(var(--cyan)) !important;
   outline-offset: 3px !important;
 }
 
@@ -402,14 +414,14 @@
 .hbspt-form .hs-richtext a,
 #hs-form-target .legal-consent-container a,
 #hs-form-target .hs-richtext a {
-  color: hsl(186 100% 47%) !important;
+  color: hsl(var(--cyan)) !important;
   text-decoration: underline !important;
 }
 
 /* Success message */
 .hbspt-form .submitted-message {
-  color: hsl(186 100% 47%) !important;
-  font-family: "Inter", sans-serif !important;
+  color: hsl(var(--cyan)) !important;
+  font-family: "IBM Plex Sans", sans-serif !important;
   text-align: center !important;
   padding: 1.5rem 0 !important;
 }

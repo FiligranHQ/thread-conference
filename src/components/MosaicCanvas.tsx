@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Generative pixel-block mosaic art — the THREAD v2 brand signature.
+ * Generative pixel-block mosaic art — the THREAD v4 brand signature.
  * Echoes "noise becomes signal": scattered colour blocks with fractal-noise
  * grain overlay, used as a background texture behind hero sections,
  * register bands and venue map placeholders.
@@ -15,12 +15,14 @@ import { useEffect, useRef } from "react";
  */
 
 const PALETTE = [
-  "#3090F0", // blue
-  "#00D8F0", // cyan
-  "#D8F0A0", // lime
-  "#D878F0", // purple
-  "#F0489C", // magenta
-  "#F04860", // pink
+  "#3492FF", // blue
+  "#00E0FF", // cyan
+  "#DFFFA6", // lime
+  "#D0FFDB", // mint
+  "#E184FF", // purple
+  "#D8A8D6", // mauve
+  "#FD4B39", // coral
+  "#FD5568", // pink
 ];
 
 const CELL_PX = 28; // target cell size in pixels
@@ -155,12 +157,14 @@ export const MosaicCanvas = ({
         }}
       />
 
-      {/* Grain texture overlay — single element (replaces per-cell mosaic-grain ::after pseudo-elements) */}
+      {/* Grain texture overlay — single element (replaces per-cell mosaic-grain ::after pseudo-elements).
+          Noise treatment per v4 spec: Intensity 48 (opacity .48) / Contrast 56 (contrast(1.56)). */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           mixBlendMode: "overlay",
-          opacity: 0.45,
+          opacity: 0.48,
+          filter: "contrast(1.56)",
           background:
             "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E\")",
         }}
@@ -172,7 +176,7 @@ export const MosaicCanvas = ({
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 65% 70% at 50% 44%, hsl(240 25% 2% / 0.92) 0%, hsl(240 25% 2% / 0.78) 38%, hsl(240 25% 2% / 0.35) 65%, transparent 100%)",
+              "radial-gradient(ellipse 65% 70% at 50% 44%, hsl(0 0% 4% / 0.92) 0%, hsl(0 0% 4% / 0.78) 38%, hsl(0 0% 4% / 0.35) 65%, transparent 100%)",
           }}
         />
       )}

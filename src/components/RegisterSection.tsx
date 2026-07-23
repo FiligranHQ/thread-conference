@@ -21,7 +21,7 @@ export const RegisterSection = () => {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(135deg, hsl(240 25% 2% / 0.7) 0%, hsl(230 23% 5% / 0.5) 100%)",
+            "linear-gradient(135deg, hsl(0 0% 4% / 0.7) 0%, hsl(0 0% 6% / 0.5) 100%)",
         }}
         aria-hidden="true"
       />

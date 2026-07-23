@@ -6,44 +6,44 @@ import { communityExperiences } from "@/content/sections";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-/** V2 tag spec: pill, 1.5px border at 40% opacity, tinted text, colored dot. */
+/** V4 tag spec: pill, 1.5px border at 40% opacity, tinted text, colored dot. */
 const pillStyles: Record<
   RoomId,
   { border: string; color: string; dot: string; timeColor: string }
 > = {
   signal: {
-    border: "rgba(48,144,240,0.4)",
-    color: "#b7dcff",
+    border: "rgba(52,146,255,0.4)",
+    color: "#c9e3ff",
     dot: "hsl(var(--blue))",
     timeColor: "hsl(var(--blue))",
   },
   community: {
-    border: "rgba(0,216,240,0.4)",
-    color: "#a9f3fb",
+    border: "rgba(0,224,255,0.4)",
+    color: "#b3f4ff",
     dot: "hsl(var(--cyan))",
     timeColor: "hsl(var(--cyan))",
   },
   strategy: {
-    border: "rgba(216,120,240,0.4)",
-    color: "#eec3fb",
+    border: "rgba(225,132,255,0.4)",
+    color: "#f3d9ff",
     dot: "hsl(var(--purple))",
     timeColor: "hsl(var(--purple))",
   },
   lab: {
-    border: "rgba(216,240,160,0.4)",
-    color: "#e7f7c9",
+    border: "rgba(223,255,166,0.4)",
+    color: "#eefad0",
     dot: "hsl(var(--lime))",
     timeColor: "hsl(var(--lime))",
   },
   forum: {
-    border: "rgba(240,72,156,0.4)",
-    color: "#ffb2da",
-    dot: "hsl(var(--magenta))",
-    timeColor: "hsl(var(--magenta))",
+    border: "rgba(253,85,104,0.4)",
+    color: "#ffd0d6",
+    dot: "hsl(var(--pink))",
+    timeColor: "hsl(var(--pink))",
   },
   garden: {
-    border: "rgba(216,240,160,0.4)",
-    color: "#e7f7c9",
+    border: "rgba(223,255,166,0.4)",
+    color: "#eefad0",
     dot: "hsl(var(--lime))",
     timeColor: "hsl(var(--lime))",
   },

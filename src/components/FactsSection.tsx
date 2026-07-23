@@ -9,7 +9,7 @@ const icons = {
   garden: Wine,
 } as const;
 
-/** Icon accent colors per glance card (cool set only, per v2 rules). */
+/** Icon accent colors per glance card (cool set only, per v4 rules). */
 const iconColors = [
   "var(--cyan)",
   "var(--blue)",

@@ -3,11 +3,11 @@ import { event } from "@/content/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-/** V2 avatar accent colors — cool set only (no warm colors on UI elements). */
+/** V4 avatar accent colors — cool set only (no warm colors on UI elements). */
 const avatarAccents = [
-  { stroke: "rgba(48,144,240,", fill: "rgba(48,144,240," },
-  { stroke: "rgba(0,216,240,",  fill: "rgba(0,216,240,"  },
-  { stroke: "rgba(216,240,160,",fill: "rgba(216,240,160,"},
+  { stroke: "rgba(52,146,255,", fill: "rgba(52,146,255," },
+  { stroke: "rgba(0,224,255,",  fill: "rgba(0,224,255,"  },
+  { stroke: "rgba(223,255,166,",fill: "rgba(223,255,166,"},
   { stroke: "rgba(255,255,255,",fill: "rgba(255,255,255,"},
 ];
 

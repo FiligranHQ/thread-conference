@@ -1,9 +1,9 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
-/** All available button variants per v2 design system. */
+/** All available button variants per v4 design system. */
 export type ButtonVariant =
-  | "gradient"  // primary — blue→cyan→lime gradient, ink text (default CTA)
+  | "gradient"  // primary — lime→sky→blue gradient, ink text (default CTA)
   | "blue"      // solid blue, ink text
   | "cyan"      // solid cyan, ink text
   | "lime"      // solid lime, ink text
@@ -16,7 +16,7 @@ export type ButtonSize = "default" | "lg" | "sm";
 
 const variantClasses: Record<ButtonVariant, string> = {
   gradient:
-    "bg-[linear-gradient(90deg,hsl(var(--blue)),hsl(var(--cyan)),hsl(var(--lime)))] text-ink font-bold " +
+    "bg-[linear-gradient(90deg,hsl(var(--lime))_0%,hsl(var(--gradient-mid))_56%,hsl(var(--blue))_96%)] text-ink font-bold " +
     "hover:opacity-90 hover:-translate-y-px hover:shadow-[0_0_45px_hsl(var(--cyan)/0.35)]",
   blue:
     "bg-blue text-ink font-bold " +
@@ -35,7 +35,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     "hover:border-cyan/50 hover:bg-white/[0.06] hover:text-foreground hover:-translate-y-px active:translate-y-0",
   // Backward-compat aliases
   primary:
-    "bg-[linear-gradient(90deg,hsl(var(--blue)),hsl(var(--cyan)),hsl(var(--lime)))] text-ink font-bold " +
+    "bg-[linear-gradient(90deg,hsl(var(--lime))_0%,hsl(var(--gradient-mid))_56%,hsl(var(--blue))_96%)] text-ink font-bold " +
     "hover:opacity-90 hover:-translate-y-px hover:shadow-[0_0_45px_hsl(var(--cyan)/0.35)]",
   cta:
     "border border-white/24 text-foreground bg-transparent " +
