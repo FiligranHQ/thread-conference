@@ -4,9 +4,17 @@ import { Footer } from "@/components/Footer";
 import { FAQPill } from "@/components/FAQPill";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { SpeakerCard } from "@/components/speakers/SpeakerCard";
 import { event } from "@/content/site";
-import { eventSpeakers, filigranTeam, speakersPage } from "@/content/sections";
+import { speakersPage } from "@/content/sections";
+
+const ComingSoon = ({ label }: { label: string }) => (
+  <Reveal delay={120}>
+    <div className="flex items-center gap-3 rounded-[18px] border border-cyan/30 bg-cyan/5 px-5 py-4">
+      <Sparkles className="h-5 w-5 shrink-0 text-cyan" aria-hidden="true" />
+      <p className="font-sans text-[0.95rem] font-semibold text-cyan">{label}</p>
+    </div>
+  </Reveal>
+);
 
 const SpeakersPage = () => (
   <>
@@ -20,31 +28,13 @@ const SpeakersPage = () => (
             description={speakersPage.description}
           />
 
-          <Reveal delay={120}>
-            <div className="mb-14 flex items-center gap-3 rounded-[18px] border border-cyan/30 bg-cyan/5 px-5 py-4">
-              <Sparkles className="h-5 w-5 shrink-0 text-cyan" aria-hidden="true" />
-              <p className="font-sans text-[0.95rem] font-semibold text-cyan">
-                {speakersPage.comingSoon}
-              </p>
-            </div>
-          </Reveal>
-
           <div className="mb-16">
             <SectionHeading
               kicker={speakersPage.eventSpeakers.kicker}
               title={speakersPage.eventSpeakers.title}
               description={speakersPage.eventSpeakers.description}
             />
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {eventSpeakers.map((speaker, index) => (
-                <SpeakerCard
-                  key={speaker.name}
-                  speaker={speaker}
-                  colorIndex={index}
-                  delay={index * 90}
-                />
-              ))}
-            </div>
+            <ComingSoon label={speakersPage.eventSpeakers.comingSoon} />
           </div>
 
           <div>
@@ -53,17 +43,7 @@ const SpeakersPage = () => (
               title={speakersPage.filigranTeam.title}
               description={speakersPage.filigranTeam.description}
             />
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {filigranTeam.map((speaker, index) => (
-                <SpeakerCard
-                  key={speaker.name}
-                  speaker={speaker}
-                  colorIndex={index}
-                  delay={index * 90}
-                  compact
-                />
-              ))}
-            </div>
+            <ComingSoon label={speakersPage.filigranTeam.comingSoon} />
           </div>
 
           <Reveal delay={200}>

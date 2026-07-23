@@ -4,6 +4,7 @@ import { event } from "@/content/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SpeakerAvatar } from "@/components/speakers/SpeakerCard";
+import { ButtonLink } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 export const SpeakersSection = () => (
@@ -14,6 +15,13 @@ export const SpeakersSection = () => (
         title={speakers.title}
         description={speakers.description}
       />
+
+      <Reveal delay={120}>
+        <ButtonLink href="/speakers" variant="outline" size="sm" className="mb-10">
+          {speakers.seeAllLabel}
+          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+        </ButtonLink>
+      </Reveal>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {speakers.cards.map((speaker, index) => {
@@ -61,13 +69,7 @@ export const SpeakersSection = () => (
           >
             {event.contactEmail}
           </a>
-          . <a
-            href="/speakers"
-            className="ml-1 inline-flex items-center gap-1 border-b border-cyan/40 text-cyan transition-colors hover:border-cyan"
-          >
-            {speakers.seeAllLabel}
-            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-          </a>
+          .
         </p>
       </Reveal>
     </div>
