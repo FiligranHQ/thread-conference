@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>THREAD 2026 — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Elms+Sans:wght@100..900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --coral:#FD4B39; --pink:#FD5568; --purple:#E184FF; --mauve:#D8A8D6;
+  --blue:#3492FF; --cyan:#00E0FF; --lime:#DFFFA6; --mint:#D0FFDB;
+  --bg:#0A0A0A; --bg-alt:#101010; --surface:#131313; --surface-2:#1A1A1A;
+  --border:rgba(251,251,251,.10); --border-strong:rgba(251,251,251,.24);
+  --fg:#FBFBFB; --fg-muted:rgba(251,251,251,.68); --fg-faint:rgba(251,251,251,.42);
+  --ink:#0A0D12;
+  --gradient-cool: linear-gradient(90deg,#DFFFA6 0%,#86C2E5 56%,#3492FF 96%);
+  --font-display:"Elms Sans",system-ui,sans-serif;
+  --font-ui:"IBM Plex Sans",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",monospace;
+  --r-md:14px; --r-lg:22px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-ui);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;margin:0;letter-spacing:-.01em}
+code{font-family:var(--font-mono);font-size:.92em;background:var(--surface-2);padding:2px 7px;border-radius:5px;color:var(--fg-muted)}
+.wrap{display:flex;max-width:1320px;margin:0 auto}
+nav.toc{position:sticky;top:0;align-self:flex-start;width:220px;flex:none;padding:30px 20px;height:100vh;overflow:auto;border-right:1px solid var(--border)}
+nav.toc a{display:block;font-size:13px;color:var(--fg-muted);text-decoration:none;padding:7px 0}
+nav.toc a:hover{color:var(--cyan)}
+main{flex:1;min-width:0}
+section{padding:56px clamp(20px,4vw,64px);max-width:980px}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-faint);margin-bottom:14px;display:flex;gap:10px;align-items:center}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--cyan)}
+h2.title{font-size:clamp(24px,3vw,32px);margin-bottom:10px}
+.sub{color:var(--fg-muted);max-width:70ch;margin-bottom:26px;font-size:15px}
+.divider{height:1px;background:var(--border)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:10px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border)}
+th{color:var(--fg-faint);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;font-family:var(--font-mono)}
+.chip{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:8px;border:1px solid rgba(251,251,251,.15)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.block{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px}
+.block h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg-faint);margin-bottom:16px;font-family:var(--font-mono);font-weight:500}
+.rule{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px}
+.rule:last-child{border-bottom:none}
+.ico{width:20px;height:20px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.ico--do{background:rgba(223,255,166,.15);color:var(--lime)}
+.ico--dont{background:rgba(253,75,57,.15);color:var(--coral)}
+footer{text-align:center;padding:40px;color:var(--fg-faint);font-size:12px}
+.spec-swatch{border-radius:10px;height:60px;margin-bottom:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="toc">
+  <div style="font-family:'Elms Sans';font-weight:700;font-size:16px;margin-bottom:20px">-thread-<br><span style="font-size:11px;color:var(--fg-faint);font-weight:400;font-family:'IBM Plex Sans'">design system</span></div>
+  <a href="#tokens">01 Color tokens</a>
+  <a href="#usage">02 Color usage rules</a>
+  <a href="#type">03 Typography</a>
+  <a href="#buttons">04 Buttons</a>
+  <a href="#tags">05 Tags &amp; badges</a>
+  <a href="#zones">06 Zone cards</a>
+  <a href="#cards">07 Cards &amp; surfaces</a>
+  <a href="#mosaic">08 Mosaic / grain</a>
+  <a href="#spacing">09 Radius &amp; spacing</a>
+  <a href="#accessibility">10 Accessibility</a>
+  <a href="#donts">11 Do &amp; don't</a>
+</nav>
+<main>
+
+<section>
+  <div class="eyebrow">THREAD 2026 · Design system</div>
+  <h1 style="font-size:clamp(30px,5vw,42px)">Design System</h1>
+  <p class="sub" style="margin-top:14px">Full implementation reference for the THREAD 2026 landing page — color tokens, typography, components and usage rules. Built for direct hand-off to the web designer / dev team.</p>
+</section>
+
+<div class="divider"></div>
+
+<section id="tokens">
+  <div class="eyebrow">01 — Color tokens</div>
+  <h2 class="title">Palette</h2>
+  <p class="sub">8 brand colors + a dark neutral system. All values below are the authoritative hex — implement as CSS custom properties.</p>
+
+  <table>
+    <tr><th>Token</th><th>Swatch</th><th>Hex</th><th>Role</th></tr>
+    <tr><td><code>--coral</code></td><td><span class="chip" style="background:#FD4B39"></span></td><td>#FD4B39</td><td>Tag/badge accent only — never buttons or gradients</td></tr>
+    <tr><td><code>--pink</code></td><td><span class="chip" style="background:#FD5568"></span></td><td>#FD5568</td><td>Tag/badge accent, zone accent (Simulation Zone), speaker category</td></tr>
+    <tr><td><code>--purple</code></td><td><span class="chip" style="background:#E184FF"></span></td><td>#E184FF</td><td>Zone accent (Strategy Room), tag, speaker category</td></tr>
+    <tr><td><code>--mauve</code></td><td><span class="chip" style="background:#D8A8D6"></span></td><td>#D8A8D6</td><td>Tag/badge accent, speaker category</td></tr>
+    <tr><td><code>--blue</code></td><td><span class="chip" style="background:#3492FF"></span></td><td>#3492FF</td><td>UI-safe — buttons, gradient end, zone accent (Signal Room)</td></tr>
+    <tr><td><code>--cyan</code></td><td><span class="chip" style="background:#00E0FF"></span></td><td>#00E0FF</td><td>Primary interactive accent — links, focus, zone accent (Community Zone)</td></tr>
+    <tr><td><code>--lime</code></td><td><span class="chip" style="background:#DFFFA6"></span></td><td>#DFFFA6</td><td>UI-safe — buttons, gradient start, zone accent (Intelligence Lab)</td></tr>
+    <tr><td><code>--mint</code></td><td><span class="chip" style="background:#D0FFDB"></span></td><td>#D0FFDB</td><td>UI-safe accent, tag</td></tr>
+  </table>
+
+  <h4 style="margin-top:32px;font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg-faint)">Neutral / surface system (dark theme)</h4>
+  <table>
+    <tr><th>Token</th><th>Hex</th><th>Usage</th></tr>
+    <tr><td><code>--bg</code></td><td>#0A0A0A</td><td>Page background</td></tr>
+    <tr><td><code>--bg-alt</code></td><td>#101010</td><td>Alternate section background (register band, venue map)</td></tr>
+    <tr><td><code>--surface</code></td><td>#131313</td><td>Card / block background</td></tr>
+    <tr><td><code>--surface-2</code></td><td>#1A1A1A</td><td>Nested surface, input fields</td></tr>
+    <tr><td><code>--border</code></td><td>rgba(251,251,251,.10)</td><td>Default card/divider border</td></tr>
+    <tr><td><code>--border-strong</code></td><td>rgba(251,251,251,.24)</td><td>Hover / outline button border</td></tr>
+    <tr><td><code>--fg</code></td><td>#FBFBFB</td><td>Primary text (any white in the system uses this exact value)</td></tr>
+    <tr><td><code>--fg-muted</code></td><td>rgba(251,251,251,.68)</td><td>Secondary text / body copy</td></tr>
+    <tr><td><code>--fg-faint</code></td><td>rgba(251,251,251,.42)</td><td>Captions, timestamps, eyebrow labels</td></tr>
+    <tr><td><code>--ink</code></td><td>#0A0D12</td><td>Text-on-light-button color (e.g. text on cyan/lime buttons)</td></tr>
+  </table>
+
+  <h4 style="margin-top:32px;font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg-faint)">Signature gradient</h4>
+  <div class="spec-swatch" style="background:linear-gradient(90deg,#DFFFA6 0%,#86C2E5 56%,#3492FF 96%)"></div>
+  <p class="sub" style="margin:0"><code>linear-gradient(90deg, #DFFFA6 0%, #86C2E5 56%, #3492FF 96%)</code> — the only gradient in the system. Cool colors only. Note: the mid-stop <code>#86C2E5</code> is a dedicated gradient color, not one of the 8 base tokens. Used for the primary CTA button and hero/section accent lines.</p>
+</section>
+
+<div class="divider"></div>
+
+<section id="usage">
+  <div class="eyebrow">02 — Color usage rules</div>
+  <h2 class="title">Cool set vs. warm set</h2>
+  <div class="grid g2">
+    <div class="block">
+      <h4>Cool set — UI &amp; interaction</h4>
+      <p class="sub" style="margin-bottom:12px">Blue, Cyan, Lime, Mint</p>
+      <div class="rule"><span class="ico ico--do">✓</span><span>Buttons (primary + outline hover), links, focus rings, the signature gradient, primary zone accents.</span></div>
+      <div class="rule"><span class="ico ico--dont">✕</span><span>Never used for large flat background fills.</span></div>
+    </div>
+    <div class="block">
+      <h4>Warm set — accent &amp; categorization</h4>
+      <p class="sub" style="margin-bottom:12px">Coral, Pink, Purple, Mauve</p>
+      <div class="rule"><span class="ico ico--do">✓</span><span>Tags, badges, card top-lines, speaker/voice category markers, zone accents (Strategy Room = purple, Simulation Zone = pink).</span></div>
+      <div class="rule"><span class="ico ico--dont">✕</span><span>Never used in buttons, gradients, or as a background fill behind body text.</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="type">
+  <div class="eyebrow">03 — Typography</div>
+  <h2 class="title">Type scale</h2>
+  <table>
+    <tr><th>Role</th><th>Font</th><th>Weight</th><th>Size (desktop)</th></tr>
+    <tr><td>H1 / Hero wordmark</td><td>Elms Sans</td><td>700</td><td>clamp(64px,15vw,168px)</td></tr>
+    <tr><td>H2 / Section title</td><td>Elms Sans</td><td>600</td><td>clamp(28px,4vw,44px)</td></tr>
+    <tr><td>H3 / Card title</td><td>Elms Sans</td><td>600</td><td>20–24px</td></tr>
+    <tr><td>Body</td><td>IBM Plex Sans</td><td>400</td><td>15–17.5px</td></tr>
+    <tr><td>Eyebrow / label</td><td>IBM Plex Mono</td><td>500</td><td>12–12.5px, tracking .22em, uppercase</td></tr>
+    <tr><td>Timestamps / meta</td><td>IBM Plex Mono</td><td>400</td><td>13–14px</td></tr>
+    <tr><td>Button label</td><td>IBM Plex Sans</td><td>700</td><td>14–16px</td></tr>
+  </table>
+  <p class="sub" style="margin-top:16px">Only three typefaces are used across the system: <b>Elms Sans</b> (all titles/subtitles), <b>IBM Plex Sans</b> (UI, body, buttons), <b>IBM Plex Mono</b> (labels, timestamps, meta). No other typeface (including Inter) should be used.</p>
+</section>
+
+<div class="divider"></div>
+
+<section id="buttons">
+  <div class="eyebrow">04 — Buttons</div>
+  <h2 class="title">Variants</h2>
+  <table>
+    <tr><th>Variant</th><th>Background</th><th>Text</th><th>Hover</th></tr>
+    <tr><td>Primary (gradient)</td><td>--gradient-cool</td><td>--ink</td><td>shift gradient position + glow shadow (cyan 45%)</td></tr>
+    <tr><td>Primary (blue)</td><td>--blue</td><td>--ink</td><td>glow shadow --blue</td></tr>
+    <tr><td>Primary (cyan)</td><td>--cyan</td><td>--ink</td><td>glow shadow --cyan</td></tr>
+    <tr><td>Primary (lime)</td><td>--lime</td><td>--ink</td><td>glow shadow --lime</td></tr>
+    <tr><td>Outline</td><td>transparent</td><td>--fg</td><td>border + text → --cyan</td></tr>
+    <tr><td>Ghost</td><td>transparent</td><td>--fg-muted</td><td>text → --fg</td></tr>
+  </table>
+  <p class="sub" style="margin-top:14px">Shape: fully rounded (pill), <code>border-radius:999px</code>. Padding 13px/22px default, 16px/28px large. Never coral/pink/purple/mauve in any button state.</p>
+</section>
+
+<div class="divider"></div>
+
+<section id="tags">
+  <div class="eyebrow">05 — Tags &amp; badges</div>
+  <h2 class="title">Structure</h2>
+  <p class="sub">Pill shape, 1.5px border, small colored dot + tinted text/border (not a solid fill). Full palette available here.</p>
+  <table>
+    <tr><th>Variant</th><th>Border</th><th>Text color</th><th>Dot</th></tr>
+    <tr><td>coral</td><td>rgba(253,75,57,.4)</td><td>#ffcec7</td><td>#FD4B39</td></tr>
+    <tr><td>pink</td><td>rgba(253,85,104,.4)</td><td>#ffd0d6</td><td>#FD5568</td></tr>
+    <tr><td>purple</td><td>rgba(225,132,255,.4)</td><td>#f3d9ff</td><td>#E184FF</td></tr>
+    <tr><td>mauve</td><td>rgba(216,168,214,.4)</td><td>#f2dcf0</td><td>#D8A8D6</td></tr>
+    <tr><td>blue</td><td>rgba(52,146,255,.4)</td><td>#c9e3ff</td><td>#3492FF</td></tr>
+    <tr><td>cyan</td><td>rgba(0,224,255,.4)</td><td>#b3f4ff</td><td>#00E0FF</td></tr>
+    <tr><td>lime</td><td>rgba(223,255,166,.4)</td><td>#eefad0</td><td>#DFFFA6</td></tr>
+    <tr><td>mint</td><td>rgba(208,255,219,.4)</td><td>#e8ffee</td><td>#D0FFDB</td></tr>
+  </table>
+</section>
+
+<div class="divider"></div>
+
+<section id="zones">
+  <div class="eyebrow">06 — Zone cards (Experience section)</div>
+  <h2 class="title">Mapping</h2>
+  <table>
+    <tr><th>Zone</th><th>Accent</th><th>Top-line</th></tr>
+    <tr><td>01 Signal Room</td><td>Blue</td><td>solid #3492FF</td></tr>
+    <tr><td>02 Community Zone</td><td>Cyan</td><td>solid #00E0FF</td></tr>
+    <tr><td>03 Strategy Room</td><td>Purple</td><td>solid #E184FF</td></tr>
+    <tr><td>04 Intelligence Lab</td><td>Lime</td><td>solid #DFFFA6</td></tr>
+    <tr><td>05 Simulation Zone</td><td>Pink</td><td>solid #FD5568</td></tr>
+    <tr><td>+ The Garden</td><td>Gradient</td><td>--gradient-cool (lime→sky→blue)</td></tr>
+  </table>
+  <p class="sub" style="margin-top:14px">Card body: <code>--surface</code> background, 1px border tinted at 35% opacity of the zone color, 4px accent line pinned to the top edge. Never a full-color card fill.</p>
+</section>
+
+<div class="divider"></div>
+
+<section id="cards">
+  <div class="eyebrow">07 — Cards &amp; surfaces</div>
+  <h2 class="title">Rules</h2>
+  <div class="rule"><span class="ico ico--do">✓</span><span>All content cards (sessions, tickets, speakers, logistics) use <code>--surface</code> background + 1px <code>--border</code>, radius 14–22px.</span></div>
+  <div class="rule"><span class="ico ico--do">✓</span><span>Emphasis achieved via border-color change, a colored top-line, or a colored tag inside — never a solid color fill behind text.</span></div>
+  <div class="rule"><span class="ico ico--dont">✕</span><span>Session/keynote cards are never colored solid — outline + tag only.</span></div>
+</section>
+
+<div class="divider"></div>
+
+<section id="mosaic">
+  <div class="eyebrow">08 — Mosaic / grain</div>
+  <h2 class="title">Generative pixel-block art</h2>
+  <p class="sub">Implementation: CSS grid of 1x1 or occasional 2x2 cells, ~45–85% fill density, colors randomized from the 8 palette tokens, each cell overlaid with an SVG fractal-noise filter. Noise treatment: <b>Intensity 48</b> (overlay opacity ≈ .48) / <b>Contrast 56</b> (≈ <code>contrast(1.56)</code> applied to the noise layer), blended with <code>mix-blend-mode:overlay</code>.</p>
+  <table>
+    <tr><th>Context</th><th>Density</th><th>Notes</th></tr>
+    <tr><td>Hero background</td><td>~45%</td><td>Radial mask clears the center for text legibility</td></tr>
+    <tr><td>Venue map placeholder</td><td>~60%</td><td>Higher density, no mask — full block</td></tr>
+    <tr><td>Register band background</td><td>~45%</td><td>Low opacity overlay (~70%) behind CTA</td></tr>
+    <tr><td>Key art / social share image</td><td>~85%</td><td>Dense, used standalone for OG image / social</td></tr>
+  </table>
+</section>
+
+<div class="divider"></div>
+
+<section id="spacing">
+  <div class="eyebrow">09 — Radius &amp; spacing</div>
+  <h2 class="title">Tokens</h2>
+  <table>
+    <tr><th>Token</th><th>Value</th><th>Usage</th></tr>
+    <tr><td><code>--r-sm</code></td><td>8px</td><td>Small chips, inputs</td></tr>
+    <tr><td><code>--r-md</code></td><td>14px</td><td>Logistics cards, mosaic tiles</td></tr>
+    <tr><td><code>--r-lg</code></td><td>22px</td><td>Standard cards, zone cards</td></tr>
+    <tr><td><code>--r-xl</code></td><td>32px</td><td>Register band, hero elements</td></tr>
+    <tr><td><code>--pad</code></td><td>clamp(20px,4vw,64px)</td><td>Section horizontal padding</td></tr>
+    <tr><td><code>--maxw</code></td><td>1180px</td><td>Content max width</td></tr>
+  </table>
+</section>
+
+<div class="divider"></div>
+
+<section id="accessibility">
+  <div class="eyebrow">10 — Accessibility</div>
+  <h2 class="title">Contrast notes</h2>
+  <div class="rule"><span class="ico ico--do">✓</span><span>Blue, Cyan, Lime, Mint on <code>--bg</code> (#0A0A0A): pass AA for large text/UI elements and buttons (dark text on these backgrounds via --ink).</span></div>
+  <div class="rule"><span class="ico ico--dont">✕</span><span>Coral/Pink/Purple/Mauve at full saturation fail AA for small body text on dark background — always used via the tinted-text variants shown in section 05, never raw hex on raw background for text under 16px.</span></div>
+  <div class="rule"><span class="ico ico--do">✓</span><span>Primary body copy stays #FBFBFB / muted #FBFBFB only; color is never the vehicle for body text.</span></div>
+</section>
+
+<div class="divider"></div>
+
+<section id="donts">
+  <div class="eyebrow">11 — Do &amp; don't</div>
+  <h2 class="title">Summary</h2>
+  <div class="rule"><span class="ico ico--do">✓</span><span>Do keep the gradient cool-only (lime/sky/blue).</span></div>
+  <div class="rule"><span class="ico ico--do">✓</span><span>Do use one distinct accent color per zone/speaker category for quick scanning.</span></div>
+  <div class="rule"><span class="ico ico--do">✓</span><span>Do use grain/mosaic as the recurring signature texture, at Intensity 48 / Contrast 56.</span></div>
+  <div class="rule"><span class="ico ico--do">✓</span><span>Do use only Elms Sans (titles) and IBM Plex Sans / IBM Plex Mono (UI, body, labels).</span></div>
+  <div class="rule"><span class="ico ico--dont">✕</span><span>Don't use coral/pink/purple/mauve in any gradient or button.</span></div>
+  <div class="rule"><span class="ico ico--dont">✕</span><span>Don't fill cards with solid brand color — outline + accent line only.</span></div>
+  <div class="rule"><span class="ico ico--dont">✕</span><span>Don't tile the mosaic as a perfectly even grid — keep it scattered/organic with occasional clusters.</span></div>
+  <div class="rule"><span class="ico ico--dont">✕</span><span>Don't use Inter anywhere in the system.</span></div>
+</section>
+
+</main>
+</div>
+<footer>THREAD 2026 · Design System · powered by Filigran · for internal use by comms &amp; marketing</footer>
+</body>
+</html>
