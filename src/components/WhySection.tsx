@@ -21,15 +21,15 @@ export const WhySection = () => (
           ))}
         </div>
         <Reveal delay={400}>
-          {/* V2 tags: pill with dot + border tint, cyan variant */}
+          {/* V4 tags: pill with dot + border tint, cyan variant */}
           <div className="mt-7 flex flex-wrap gap-2.5">
             {why.tags.map((tag) => (
               <span
                 key={tag}
                 className="inline-flex items-center gap-[0.45em] rounded-full border px-4 py-2 font-sans text-xs font-semibold"
                 style={{
-                  borderColor: "rgba(0,216,240,0.4)",
-                  color: "#a9f3fb",
+                  borderColor: "rgba(0,224,255,0.4)",
+                  color: "#b3f4ff",
                 }}
               >
                 <span

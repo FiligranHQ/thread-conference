@@ -4,37 +4,37 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-/** V2 tier accent (cool set only, per v2 rules). */
+/** V4 tier accent (cool set only, per v4 rules). */
 const tierAccent: Record<
   string,
   { topLine: string; border: string }
 > = {
   blue: {
     topLine: "hsl(var(--blue))",
-    border: "rgba(48,144,240,0.35)",
+    border: "rgba(52,146,255,0.35)",
   },
   cyan: {
     topLine: "hsl(var(--cyan))",
-    border: "rgba(0,216,240,0.35)",
+    border: "rgba(0,224,255,0.35)",
   },
   lime: {
     topLine: "hsl(var(--lime))",
-    border: "rgba(216,240,160,0.35)",
+    border: "rgba(223,255,166,0.35)",
   },
   gradient: {
     topLine:
-      "linear-gradient(90deg,hsl(var(--blue)),hsl(var(--cyan)),hsl(var(--lime)))",
-    border: "rgba(0,216,240,0.35)",
+      "linear-gradient(90deg,hsl(var(--lime)) 0%,hsl(var(--gradient-mid)) 56%,hsl(var(--blue)) 96%)",
+    border: "rgba(0,224,255,0.35)",
   },
   // Legacy names kept for backward compat
   electric: {
     topLine:
-      "linear-gradient(90deg,hsl(var(--blue)),hsl(var(--cyan)),hsl(var(--lime)))",
-    border: "rgba(0,216,240,0.35)",
+      "linear-gradient(90deg,hsl(var(--lime)) 0%,hsl(var(--gradient-mid)) 56%,hsl(var(--blue)) 96%)",
+    border: "rgba(0,224,255,0.35)",
   },
   indigo: {
     topLine: "hsl(var(--blue))",
-    border: "rgba(48,144,240,0.35)",
+    border: "rgba(52,146,255,0.35)",
   },
 };
 
@@ -57,7 +57,7 @@ export const SponsorshipSection = () => (
                 style={{
                   border: `1px solid ${accent.border}`,
                   boxShadow: tier.highlighted
-                    ? "0 0 60px rgba(0,216,240,0.1)"
+                    ? "0 0 60px rgba(0,224,255,0.1)"
                     : undefined,
                 }}
               >

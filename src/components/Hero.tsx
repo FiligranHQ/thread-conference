@@ -37,7 +37,7 @@ export const Hero = () => {
       className="relative flex min-h-svh items-center justify-center overflow-hidden pb-20 pt-32"
       id="top"
     >
-      {/* V2 mosaic background — replaces animated threads + filigran gradient */}
+      {/* V4 mosaic background — replaces animated threads + filigran gradient */}
       <MosaicCanvas
         density={0.45}
         cluster={0.15}
@@ -50,7 +50,7 @@ export const Hero = () => {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            `linear-gradient(180deg, hsl(240 25% 2% / ${topDarkness}) 0%, hsl(240 25% 2% / 0.42) 16%, transparent 36%, transparent 75%, hsl(240 25% 2%) 100%)`,
+            `linear-gradient(180deg, hsl(0 0% 4% / ${topDarkness}) 0%, hsl(0 0% 4% / 0.42) 16%, transparent 36%, transparent 75%, hsl(0 0% 4%) 100%)`,
         }}
         aria-hidden="true"
       />

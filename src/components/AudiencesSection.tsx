@@ -8,10 +8,10 @@ const icons = {
   code: Code2,
 } as const;
 
-/** Accent colors per audience card (cool set only, per v2 rules). */
+/** Accent colors per audience card (cool set only, per v4 rules). */
 const cardAccents = [
-  { topLine: "hsl(var(--blue))", border: "rgba(48,144,240,0.35)", icon: "hsl(var(--blue))", tagColor: "hsl(var(--blue))" },
-  { topLine: "hsl(var(--cyan))", border: "rgba(0,216,240,0.35)", icon: "hsl(var(--cyan))", tagColor: "hsl(var(--cyan))" },
+  { topLine: "hsl(var(--blue))", border: "rgba(52,146,255,0.35)", icon: "hsl(var(--blue))", tagColor: "hsl(var(--blue))" },
+  { topLine: "hsl(var(--cyan))", border: "rgba(0,224,255,0.35)", icon: "hsl(var(--cyan))", tagColor: "hsl(var(--cyan))" },
 ];
 
 export const AudiencesSection = () => (
