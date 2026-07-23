@@ -77,14 +77,6 @@ export const speakers = {
 
 /** ------------------------------------------------------- DEDICATED SPEAKERS PAGE */
 
-/** Shape shared by every entry on the dedicated speakers page. Fields ready to fill in once real names are confirmed. */
-export interface SpeakerEntry {
-  name: string;
-  role: string;
-  photo?: string;
-  bio?: string;
-}
-
 /** Copy for the dedicated "/speakers" page. */
 export const speakersPage = {
   kicker: "Voices",
@@ -96,29 +88,16 @@ export const speakersPage = {
     kicker: "On stage",
     title: "Event speakers",
     description: "The voices leading keynotes, talks and workshops at THREAD.",
+    comingSoon: "Speaker line-up coming soon",
   },
   filigranTeam: {
     kicker: "From Filigran",
     title: "The Filigran team",
     description: "The founders, product leaders and engineers behind OpenCTI and OpenAEV.",
+    comingSoon: "Team line-up coming soon",
   },
   note: "Want to lead a session? The agenda is built with the community, reach out at",
 } as const;
-
-/** Placeholder event speakers — replace with real names, roles, photos and bios once announced. */
-export const eventSpeakers: SpeakerEntry[] = [
-  { name: "Keynote speaker", role: "To be announced" },
-  { name: "Customer CISO", role: "To be announced" },
-  { name: "Government voice", role: "To be announced" },
-  { name: "Community contributor", role: "To be announced" },
-];
-
-/** Placeholder Filigran team speakers — replace with real names, roles, photos and bios once announced. */
-export const filigranTeam: SpeakerEntry[] = [
-  { name: "Filigran founder", role: "To be announced" },
-  { name: "Product leader", role: "To be announced" },
-  { name: "Engineering lead", role: "To be announced" },
-];
 
 /** ---------------------------------------------------------------- COMMUNITY ZONE */
 
