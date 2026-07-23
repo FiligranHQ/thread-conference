@@ -14,6 +14,7 @@ import { Footer } from "@/components/Footer";
 import { FAQPill } from "@/components/FAQPill";
 import FAQPage from "@/pages/FAQPage";
 import HotelsPage from "@/pages/HotelsPage";
+import SpeakersPage from "@/pages/SpeakersPage";
 
 const HomePage = () => (
   <>
@@ -40,6 +41,7 @@ const App = () => (
       <Route path="/" element={<HomePage />} />
       <Route path="/faq" element={<FAQPage />} />
       <Route path="/hotels" element={<HotelsPage />} />
+      <Route path="/speakers" element={<SpeakersPage />} />
     </Routes>
   </RegisterModalProvider>
 );
