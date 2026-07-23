@@ -139,6 +139,12 @@ export const hotels = [
     mapsUrl:
       "https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e66fa309530ef1:0x53eafdcbd6fd7085?sa=X&ved=1t:8290&ictx=111",
   },
+  {
+    name: "Les Jardins d'Eiffel",
+    address: "8 Rue Amélie, 75007 Paris",
+    mapsUrl:
+      "https://www.google.com/maps/place/Les+Jardins+d'Eiffel/@48.8591563,2.3073104,16z/data=!3m1!4b1!4m9!3m8!1s0x47e66fd8fb328b7f:0x273daa886ab028b9!5m2!4m1!1i2!8m2!3d48.8591563!4d2.3073104!16s%2Fg%2F1tlzzh7g?hl=fr-FR",
+  },
 ] as const;
 
 /** Per-hotel Uber deep links, keyed by the hotel's own address. */
