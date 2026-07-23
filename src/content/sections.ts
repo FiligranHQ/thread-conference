@@ -68,11 +68,57 @@ export const speakers = {
   cards: [
     { name: "Filigran leadership", role: "Vision keynote and product announcements" },
     { name: "Customer keynotes", role: "Transformation stories from security leaders" },
-    { name: "Guest speakers", role: "Inspirational voices from the field" },
+    { name: "Guest speakers", role: "Inspirational voices from the field", href: "/speakers" },
     { name: "Community contributors", role: "The people who build the ecosystem, on stage" },
   ],
   note: "Want to lead a session? The agenda is built with the community, reach out at",
+  seeAllLabel: "See all speakers",
 } as const;
+
+/** ------------------------------------------------------- DEDICATED SPEAKERS PAGE */
+
+/** Shape shared by every entry on the dedicated speakers page. Fields ready to fill in once real names are confirmed. */
+export interface SpeakerEntry {
+  name: string;
+  role: string;
+  photo?: string;
+  bio?: string;
+}
+
+/** Copy for the dedicated "/speakers" page. */
+export const speakersPage = {
+  kicker: "Voices",
+  title: "Every speaker, in one place.",
+  description:
+    "The full THREAD line-up — Filigran leadership, customer keynotes, guest speakers and community contributors — will be announced soon.",
+  comingSoon: "Line-up coming soon",
+  eventSpeakers: {
+    kicker: "On stage",
+    title: "Event speakers",
+    description: "The voices leading keynotes, talks and workshops at THREAD.",
+  },
+  filigranTeam: {
+    kicker: "From Filigran",
+    title: "The Filigran team",
+    description: "The founders, product leaders and engineers behind OpenCTI and OpenAEV.",
+  },
+  note: "Want to lead a session? The agenda is built with the community, reach out at",
+} as const;
+
+/** Placeholder event speakers — replace with real names, roles, photos and bios once announced. */
+export const eventSpeakers: SpeakerEntry[] = [
+  { name: "Keynote speaker", role: "To be announced" },
+  { name: "Customer CISO", role: "To be announced" },
+  { name: "Government voice", role: "To be announced" },
+  { name: "Community contributor", role: "To be announced" },
+];
+
+/** Placeholder Filigran team speakers — replace with real names, roles, photos and bios once announced. */
+export const filigranTeam: SpeakerEntry[] = [
+  { name: "Filigran founder", role: "To be announced" },
+  { name: "Product leader", role: "To be announced" },
+  { name: "Engineering lead", role: "To be announced" },
+];
 
 /** ---------------------------------------------------------------- COMMUNITY ZONE */
 

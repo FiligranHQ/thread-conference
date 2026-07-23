@@ -10,7 +10,7 @@ import { useRegisterModal } from "@/context/RegisterModalContext";
 const navLinks = [
   { label: "Why THREAD", href: "/#why" },
   { label: "Agenda", href: "/#agenda" },
-  { label: "Speakers", href: "/#speakers" },
+  { label: "Speakers", href: "/speakers", soon: true },
   { label: "Venue", href: "/#venue" },
   { label: "FAQ", href: "/faq", highlight: true },
 ];
@@ -47,13 +47,18 @@ export const Navigation = () => {
               key={link.href}
               href={link.href}
               className={cn(
-                "group relative font-sans text-sm text-white/78 transition-colors hover:text-white",
+                "group relative flex items-center gap-1.5 font-sans text-sm text-white/78 transition-colors hover:text-white",
                 link.highlight &&
                   "rounded-full border border-cyan/30 px-2.5 py-0.5 text-cyan/80 hover:border-cyan/70 hover:text-cyan",
               )}
             >
               {link.label}
-              {!link.highlight && (
+              {link.soon ? (
+                <span className="rounded-full border border-lime/40 bg-lime/10 px-1.5 py-0.5 font-mono text-[0.62rem] uppercase leading-none tracking-[0.08em] text-lime">
+                  Soon
+                </span>
+              ) : null}
+              {!link.highlight && !link.soon && (
                 <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gradient-to-r from-cyan to-lime transition-all duration-300 group-hover:w-full" />
               )}
             </a>
@@ -84,12 +89,17 @@ export const Navigation = () => {
               key={link.href}
               href={link.href}
               className={cn(
-                "font-sans text-base text-white/80 transition-colors hover:text-white",
+                "flex items-center gap-2 font-sans text-base text-white/80 transition-colors hover:text-white",
                 link.highlight && "text-cyan/80",
               )}
               onClick={() => setOpen(false)}
             >
               {link.label}
+              {link.soon ? (
+                <span className="rounded-full border border-lime/40 bg-lime/10 px-1.5 py-0.5 font-mono text-[0.62rem] uppercase leading-none tracking-[0.08em] text-lime">
+                  Soon
+                </span>
+              ) : null}
             </a>
           ))}
           <Button
