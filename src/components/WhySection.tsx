@@ -26,7 +26,7 @@ export const WhySection = () => (
             {why.tags.map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center gap-[0.45em] rounded-full border px-4 py-2 font-sans text-xs font-semibold"
+                className="inline-flex items-center gap-[0.45em] rounded-full border-[1.5px] px-4 py-2 font-sans text-xs font-semibold"
                 style={{
                   borderColor: "rgba(0,224,255,0.4)",
                   color: "#b3f4ff",

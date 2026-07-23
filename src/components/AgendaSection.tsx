@@ -6,6 +6,10 @@ import { communityExperiences } from "@/content/sections";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
+/** Signature cool gradient (lime → sky → blue), used for "The Garden" zone accent per V4 spec. */
+const GRADIENT_COOL =
+  "linear-gradient(90deg, hsl(var(--lime)) 0%, hsl(var(--gradient-mid)) 56%, hsl(var(--blue)) 96%)";
+
 /** V4 tag spec: pill, 1.5px border at 40% opacity, tinted text, colored dot. */
 const pillStyles: Record<
   RoomId,
@@ -41,11 +45,13 @@ const pillStyles: Record<
     dot: "hsl(var(--pink))",
     timeColor: "hsl(var(--pink))",
   },
+  // "The Garden" is the only zone that uses the signature gradient accent (per V4 spec),
+  // never a solid color — kept distinct from Intelligence Lab's solid lime.
   garden: {
-    border: "rgba(223,255,166,0.4)",
-    color: "#eefad0",
-    dot: "hsl(var(--lime))",
-    timeColor: "hsl(var(--lime))",
+    border: "rgba(134,194,229,0.4)",
+    color: "#dff1fb",
+    dot: GRADIENT_COOL,
+    timeColor: "hsl(var(--gradient-mid))",
   },
 };
 
@@ -53,7 +59,7 @@ const RoomPill = ({ room }: { room: RoomId }) => {
   const style = pillStyles[room];
   return (
     <span
-      className="mr-1.5 mt-0.5 inline-flex items-center gap-[0.45em] rounded-full border px-3.5 py-1 font-sans text-[0.72rem] font-semibold tracking-wide"
+      className="mr-1.5 mt-0.5 inline-flex items-center gap-[0.45em] rounded-full border-[1.5px] px-3.5 py-1 font-sans text-[0.72rem] font-semibold tracking-wide"
       style={{ borderColor: style.border, color: style.color }}
     >
       <span
@@ -75,10 +81,10 @@ const SessionItem = ({
 }) => {
   const primaryRoom = session.locations[0];
   const timeColor = session.evening
-    ? "hsl(var(--lime))"
+    ? "hsl(var(--gradient-mid))"
     : pillStyles[primaryRoom]?.timeColor ?? "hsl(var(--cyan))";
   const dotBorder = session.evening
-    ? "hsl(var(--lime))"
+    ? "hsl(var(--gradient-mid))"
     : pillStyles[primaryRoom]?.dot ?? "hsl(var(--cyan))";
 
   return (
