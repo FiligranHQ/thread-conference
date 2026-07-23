@@ -1,0 +1,209 @@
+{
+  "$schema": "https://filigran.io/schemas/design-system.json",
+  "meta": {
+    "project": "THREAD 2026",
+    "document_title": "THREAD 2026 — Design System (machine-readable export)",
+    "owner": "Filigran — Comms & Marketing",
+    "source_files": [
+      "thread-design-system-v4.html (authoritative spec of record)",
+      "thread-design-elements-v4.html (illustrated component catalogue, must match design-system values)"
+    ],
+    "purpose": "Structured, LLM-consumable reference of THREAD 2026 brand/design tokens and usage rules, for generating on-brand copy, components, or reviewing designs for compliance.",
+    "generated_at": "2026-07-23T12:31:00Z",
+    "usage_notice": "Internal use by Filigran comms & marketing. Treat all rules below as constraints when generating or evaluating THREAD 2026 design/content."
+  },
+
+  "color_tokens": {
+    "brand_palette": [
+      { "token": "--coral", "name": "Coral", "hex": "#FD4B39", "set": "warm", "role": "Tag/badge accent only — never buttons or gradients" },
+      { "token": "--pink",  "name": "Pink",  "hex": "#FD5568", "set": "warm", "role": "Tag/badge accent, zone accent (Simulation Zone), speaker category" },
+      { "token": "--purple","name": "Purple","hex": "#E184FF", "set": "warm", "role": "Zone accent (Strategy Room), tag, speaker category" },
+      { "token": "--mauve", "name": "Mauve", "hex": "#D8A8D6", "set": "warm", "role": "Tag/badge accent, speaker category" },
+      { "token": "--blue",  "name": "Blue",  "hex": "#3492FF", "set": "cool", "role": "UI-safe — buttons, gradient end, zone accent (Signal Room)" },
+      { "token": "--cyan",  "name": "Cyan",  "hex": "#00E0FF", "set": "cool", "role": "Primary interactive accent — links, focus, zone accent (Community Zone)" },
+      { "token": "--lime",  "name": "Lime",  "hex": "#DFFFA6", "set": "cool", "role": "UI-safe — buttons, gradient start, zone accent (Intelligence Lab)" },
+      { "token": "--mint",  "name": "Mint",  "hex": "#D0FFDB", "set": "cool", "role": "UI-safe accent, tag" }
+    ],
+    "neutral_surface_system": [
+      { "token": "--bg",            "hex": "#0A0A0A",              "usage": "Page background" },
+      { "token": "--bg-alt",        "hex": "#101010",              "usage": "Alternate section background (register band, venue map)" },
+      { "token": "--surface",       "hex": "#131313",              "usage": "Card / block background" },
+      { "token": "--surface-2",     "hex": "#1A1A1A",              "usage": "Nested surface, input fields" },
+      { "token": "--border",        "hex": "rgba(251,251,251,.10)", "usage": "Default card/divider border" },
+      { "token": "--border-strong", "hex": "rgba(251,251,251,.24)", "usage": "Hover / outline button border" },
+      { "token": "--fg",            "hex": "#FBFBFB",              "usage": "Primary text (any white in the system uses this exact value)" },
+      { "token": "--fg-muted",      "hex": "rgba(251,251,251,.68)","usage": "Secondary text / body copy" },
+      { "token": "--fg-faint",      "hex": "rgba(251,251,251,.42)","usage": "Captions, timestamps, eyebrow labels" },
+      { "token": "--ink",           "hex": "#0A0D12",              "usage": "Text-on-light-button color (e.g. text on cyan/lime buttons)" }
+    ],
+    "gradient": {
+      "name": "gradient-cool",
+      "css": "linear-gradient(90deg, #DFFFA6 0%, #86C2E5 56%, #3492FF 96%)",
+      "stops": [
+        { "position": "0%",  "hex": "#DFFFA6", "token": "--lime" },
+        { "position": "56%", "hex": "#86C2E5", "token": null, "note": "Dedicated gradient mid-stop color, NOT one of the 8 base palette tokens" },
+        { "position": "96%", "hex": "#3492FF", "token": "--blue" }
+      ],
+      "constraints": [
+        "This is the ONLY gradient allowed in the system.",
+        "Cool colors only — never includes coral, pink, purple, or mauve.",
+        "Used for the primary CTA button, hero/section accent lines, and 'The Garden' zone card top-line."
+      ]
+    },
+    "usage_rules": {
+      "cool_set": {
+        "colors": ["Blue", "Cyan", "Lime", "Mint"],
+        "allowed": [
+          "Buttons (primary + outline hover)",
+          "Links",
+          "Focus rings / focus states",
+          "The signature gradient",
+          "Primary zone accents",
+          "Primary interactive accent across the whole site (cyan)"
+        ],
+        "forbidden": [
+          "Large flat background fills"
+        ]
+      },
+      "warm_set": {
+        "colors": ["Coral", "Pink", "Purple", "Mauve"],
+        "allowed": [
+          "Tags and badges",
+          "Card top-lines",
+          "Speaker/voice category markers",
+          "Zone accents (Strategy Room = purple, Simulation Zone = pink)",
+          "One distinct accent color per zone/speaker category for quick recognition"
+        ],
+        "forbidden": [
+          "Buttons",
+          "Gradients",
+          "Background fill behind body text",
+          "Combining warm colors together into a gradient (avoids an 'Instagram' look)",
+          "Body text color"
+        ]
+      }
+    }
+  },
+
+  "typography": {
+    "typefaces_allowed": ["Elms Sans", "IBM Plex Sans", "IBM Plex Mono"],
+    "typefaces_forbidden": ["Inter", "any other typeface not listed above"],
+    "font_roles": {
+      "display": { "css_var": "--font-display", "family": "Elms Sans, system-ui, sans-serif", "used_for": "All titles/subtitles" },
+      "ui":      { "css_var": "--font-ui",      "family": "IBM Plex Sans, system-ui, sans-serif", "used_for": "UI, body copy, buttons" },
+      "mono":    { "css_var": "--font-mono",    "family": "IBM Plex Mono, monospace", "used_for": "Labels, timestamps, meta" }
+    },
+    "type_scale": [
+      { "role": "H1 / Hero wordmark", "font": "Elms Sans",      "weight": 700, "size_desktop": "clamp(64px,15vw,168px)" },
+      { "role": "H2 / Section title", "font": "Elms Sans",      "weight": 600, "size_desktop": "clamp(28px,4vw,44px)" },
+      { "role": "H3 / Card title",    "font": "Elms Sans",      "weight": 600, "size_desktop": "20–24px" },
+      { "role": "Body",               "font": "IBM Plex Sans",  "weight": 400, "size_desktop": "15–17.5px" },
+      { "role": "Eyebrow / label",    "font": "IBM Plex Mono",  "weight": 500, "size_desktop": "12–12.5px, tracking .22em, uppercase" },
+      { "role": "Timestamps / meta",  "font": "IBM Plex Mono",  "weight": 400, "size_desktop": "13–14px" },
+      { "role": "Button label",       "font": "IBM Plex Sans",  "weight": 700, "size_desktop": "14–16px" }
+    ]
+  },
+
+  "components": {
+    "buttons": {
+      "shape": "fully rounded (pill), border-radius: 999px",
+      "padding": { "default": "13px 22px", "large": "16px 28px" },
+      "forbidden_colors": ["coral", "pink", "purple", "mauve"],
+      "variants": [
+        { "variant": "Primary (gradient)", "background": "--gradient-cool", "text_color": "--ink", "hover": "shift gradient position + glow shadow (cyan 45%)" },
+        { "variant": "Primary (blue)",     "background": "--blue",         "text_color": "--ink", "hover": "glow shadow --blue" },
+        { "variant": "Primary (cyan)",     "background": "--cyan",         "text_color": "--ink", "hover": "glow shadow --cyan" },
+        { "variant": "Primary (lime)",     "background": "--lime",         "text_color": "--ink", "hover": "glow shadow --lime" },
+        { "variant": "Outline",            "background": "transparent",    "text_color": "--fg",  "hover": "border + text → --cyan" },
+        { "variant": "Ghost",              "background": "transparent",    "text_color": "--fg-muted", "hover": "text → --fg" }
+      ]
+    },
+    "tags_badges": {
+      "shape": "pill, 1.5px border, small colored dot + tinted text/border (never a solid fill)",
+      "palette_scope": "Full 8-color palette allowed (only component where warm colors + cool colors are both used freely)",
+      "variants": [
+        { "variant": "coral",  "border": "rgba(253,75,57,.4)",  "text_color": "#ffcec7", "dot": "#FD4B39" },
+        { "variant": "pink",   "border": "rgba(253,85,104,.4)", "text_color": "#ffd0d6", "dot": "#FD5568" },
+        { "variant": "purple", "border": "rgba(225,132,255,.4)","text_color": "#f3d9ff", "dot": "#E184FF" },
+        { "variant": "mauve",  "border": "rgba(216,168,214,.4)","text_color": "#f2dcf0", "dot": "#D8A8D6" },
+        { "variant": "blue",   "border": "rgba(52,146,255,.4)", "text_color": "#c9e3ff", "dot": "#3492FF" },
+        { "variant": "cyan",   "border": "rgba(0,224,255,.4)",  "text_color": "#b3f4ff", "dot": "#00E0FF" },
+        { "variant": "lime",   "border": "rgba(223,255,166,.4)","text_color": "#eefad0", "dot": "#DFFFA6" },
+        { "variant": "mint",   "border": "rgba(208,255,219,.4)","text_color": "#e8ffee", "dot": "#D0FFDB" }
+      ],
+      "example_labels_seen": ["keynote", "customer story", "executive", "community", "signal room", "hands-on", "open source", "lightning talk"]
+    },
+    "zone_cards": {
+      "description": "Each of the 6 experience zones gets one distinct accent, applied only as a 4px top-line + subtle border tint (35% opacity of zone color). Card body stays dark/outlined — never a full color fill.",
+      "card_body": { "background": "--surface", "border": "1px, 35% opacity of zone accent color", "top_line": "4px, pinned to top edge" },
+      "zones": [
+        { "index": "01", "name": "Signal Room",       "accent": "Blue",     "top_line": "solid #3492FF",                     "description": "Main stage · Auditorium" },
+        { "index": "02", "name": "Community Zone",    "accent": "Cyan",     "top_line": "solid #00E0FF",                     "description": "Expo floor · All day" },
+        { "index": "03", "name": "Strategy Room",     "accent": "Purple",   "top_line": "solid #E184FF",                     "description": "Breakout · Executive" },
+        { "index": "04", "name": "Intelligence Lab",  "accent": "Lime",     "top_line": "solid #DFFFA6",                     "description": "Breakout · Hands-on" },
+        { "index": "05", "name": "Simulation Zone",   "accent": "Pink",     "top_line": "solid #FD5568",                     "description": "Breakout · Scenarios" },
+        { "index": "+",  "name": "The Garden",        "accent": "Gradient", "top_line": "gradient-cool (lime → sky → blue)", "description": "Private garden · Evening" }
+      ]
+    },
+    "cards_and_surfaces": {
+      "rules": [
+        "All content cards (sessions, tickets, speakers, logistics) use --surface background + 1px --border, radius 14–22px.",
+        "Emphasis is achieved via border-color change, a colored top-line, or a colored tag inside — never a solid color fill behind text.",
+        "Session/keynote cards are never colored solid — outline + tag only."
+      ]
+    },
+    "mosaic_grain": {
+      "description": "The strongest brand signature — echoes 'noise becomes signal'. Always grainy, always scattered (never a solid tiled grid). Used as background texture behind hero sections, register bands, venue maps, and section dividers. Never as a flat color fill.",
+      "noise_treatment": {
+        "intensity": 48,
+        "intensity_note": "overlay opacity ≈ .48",
+        "contrast": 56,
+        "contrast_note": "≈ contrast(1.56) applied to the noise layer",
+        "blend_mode": "overlay"
+      },
+      "implementation": "CSS grid of 1x1 or occasional 2x2 cells, colors randomized from the 8 palette tokens, each cell overlaid with an SVG fractal-noise filter (feTurbulence, fractalNoise, baseFrequency 0.9, numOctaves 2, stitchTiles).",
+      "density_by_context": [
+        { "context": "Hero background",              "density": "~45%", "notes": "Radial mask clears the center for text legibility" },
+        { "context": "Venue map placeholder",         "density": "~60%", "notes": "Higher density, no mask — full block" },
+        { "context": "Register band background",      "density": "~45%", "notes": "Low opacity overlay (~70%) behind CTA" },
+        { "context": "Key art / social share image",  "density": "~85%", "notes": "Dense, used standalone for OG image / social" }
+      ],
+      "constraints": [
+        "Never tile as a perfectly even grid — keep it scattered/organic with occasional clusters.",
+        "Never used as a flat color fill substitute."
+      ]
+    }
+  },
+
+  "spacing_and_radius_tokens": [
+    { "token": "--r-sm", "value": "8px",  "usage": "Small chips, inputs" },
+    { "token": "--r-md", "value": "14px", "usage": "Logistics cards, mosaic tiles" },
+    { "token": "--r-lg", "value": "22px", "usage": "Standard cards, zone cards" },
+    { "token": "--r-xl", "value": "32px", "usage": "Register band, hero elements" },
+    { "token": "--pad",  "value": "clamp(20px,4vw,64px)", "usage": "Section horizontal padding" },
+    { "token": "--maxw", "value": "1180px", "usage": "Content max width" }
+  ],
+
+  "accessibility": {
+    "notes": [
+      "Blue, Cyan, Lime, Mint on --bg (#0A0A0A) pass AA for large text/UI elements and buttons (dark text on these backgrounds via --ink).",
+      "Coral/Pink/Purple/Mauve at full saturation fail AA for small body text on dark background — always used via the tinted-text variants (see tags_badges), never raw hex on raw background for text under 16px.",
+      "Primary body copy stays #FBFBFB / muted variant only; color is never the vehicle for conveying body text meaning."
+    ]
+  },
+
+  "do_and_dont_summary": {
+    "do": [
+      "Keep the gradient cool-only (lime/sky/blue).",
+      "Use one distinct accent color per zone/speaker category for quick scanning.",
+      "Use grain/mosaic as the recurring signature texture, at Intensity 48 / Contrast 56.",
+      "Use only Elms Sans (titles) and IBM Plex Sans / IBM Plex Mono (UI, body, labels)."
+    ],
+    "dont": [
+      "Don't use coral/pink/purple/mauve in any gradient or button.",
+      "Don't fill cards with solid brand color — outline + accent line only.",
+      "Don't tile the mosaic as a perfectly even grid — keep it scattered/organic with occasional clusters.",
+      "Don't use Inter anywhere in the system."
+    ]
+  }
+}
